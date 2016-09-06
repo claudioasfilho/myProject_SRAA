@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<device:XMLDevice xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:device="http://www.silabs.com/sls/hc/document/device.ecore" name="EFM8BB31F64G-A-QFN32" partId="com.silabs.mcu.si8051.efm8bb3_g.efm8bb31f64g">
+  <mode name="DefaultMode">
+    <property object="C2DEBUG_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CIP51_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CIP51_0" propertyId="cip51.prefetchenginecontrol.flashreadtiming" value="SYSCLK is below 50 MHz"/>
+    <property object="CLOCK_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CLOCK_0" propertyId="clock.clockselect.clocksourcedivider" value="SYSCLK / 1"/>
+    <property object="CMP_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="CMP_0" propertyId="cmp.enable.enablecomparator" value="Enabled"/>
+    <property object="CMP_0" propertyId="cmp.input.inputselection" value="CMP+ and DAC"/>
+    <property object="CMP_0" propertyId="cmp.input.internalcomparatordacreferencesetting" value="31"/>
+    <property object="CMP_0" propertyId="cmp.input.positiveinputmuxselection" value="CMP0P.1 (P0.2)"/>
+    <property object="CMP_0" propertyId="cmp.mode.selectcomparatormode" value="Mode 0 (fastest response, highest power)"/>
+    <property object="CROSSBAR0" propertyId="xbar0.comparator0.asyncoutput" value="Enabled"/>
+    <property object="CROSSBAR0" propertyId="xbar0.comparator0.syncoutput" value="Enabled"/>
+    <property object="DefaultMode" propertyId="mode.diagramLocation" value="100, 100"/>
+    <property object="HFOSC_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="HFOSC_0" propertyId="hfosc.highfrequencyoscillatorcontrol.245mhzoscillatorhfosc0" value="Always On"/>
+    <property object="P0.0" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
+    <property object="P0.0" propertyId="ports.settings.outputmode" value="Push-pull"/>
+    <property object="P0.1" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
+    <property object="P0.1" propertyId="ports.settings.outputmode" value="Push-pull"/>
+    <property object="P0.2" propertyId="ports.settings.inputmode" value="Analog"/>
+    <property object="P0.2" propertyId="ports.settings.iomode" value="Analog I/O"/>
+    <property object="P0.2" propertyId="ports.settings.skip" value="Skipped"/>
+    <property object="PBCFG_0" propertyId="pbcfg.settings.enablecrossbar" value="Enabled"/>
+    <property object="PMU_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="SFR_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="VDDMON_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="VREG_0" propertyId="ABPeripheral.included" value="true"/>
+  </mode>
+  <modeTransition>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.target" value="DefaultMode"/>
+    <property object="RESET &#x2192; DefaultMode" propertyId="modeTransition.source" value="RESET"/>
+  </modeTransition>
+</device:XMLDevice>
