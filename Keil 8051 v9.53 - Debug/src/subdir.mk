@@ -8,10 +8,12 @@ A51_UPPER_SRCS += \
 
 C_SRCS += \
 ../src/InitDevice.c \
+../src/Interrupts.c \
 ../src/myProject_main.c 
 
 OBJS += \
 ./src/InitDevice.OBJ \
+./src/Interrupts.OBJ \
 ./src/SILABS_STARTUP.OBJ \
 ./src/myProject_main.OBJ 
 
@@ -25,6 +27,8 @@ src/%.OBJ: ../src/%.c
 	@echo ' '
 
 src/InitDevice.OBJ: C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Register_Enums.h C:/Users/clfilho/SimplicityStudio/v3_workspace/myProject/inc/InitDevice.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Defs.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdbool.h
+
+src/Interrupts.OBJ: C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Register_Enums.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Defs.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdbool.h
 
 src/%.OBJ: ../src/%.A51
 	@echo 'Building file: $<'

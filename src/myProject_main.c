@@ -31,10 +31,9 @@ int main(void) {
 
 	enter_DefaultMode_from_RESET();
 
-
-		while (1) {
+	while (1) {
 // $[Generated Run-time code]
 // [Generated Run-time code]$
-		}
+	}
 }
 

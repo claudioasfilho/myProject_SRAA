@@ -22,6 +22,9 @@ extern void CMP_0_enter_DefaultMode_from_RESET(void);
 extern void HFOSC_0_enter_DefaultMode_from_RESET(void);
 extern void CIP51_0_enter_DefaultMode_from_RESET(void);
 extern void CLOCK_0_enter_DefaultMode_from_RESET(void);
+extern void PCA_0_enter_DefaultMode_from_RESET(void);
+extern void PCACH_0_enter_DefaultMode_from_RESET(void);
+extern void INTERRUPT_0_enter_DefaultMode_from_RESET(void);
 // [Config(Per-Module Mode)Transition Prototypes]$
 
 #endif

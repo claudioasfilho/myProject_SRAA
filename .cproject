@@ -60,7 +60,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding=".git/objects/info|.git/objects/pack|.git/refs/tags|myProject/.git/objects/info|myProject/.git/objects/pack|myProject/.git/refs|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -125,7 +125,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding=".git/objects/info|.git/objects/pack|.git/refs/tags|myProject/.git/objects/info|myProject/.git/objects/pack|myProject/.git/refs|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -133,7 +133,7 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 	</storageModule>
-	<storageModule moduleId="com.silabs.ide.project.core" project.generation="60" projectCommon.buildArtifactType="EXE" projectCommon.importModeId="COPY" projectCommon.kitId="com.silabs.kit.si8051.efm8bb3_slstk2022a" projectCommon.partId="com.silabs.mcu.si8051.efm8bb3_g.efm8bb31f64g" projectCommon.sdkId="com.silabs.sdk.si8051.sls:3.0.0"/>
+	<storageModule moduleId="com.silabs.ide.project.core" project.generation="96" projectCommon.buildArtifactType="EXE" projectCommon.importModeId="COPY" projectCommon.kitId="com.silabs.kit.si8051.efm8bb3_slstk2022a" projectCommon.partId="com.silabs.mcu.si8051.efm8bb3_g.efm8bb31f64g" projectCommon.sdkId="com.silabs.sdk.si8051.sls:3.0.0"/>
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="myProject.com.silabs.ide.project.core.cdt.cdtMbsProjectType.331800951" name="SLS CDT Project" projectType="com.silabs.ide.project.core.cdt.cdtMbsProjectType"/>
 	</storageModule>

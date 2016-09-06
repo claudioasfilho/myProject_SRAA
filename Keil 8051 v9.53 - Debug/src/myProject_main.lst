@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/05/2016 17:09:50 PAGE 1   
+C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/06/2016 09:57:20 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE MYPROJECT_MAIN
@@ -45,13 +45,12 @@ line level    source
   31   1      
   32   1              enter_DefaultMode_from_RESET();
   33   1      
-  34   1      
-  35   1                      while (1) {
-  36   2      // $[Generated Run-time code]
-  37   2      // [Generated Run-time code]$
-  38   2                      }
-  39   1      }
-  40          
+  34   1              while (1) {
+  35   2      // $[Generated Run-time code]
+  36   2      // [Generated Run-time code]$
+  37   2              }
+  38   1      }
+  39          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -63,9 +62,9 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----
-C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/05/2016 17:09:50 PAGE 2   
-
    HDATA SIZE       =   ----    ----
+C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/06/2016 09:57:20 PAGE 2   
+
    XDATA CONST SIZE =   ----    ----
    FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
