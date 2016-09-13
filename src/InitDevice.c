@@ -23,14 +23,24 @@ extern void enter_DefaultMode_from_RESET(void) {
 	// $[Config Calls]
 	// Save the SFRPAGE
 	uint8_t SFRPAGE_save = SFRPAGE;
+	WDT_0_enter_DefaultMode_from_RESET();
 	PORTS_0_enter_DefaultMode_from_RESET();
+	PORTS_1_enter_DefaultMode_from_RESET();
+	PORTS_3_enter_DefaultMode_from_RESET();
 	PBCFG_0_enter_DefaultMode_from_RESET();
 	CMP_0_enter_DefaultMode_from_RESET();
+	DAC_0_enter_DefaultMode_from_RESET();
+	DACGCF_0_enter_DefaultMode_from_RESET();
+	VREF_0_enter_DefaultMode_from_RESET();
 	HFOSC_0_enter_DefaultMode_from_RESET();
-	CIP51_0_enter_DefaultMode_from_RESET();
 	CLOCK_0_enter_DefaultMode_from_RESET();
+	TIMER01_0_enter_DefaultMode_from_RESET();
+	TIMER16_4_enter_DefaultMode_from_RESET();
+	TIMER16_5_enter_DefaultMode_from_RESET();
+	TIMER_SETUP_0_enter_DefaultMode_from_RESET();
 	PCA_0_enter_DefaultMode_from_RESET();
 	PCACH_0_enter_DefaultMode_from_RESET();
+	PCACH_1_enter_DefaultMode_from_RESET();
 	INTERRUPT_0_enter_DefaultMode_from_RESET();
 	// Restore the SFRPAGE
 	SFRPAGE = SFRPAGE_save;
@@ -47,6 +57,7 @@ extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
 	 // UART1 RTS1 unavailable at Port pin
 	 // UART1 CTS1 unavailable at Port pin
 	 */
+	SFRPAGE = 0x00;
 	XBR2 = XBR2_WEAKPUD__PULL_UPS_ENABLED | XBR2_XBARE__ENABLED
 			| XBR2_URT1E__DISABLED | XBR2_URT1RTSE__DISABLED
 			| XBR2_URT1CTSE__DISABLED;
@@ -56,19 +67,6 @@ extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
 	// [PRTDRV - Port Drive Strength]$
 
 	// $[XBR0 - Port I/O Crossbar 0]
-	/*
-	 // UART0 I/O unavailable at Port pin
-	 // SPI I/O unavailable at Port pins
-	 // SMBus 0 I/O unavailable at Port pins
-	 // CP0 routed to Port pin
-	 // Asynchronous CP0 routed to Port pin
-	 // CP1 unavailable at Port pin
-	 // Asynchronous CP1 unavailable at Port pin
-	 // SYSCLK unavailable at Port pin
-	 */
-	XBR0 = XBR0_URT0E__DISABLED | XBR0_SPI0E__DISABLED | XBR0_SMB0E__DISABLED
-			| XBR0_CP0E__ENABLED | XBR0_CP0AE__ENABLED | XBR0_CP1E__DISABLED
-			| XBR0_CP1AE__DISABLED | XBR0_SYSCKE__DISABLED;
 	// [XBR0 - Port I/O Crossbar 0]$
 
 	// $[XBR1 - Port I/O Crossbar 1]
@@ -76,11 +74,11 @@ extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
 	 // CEX0 routed to Port pin
 	 // ECI unavailable at Port pin
 	 // T0 unavailable at Port pin
-	 // T1 unavailable at Port pin
+	 // T1 routed to Port pin
 	 // T2 unavailable at Port pin
 	 */
 	XBR1 = XBR1_PCA0ME__CEX0 | XBR1_ECIE__DISABLED | XBR1_T0E__DISABLED
-			| XBR1_T1E__DISABLED | XBR1_T2E__DISABLED;
+			| XBR1_T1E__ENABLED | XBR1_T2E__DISABLED;
 	// [XBR1 - Port I/O Crossbar 1]$
 
 }
@@ -144,29 +142,40 @@ extern void HFOSC_0_enter_DefaultMode_from_RESET(void) {
 
 extern void PORTS_0_enter_DefaultMode_from_RESET(void) {
 	// $[P0 - Port 0 Pin Latch]
+	/*
+	 // P0.0 is high. Set P0.0 to drive or float high
+	 // P0.1 is high. Set P0.1 to drive or float high
+	 // P0.2 is high. Set P0.2 to drive or float high
+	 // P0.3 is low. Set P0.3 to drive low
+	 // P0.4 is high. Set P0.4 to drive or float high
+	 // P0.5 is low. Set P0.5 to drive low
+	 // P0.6 is high. Set P0.6 to drive or float high
+	 // P0.7 is high. Set P0.7 to drive or float high
+	 */
+	P0 = P0_B0__HIGH | P0_B1__HIGH | P0_B2__HIGH | P0_B3__LOW | P0_B4__HIGH
+			| P0_B5__LOW | P0_B6__HIGH | P0_B7__HIGH;
 	// [P0 - Port 0 Pin Latch]$
 
 	// $[P0MDOUT - Port 0 Output Mode]
 	/*
-	 // P0.0 output is push-pull
+	 // P0.0 output is open-drain
 	 // P0.1 output is push-pull
 	 // P0.2 output is open-drain
-	 // P0.3 output is push-pull
+	 // P0.3 output is open-drain
 	 // P0.4 output is open-drain
 	 // P0.5 output is open-drain
 	 // P0.6 output is open-drain
 	 // P0.7 output is open-drain
 	 */
-	SFRPAGE = 0x00;
-	P0MDOUT = P0MDOUT_B0__PUSH_PULL | P0MDOUT_B1__PUSH_PULL
-			| P0MDOUT_B2__OPEN_DRAIN | P0MDOUT_B3__PUSH_PULL
+	P0MDOUT = P0MDOUT_B0__OPEN_DRAIN | P0MDOUT_B1__PUSH_PULL
+			| P0MDOUT_B2__OPEN_DRAIN | P0MDOUT_B3__OPEN_DRAIN
 			| P0MDOUT_B4__OPEN_DRAIN | P0MDOUT_B5__OPEN_DRAIN
 			| P0MDOUT_B6__OPEN_DRAIN | P0MDOUT_B7__OPEN_DRAIN;
 	// [P0MDOUT - Port 0 Output Mode]$
 
 	// $[P0MDIN - Port 0 Input Mode]
 	/*
-	 // P0.0 pin is configured for digital mode
+	 // P0.0 pin is configured for analog mode
 	 // P0.1 pin is configured for digital mode
 	 // P0.2 pin is configured for analog mode
 	 // P0.3 pin is configured for digital mode
@@ -175,14 +184,14 @@ extern void PORTS_0_enter_DefaultMode_from_RESET(void) {
 	 // P0.6 pin is configured for digital mode
 	 // P0.7 pin is configured for digital mode
 	 */
-	P0MDIN = P0MDIN_B0__DIGITAL | P0MDIN_B1__DIGITAL | P0MDIN_B2__ANALOG
+	P0MDIN = P0MDIN_B0__ANALOG | P0MDIN_B1__DIGITAL | P0MDIN_B2__ANALOG
 			| P0MDIN_B3__DIGITAL | P0MDIN_B4__DIGITAL | P0MDIN_B5__DIGITAL
 			| P0MDIN_B6__DIGITAL | P0MDIN_B7__DIGITAL;
 	// [P0MDIN - Port 0 Input Mode]$
 
 	// $[P0SKIP - Port 0 Skip]
 	/*
-	 // P0.0 pin is not skipped by the crossbar
+	 // P0.0 pin is skipped by the crossbar
 	 // P0.1 pin is not skipped by the crossbar
 	 // P0.2 pin is skipped by the crossbar
 	 // P0.3 pin is not skipped by the crossbar
@@ -191,16 +200,28 @@ extern void PORTS_0_enter_DefaultMode_from_RESET(void) {
 	 // P0.6 pin is not skipped by the crossbar
 	 // P0.7 pin is not skipped by the crossbar
 	 */
-	P0SKIP = P0SKIP_B0__NOT_SKIPPED | P0SKIP_B1__NOT_SKIPPED
-			| P0SKIP_B2__SKIPPED | P0SKIP_B3__NOT_SKIPPED
-			| P0SKIP_B4__NOT_SKIPPED | P0SKIP_B5__NOT_SKIPPED
-			| P0SKIP_B6__NOT_SKIPPED | P0SKIP_B7__NOT_SKIPPED;
+	P0SKIP = P0SKIP_B0__SKIPPED | P0SKIP_B1__NOT_SKIPPED | P0SKIP_B2__SKIPPED
+			| P0SKIP_B3__NOT_SKIPPED | P0SKIP_B4__NOT_SKIPPED
+			| P0SKIP_B5__NOT_SKIPPED | P0SKIP_B6__NOT_SKIPPED
+			| P0SKIP_B7__NOT_SKIPPED;
 	// [P0SKIP - Port 0 Skip]$
 
 	// $[P0MASK - Port 0 Mask]
 	// [P0MASK - Port 0 Mask]$
 
 	// $[P0MAT - Port 0 Match]
+	/*
+	 // P0.0 pin logic value is compared with logic HIGH
+	 // P0.1 pin logic value is compared with logic HIGH
+	 // P0.2 pin logic value is compared with logic HIGH
+	 // P0.3 pin logic value is compared with logic LOW
+	 // P0.4 pin logic value is compared with logic HIGH
+	 // P0.5 pin logic value is compared with logic LOW
+	 // P0.6 pin logic value is compared with logic HIGH
+	 // P0.7 pin logic value is compared with logic HIGH
+	 */
+	P0MAT = P0MAT_B0__HIGH | P0MAT_B1__HIGH | P0MAT_B2__HIGH | P0MAT_B3__LOW
+			| P0MAT_B4__HIGH | P0MAT_B5__LOW | P0MAT_B6__HIGH | P0MAT_B7__HIGH;
 	// [P0MAT - Port 0 Match]$
 
 }
@@ -278,20 +299,6 @@ extern void TIMER16_2_enter_DefaultMode_from_RESET(void) {
 
 extern void INTERRUPT_0_enter_DefaultMode_from_RESET(void) {
 	// $[EIE1 - Extended Interrupt Enable 1]
-	/*
-	 // Disable ADC0 Conversion Complete interrupt
-	 // Disable ADC0 Window Comparison interrupt
-	 // Enable interrupt requests generated by the comparator 0 CPRIF or CPFIF
-	 //     flags
-	 // Disable CP1 interrupts
-	 // Disable all Port Match interrupts
-	 // Disable all PCA0 interrupts
-	 // Disable all SMB0 interrupts
-	 // Disable Timer 3 interrupts
-	 */
-	EIE1 = EIE1_EADC0__DISABLED | EIE1_EWADC0__DISABLED | EIE1_ECP0__ENABLED
-			| EIE1_ECP1__DISABLED | EIE1_EMAT__DISABLED | EIE1_EPCA0__DISABLED
-			| EIE1_ESMB0__DISABLED | EIE1_ET3__DISABLED;
 	// [EIE1 - Extended Interrupt Enable 1]$
 
 	// $[EIE2 - Extended Interrupt Enable 2]
@@ -318,6 +325,15 @@ extern void INTERRUPT_0_enter_DefaultMode_from_RESET(void) {
 	// [EIP1 - Extended Interrupt Priority 1 Low]$
 
 	// $[EIP2 - Extended Interrupt Priority 2]
+	/*
+	 // CL0 interrupt priority LSB set to low
+	 // I2C0 Slave interrupt priority LSB set to low
+	 // Timer 4 interrupt priority LSB set to high
+	 // Timer 5 interrupt priority LSB set to low
+	 // UART1 interrupt priority LSB set to low
+	 */
+	EIP2 = EIP2_PCL0__LOW | EIP2_PI2C0__LOW | EIP2_PT4__HIGH | EIP2_PT5__LOW
+			| EIP2_PS1__LOW;
 	// [EIP2 - Extended Interrupt Priority 2]$
 
 	// $[EIP2H - Extended Interrupt Priority 2 High]
@@ -329,14 +345,14 @@ extern void INTERRUPT_0_enter_DefaultMode_from_RESET(void) {
 	 // Disable external interrupt 0
 	 // Disable external interrupt 1
 	 // Disable all SPI0 interrupts
-	 // Disable all Timer 0 interrupt
+	 // Enable interrupt requests generated by the TF0 flag
 	 // Disable all Timer 1 interrupt
 	 // Disable Timer 2 interrupt
 	 // Disable UART0 interrupt
 	 */
 	SFRPAGE = 0x00;
 	IE = IE_EA__ENABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
-			| IE_ESPI0__DISABLED | IE_ET0__DISABLED | IE_ET1__DISABLED
+			| IE_ESPI0__DISABLED | IE_ET0__ENABLED | IE_ET1__DISABLED
 			| IE_ET2__DISABLED | IE_ES0__DISABLED;
 	// [IE - Interrupt Enable]$
 
@@ -357,10 +373,10 @@ extern void PCA_0_enter_DefaultMode_from_RESET(void) {
 	/*
 	 // PCA continues to function normally while the system controller is in
 	 //     Idle Mode
-	 // Disable the CF interrupt
+	 // Enable a PCA Counter/Timer Overflow interrupt request when CF is set
 	 // System clock
 	 */
-	PCA0MD = PCA0MD_CIDL__NORMAL | PCA0MD_ECF__OVF_INT_DISABLED
+	PCA0MD = PCA0MD_CIDL__NORMAL | PCA0MD_ECF__OVF_INT_ENABLED
 			| PCA0MD_CPS__SYSCLK;
 	// [PCA0MD - PCA Mode]$
 
@@ -385,9 +401,17 @@ extern void PCA_0_enter_DefaultMode_from_RESET(void) {
 	// [PCA0CLR - PCA Comparator Clear Control]$
 
 	// $[PCA0L - PCA Counter/Timer Low Byte]
+	/*
+	 // PCA Counter/Timer Low Byte = 0x05
+	 */
+	PCA0L = (0x05 << PCA0L_PCA0L__SHIFT);
 	// [PCA0L - PCA Counter/Timer Low Byte]$
 
 	// $[PCA0H - PCA Counter/Timer High Byte]
+	/*
+	 // PCA Counter/Timer High Byte = 0xFF
+	 */
+	PCA0H = (0xFF << PCA0H_PCA0H__SHIFT);
 	// [PCA0H - PCA Counter/Timer High Byte]$
 
 	// $[PCA0POL - PCA Output Polarity]
@@ -444,6 +468,318 @@ extern void PCACH_0_enter_DefaultMode_from_RESET(void) {
 
 	// $[PCA0 Settings Restore]
 	// [PCA0 Settings Restore]$
+
+}
+
+extern void WDT_0_enter_DefaultMode_from_RESET(void) {
+	// $[WDTCN - Watchdog Timer Control]
+	SFRPAGE = 0x00;
+	//Disable Watchdog with key sequence
+	WDTCN = 0xDE; //First key
+	WDTCN = 0xAD; //Second key
+	// [WDTCN - Watchdog Timer Control]$
+
+}
+
+extern void TIMER01_0_enter_DefaultMode_from_RESET(void) {
+	// $[Timer Initialization]
+	//Save Timer Configuration
+	uint8_t TCON_save;
+	TCON_save = TCON;
+	//Stop Timers
+	TCON &= ~TCON_TR0__BMASK & ~TCON_TR1__BMASK;
+
+	// [Timer Initialization]$
+
+	// $[TH0 - Timer 0 High Byte]
+	// [TH0 - Timer 0 High Byte]$
+
+	// $[TL0 - Timer 0 Low Byte]
+	// [TL0 - Timer 0 Low Byte]$
+
+	// $[TH1 - Timer 1 High Byte]
+	// [TH1 - Timer 1 High Byte]$
+
+	// $[TL1 - Timer 1 Low Byte]
+	// [TL1 - Timer 1 Low Byte]$
+
+	// $[Timer Restoration]
+	//Restore Timer Configuration
+	TCON |= (TCON_save & TCON_TR0__BMASK) | (TCON_save & TCON_TR1__BMASK);
+
+	// [Timer Restoration]$
+
+}
+
+extern void TIMER_SETUP_0_enter_DefaultMode_from_RESET(void) {
+	// $[CKCON0 - Clock Control 0]
+	// [CKCON0 - Clock Control 0]$
+
+	// $[CKCON1 - Clock Control 1]
+	// [CKCON1 - Clock Control 1]$
+
+	// $[TMOD - Timer 0/1 Mode]
+	/*
+	 // Mode 1, 16-bit Counter/Timer
+	 // Mode 1, 16-bit Counter/Timer
+	 // Timer Mode. Timer 0 increments on the clock defined by T0M in the
+	 //     CKCON0 register
+	 // Timer 0 enabled when TR0 = 1 irrespective of INT0 logic level
+	 // Counter Mode. Timer 1 increments on high-to-low transitions of an
+	 //     external pin
+	 // Timer 1 enabled when TR1 = 1 irrespective of INT1 logic level
+	 */
+	SFRPAGE = 0x00;
+	TMOD = TMOD_T0M__MODE1 | TMOD_T1M__MODE1 | TMOD_CT0__TIMER
+			| TMOD_GATE0__DISABLED | TMOD_CT1__COUNTER | TMOD_GATE1__DISABLED;
+	// [TMOD - Timer 0/1 Mode]$
+
+	// $[TCON - Timer 0/1 Control]
+	/*
+	 // Start Timer 0 running
+	 */
+	TCON |= TCON_TR0__RUN;
+	// [TCON - Timer 0/1 Control]$
+
+}
+
+extern void PORTS_3_enter_DefaultMode_from_RESET(void) {
+	// $[P3 - Port 3 Pin Latch]
+	// [P3 - Port 3 Pin Latch]$
+
+	// $[P3MDOUT - Port 3 Output Mode]
+	/*
+	 // P3.0 output is open-drain
+	 // P3.1 output is open-drain
+	 // P3.2 output is open-drain
+	 // P3.3 output is push-pull
+	 // P3.4 output is open-drain
+	 // P3.7 output is open-drain
+	 */
+	SFRPAGE = 0x20;
+	P3MDOUT = P3MDOUT_B0__OPEN_DRAIN | P3MDOUT_B1__OPEN_DRAIN
+			| P3MDOUT_B2__OPEN_DRAIN | P3MDOUT_B3__PUSH_PULL
+			| P3MDOUT_B4__OPEN_DRAIN | P3MDOUT_B7__OPEN_DRAIN;
+	// [P3MDOUT - Port 3 Output Mode]$
+
+	// $[P3MDIN - Port 3 Input Mode]
+	/*
+	 // P3.0 pin is configured for analog mode
+	 // P3.1 pin is configured for digital mode
+	 // P3.2 pin is configured for digital mode
+	 // P3.3 pin is configured for digital mode
+	 // P3.4 pin is configured for digital mode
+	 // P3.7 pin is configured for digital mode
+	 */
+	P3MDIN = P3MDIN_B0__ANALOG | P3MDIN_B1__DIGITAL | P3MDIN_B2__DIGITAL
+			| P3MDIN_B3__DIGITAL | P3MDIN_B4__DIGITAL | P3MDIN_B7__DIGITAL;
+	// [P3MDIN - Port 3 Input Mode]$
+
+}
+
+extern void TIMER16_4_enter_DefaultMode_from_RESET(void) {
+	// $[Timer Initialization]
+	// Save Timer Configuration
+	uint8_t TMR4CN0_TR4_save;
+	SFRPAGE = 0x10;
+	TMR4CN0_TR4_save = TMR4CN0 & TMR4CN0_TR4__BMASK;
+	// Stop Timer
+	TMR4CN0 &= ~(TMR4CN0_TR4__BMASK);
+	// [Timer Initialization]$
+
+	// $[TMR4CN1 - Timer 4 Control 1]
+	// [TMR4CN1 - Timer 4 Control 1]$
+
+	// $[TMR4CN0 - Timer 4 Control]
+	// [TMR4CN0 - Timer 4 Control]$
+
+	// $[TMR4H - Timer 4 High Byte]
+	// [TMR4H - Timer 4 High Byte]$
+
+	// $[TMR4L - Timer 4 Low Byte]
+	// [TMR4L - Timer 4 Low Byte]$
+
+	// $[TMR4RLH - Timer 4 Reload High Byte]
+	/*
+	 // Timer 4 Reload High Byte = 0xF8
+	 */
+	TMR4RLH = (0xF8 << TMR4RLH_TMR4RLH__SHIFT);
+	// [TMR4RLH - Timer 4 Reload High Byte]$
+
+	// $[TMR4RLL - Timer 4 Reload Low Byte]
+	/*
+	 // Timer 4 Reload Low Byte = 0x07
+	 */
+	TMR4RLL = (0x07 << TMR4RLL_TMR4RLL__SHIFT);
+	// [TMR4RLL - Timer 4 Reload Low Byte]$
+
+	// $[TMR4CN0]
+	// [TMR4CN0]$
+
+	// $[Timer Restoration]
+	// Restore Timer Configuration
+	TMR4CN0 |= TMR4CN0_TR4_save;
+	// [Timer Restoration]$
+
+}
+
+extern void TIMER16_5_enter_DefaultMode_from_RESET(void) {
+	// $[Timer Initialization]
+	// Save Timer Configuration
+	uint8_t TMR5CN0_TR5_save;
+	TMR5CN0_TR5_save = TMR5CN0 & TMR5CN0_TR5__BMASK;
+	// Stop Timer
+	TMR5CN0 &= ~(TMR5CN0_TR5__BMASK);
+	// [Timer Initialization]$
+
+	// $[TMR5CN1 - Timer 5 Control 1]
+	// [TMR5CN1 - Timer 5 Control 1]$
+
+	// $[TMR5CN0 - Timer 5 Control]
+	// [TMR5CN0 - Timer 5 Control]$
+
+	// $[TMR5H - Timer 5 High Byte]
+	// [TMR5H - Timer 5 High Byte]$
+
+	// $[TMR5L - Timer 5 Low Byte]
+	// [TMR5L - Timer 5 Low Byte]$
+
+	// $[TMR5RLH - Timer 5 Reload High Byte]
+	// [TMR5RLH - Timer 5 Reload High Byte]$
+
+	// $[TMR5RLL - Timer 5 Reload Low Byte]
+	// [TMR5RLL - Timer 5 Reload Low Byte]$
+
+	// $[TMR5CN0]
+	// [TMR5CN0]$
+
+	// $[Timer Restoration]
+	// Restore Timer Configuration
+	TMR5CN0 |= TMR5CN0_TR5_save;
+	// [Timer Restoration]$
+
+}
+
+extern void PCACH_1_enter_DefaultMode_from_RESET(void) {
+	// $[PCA0 Settings Save]
+	// Select Capture/Compare register)
+	PCA0PWM &= ~PCA0PWM_ARSEL__BMASK;
+	// [PCA0 Settings Save]$
+
+	// $[PCA0CPM1 - PCA Channel 1 Capture/Compare Mode]
+	// [PCA0CPM1 - PCA Channel 1 Capture/Compare Mode]$
+
+	// $[PCA0CPL1 - PCA Channel 1 Capture Module Low Byte]
+	// [PCA0CPL1 - PCA Channel 1 Capture Module Low Byte]$
+
+	// $[PCA0CPH1 - PCA Channel 1 Capture Module High Byte]
+	/*
+	 // PCA Channel 1 Capture Module High Byte = 0x01
+	 */
+	PCA0CPH1 = (0x01 << PCA0CPH1_PCA0CPH1__SHIFT);
+	// [PCA0CPH1 - PCA Channel 1 Capture Module High Byte]$
+
+	// $[Auto-reload]
+	// [Auto-reload]$
+
+	// $[PCA0 Settings Restore]
+	// [PCA0 Settings Restore]$
+
+}
+
+extern void DAC_0_enter_DefaultMode_from_RESET(void) {
+	// $[DAC0CF0 - DAC0 Configuration 0]
+	/*
+	 // DAC0 is enabled and will drive the output pin
+	 // DAC0 output updates occur on every clock cycle
+	 // DAC0 input is treated as right-justified
+	 // All resets will reset DAC0 and its associated registers
+	 */
+	SFRPAGE = 0x30;
+	DAC0CF0 = DAC0CF0_EN__ENABLE | DAC0CF0_UPDATE__SYSCLK
+			| DAC0CF0_LJST__RIGHT_JUSTIFY | DAC0CF0_RSTMD__NORMAL;
+	// [DAC0CF0 - DAC0 Configuration 0]$
+
+	// $[DAC0CF1 - DAC0 Configuration 1]
+	// [DAC0CF1 - DAC0 Configuration 1]$
+
+}
+
+extern void DACGCF_0_enter_DefaultMode_from_RESET(void) {
+	// $[DACGCF0 - DAC Global Configuration 0]
+	/*
+	 // Select the VREF pin
+	 // Select the VDD supply
+	 // Input = DAC1H:DAC1L
+	 // Input = DAC3H:DAC3L
+	 // DAC1 always updates from the data source selected in D1SRC. This mode
+	 //     may be used with any trigger source
+	 // DAC3 always updates from the data source selected in D3SRC. This mode
+	 //     may be used with any trigger source
+	 */
+	DACGCF0 = DACGCF0_D01REFSL__VREF | DACGCF0_D23REFSL__VDD
+			| DACGCF0_D1SRC__DAC1 | DACGCF0_D3SRC__DAC3 | DACGCF0_D1AMEN__NORMAL
+			| DACGCF0_D3AMEN__NORMAL;
+	// [DACGCF0 - DAC Global Configuration 0]$
+
+	// $[DACGCF2 - DAC Global Configuration 2]
+	// [DACGCF2 - DAC Global Configuration 2]$
+
+}
+
+extern void VREF_0_enter_DefaultMode_from_RESET(void) {
+	// $[REF0CN - Voltage Reference Control]
+	/*
+	 // 2.4 V reference output to VREF pin
+	 */
+	SFRPAGE = 0x00;
+	REF0CN = REF0CN_VREFSL__VREF_2P4;
+	// [REF0CN - Voltage Reference Control]$
+
+}
+
+extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
+	// $[P1 - Port 1 Pin Latch]
+	/*
+	 // P1.0 is high. Set P1.0 to drive or float high
+	 // P1.1 is low. Set P1.1 to drive low
+	 // P1.2 is high. Set P1.2 to drive or float high
+	 // P1.3 is low. Set P1.3 to drive low
+	 // P1.4 is high. Set P1.4 to drive or float high
+	 // P1.5 is high. Set P1.5 to drive or float high
+	 // P1.6 is high. Set P1.6 to drive or float high
+	 // P1.7 is high. Set P1.7 to drive or float high
+	 */
+	P1 = P1_B0__HIGH | P1_B1__LOW | P1_B2__HIGH | P1_B3__LOW | P1_B4__HIGH
+			| P1_B5__HIGH | P1_B6__HIGH | P1_B7__HIGH;
+	// [P1 - Port 1 Pin Latch]$
+
+	// $[P1MDOUT - Port 1 Output Mode]
+	// [P1MDOUT - Port 1 Output Mode]$
+
+	// $[P1MDIN - Port 1 Input Mode]
+	// [P1MDIN - Port 1 Input Mode]$
+
+	// $[P1SKIP - Port 1 Skip]
+	// [P1SKIP - Port 1 Skip]$
+
+	// $[P1MASK - Port 1 Mask]
+	// [P1MASK - Port 1 Mask]$
+
+	// $[P1MAT - Port 1 Match]
+	/*
+	 // P1.0 pin logic value is compared with logic HIGH
+	 // P1.1 pin logic value is compared with logic LOW
+	 // P1.2 pin logic value is compared with logic HIGH
+	 // P1.3 pin logic value is compared with logic LOW
+	 // P1.4 pin logic value is compared with logic HIGH
+	 // P1.5 pin logic value is compared with logic HIGH
+	 // P1.6 pin logic value is compared with logic HIGH
+	 // P1.7 pin logic value is compared with logic HIGH
+	 */
+	P1MAT = P1MAT_B0__HIGH | P1MAT_B1__LOW | P1MAT_B2__HIGH | P1MAT_B3__LOW
+			| P1MAT_B4__HIGH | P1MAT_B5__HIGH | P1MAT_B6__HIGH | P1MAT_B7__HIGH;
+	// [P1MAT - Port 1 Match]$
 
 }
 

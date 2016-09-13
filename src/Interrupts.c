@@ -9,17 +9,38 @@
 // USER INCLUDES
 #include <SI_EFM8BB3_Register_Enums.h>
 
+SI_SBIT (TEST1,SFR_P3, 3);			   //Test LED
+#define ToogleTest1() TEST1^=1;
+
+
 //-----------------------------------------------------------------------------
-// CMP0_ISR
+// TIMER0_ISR
 //-----------------------------------------------------------------------------
 //
-// CMP0 ISR Content goes here. Remember to clear flag bits:
-// CMP0CN0::CPFIF (Comparator Falling-Edge Flag)
-// CMP0CN0::CPRIF (Comparator Rising-Edge Flag)
+// TIMER0 ISR Content goes here. Remember to clear flag bits:
+// TCON::TF0 (Timer 0 Overflow Flag)
 //
 //-----------------------------------------------------------------------------
-SI_INTERRUPT (CMP0_ISR, CMP0_IRQn)
+SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 {
+	SFRPAGE = 0x00;
+
+	TCON &= 0xdf; //Clear the interrupt Flag
+
+	TCON |= 0x40; //Timer 1 Run
+
+
+//	ToogleTest1();
+
+	if (TL1>10)
+	{
+		ToogleTest1();
+		TL1=0;
+		TH1=0;
+	}
+
+//	TL1=0;
+//	TH1=0;
 
 }
 

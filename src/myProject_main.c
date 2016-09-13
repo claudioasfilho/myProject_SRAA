@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------
 #include <SI_EFM8BB3_Register_Enums.h>                  // SFR declarations
 #include "InitDevice.h"
+#include "PID.h"
 // $[Generated Includes]
 // [Generated Includes]$
 uint8_t delay;
@@ -30,6 +31,8 @@ int main(void) {
 #endif
 
 	enter_DefaultMode_from_RESET();
+
+	SetDACOutput(0x7ff);
 
 	while (1) {
 // $[Generated Run-time code]
