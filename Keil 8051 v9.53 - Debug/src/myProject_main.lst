@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/13/2016 14:13:52 PAGE 1   
+C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/13/2016 15:34:27 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE MYPROJECT_MAIN
@@ -28,33 +28,16 @@ line level    source
   13          int main(void) {
   14   1              // Call hardware initialization routine
   15   1      
-  16   1      #if 0
-                      //All Pins are digital except P02
-                      P0MDIN = 0xfb;
-                      //P00 latched to 1
-                      P0 = 0x01;
-                      //P00 is a Push Pull
-                      P0MDOUT = 0x01;
-              
-                      //PBCFG_0_enter_DefaultMode_from_RESET();
-              
-                      //Comparator 0 Setup
-                      CMP0CN0 = 0xc0;
-                      CMP0MD = 0x0c;
-                      CMP0MX = 0xf2;
-                      CMP0CN1 = 0x1f;//Half Scale on the DAC
-              #endif
-  32   1      
-  33   1              enter_DefaultMode_from_RESET();
-  34   1      
-  35   1              SetDACOutput(0x7ff);
-  36   1      
-  37   1              while (1) {
-  38   2      // $[Generated Run-time code]
-  39   2      // [Generated Run-time code]$
-  40   2              }
-  41   1      }
-  42          
+  16   1              enter_DefaultMode_from_RESET();
+  17   1      
+  18   1              SetDACOutput(0x7ff);
+  19   1      
+  20   1              while (1) {
+  21   2      // $[Generated Run-time code]
+  22   2      // [Generated Run-time code]$
+  23   2              }
+  24   1      }
+  25          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
@@ -63,8 +46,6 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      1    ----
-C51 COMPILER V9.53.0.0   MYPROJECT_MAIN                                                    09/13/2016 14:13:52 PAGE 2   
-
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
    EDATA SIZE       =   ----    ----
