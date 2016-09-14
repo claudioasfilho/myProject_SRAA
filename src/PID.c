@@ -73,3 +73,15 @@ void SetDACOutput(uint16_t value)
 	DAC0L = value;
 	DAC0H= value >>8;
 }
+
+
+void PIDHandler()
+{
+
+}
+
+
+void DACOutputHandler()
+{
+
+}

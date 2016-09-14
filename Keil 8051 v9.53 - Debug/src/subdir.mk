@@ -10,6 +10,7 @@ C_SRCS += \
 ../src/InitDevice.c \
 ../src/Interrupts.c \
 ../src/PID.c \
+../src/Scheduler.c \
 ../src/myProject_main.c 
 
 OBJS += \
@@ -17,6 +18,7 @@ OBJS += \
 ./src/Interrupts.OBJ \
 ./src/PID.OBJ \
 ./src/SILABS_STARTUP.OBJ \
+./src/Scheduler.OBJ \
 ./src/myProject_main.OBJ 
 
 
@@ -40,6 +42,8 @@ src/%.OBJ: ../src/%.A51
 	AX51 "@$(patsubst %.OBJ,%.__ia,$@)" || $(RC)
 	@echo 'Finished building: $<'
 	@echo ' '
+
+src/Scheduler.OBJ: C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Register_Enums.h C:/Users/clfilho/SimplicityStudio/v3_workspace/myProject\ -\ DAC\ Enabled/src/PID.h C:/Users/clfilho/SimplicityStudio/v3_workspace/myProject\ -\ DAC\ Enabled/src/Scheduler.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Defs.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdbool.h
 
 src/myProject_main.OBJ: C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Register_Enums.h C:/Users/clfilho/SimplicityStudio/v3_workspace/myProject\ -\ DAC\ Enabled/inc/InitDevice.h C:/Users/clfilho/SimplicityStudio/v3_workspace/myProject\ -\ DAC\ Enabled/src/PID.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/EFM8BB3/inc/SI_EFM8BB3_Defs.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/si_toolchain.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdint.h C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3/Device/shared/si8051Base/stdbool.h
 

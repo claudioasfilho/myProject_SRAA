@@ -10,4 +10,8 @@
 
 void SetDACOutput(uint16_t value);
 
+void PIDHandler();
+
+void DACOutputHandler();
+
 #endif /* PID_H_ */
