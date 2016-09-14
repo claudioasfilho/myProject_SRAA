@@ -21,12 +21,8 @@ typedef struct
 
 typedef enum
     {
-        DELAY_TASK=0,
-        BUTTON_TASK,
-        DISPLAY_TASK,
-        ADC_TASK,
-        LEDS_TASK,
-        SERIAL_TASK,
+        PID_TASK=0,
+        DACOUTPUT_TASK,
         MAX_TASKS
     } TASKSID;
 

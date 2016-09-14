@@ -36,6 +36,7 @@ static int8_t I_term;
 static int8_t D_term;
 static int16_t PIDresult;
 
+static xdata uint16_t ADCResult;
 
 
 uint16_t CalculatePID(uint16_t current_error)
@@ -74,6 +75,10 @@ void SetDACOutput(uint16_t value)
 	DAC0H= value >>8;
 }
 
+void ReadADC(uint16_t value)
+{
+	ADCResult = value>>5; //Dividing by 32 to get the averaged value
+}
 
 void PIDHandler()
 {
@@ -85,3 +90,5 @@ void DACOutputHandler()
 {
 
 }
+
+

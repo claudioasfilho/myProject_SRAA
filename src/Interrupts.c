@@ -8,6 +8,7 @@
 
 // USER INCLUDES
 #include <SI_EFM8BB3_Register_Enums.h>
+#include "PID.h"
 
 SI_SBIT (TEST1,SFR_P3, 3);			   //Test LED
 #define ToogleTest1() TEST1^=1;
@@ -57,6 +58,10 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 	SFRPAGE = 0x00;
 
 	ADC0CN0 &= 0xDF;			//It clears the ADC interrupt Flag
+
+	ReadADC(ADC0);
+
+	ADC0=0;
 
 	ToogleTest1();
 

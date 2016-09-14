@@ -822,12 +822,20 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CN2 - ADC0 Control 2]
 	/*
 	 // ADC0 conversion initiated on overflow of Timer 2
-	 // The ADC accumulator is over-written with the results of any conversion
+	 // The ADC accumulator always adds new results to the existing output.
+	 //     The accumulator is never cleared in this mode
 	 */
-	ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_DISABLED;
+	ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_ENABLED;
 	// [ADC0CN2 - ADC0 Control 2]$
 
 	// $[ADC0CN1 - ADC0 Control 1]
+	/*
+	 // ADC0 operates in 12-bit mode
+	 // Right justified. No shifting applied
+	 // Perform and Accumulate 32 conversions
+	 */
+	ADC0CN1 = ADC0CN1_ADBITS__12_BIT | ADC0CN1_ADSJST__RIGHT_NO_SHIFT
+			| ADC0CN1_ADRPT__ACC_32;
 	// [ADC0CN1 - ADC0 Control 1]$
 
 	// $[ADC0MX - ADC0 Multiplexer Selection]
@@ -840,10 +848,10 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CF2 - ADC0 Power Control]
 	/*
 	 // The ADC0 ground reference is the GND pin
-	 // The ADC0 voltage reference is the VREF pin 
+	 // The ADC0 voltage reference is the VDD pin
 	 // Power Up Delay Time = 0x1F
 	 */
-	ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VREF_PIN
+	ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VDD_PIN
 			| (0x1F << ADC0CF2_ADPWR__SHIFT);
 	// [ADC0CF2 - ADC0 Power Control]$
 
@@ -858,12 +866,18 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CF1 - ADC0 Configuration]
 	/*
 	 // Enable low power mode
-	 // Conversion Tracking Time = 0x00
+	 // Conversion Tracking Time = 0x0A
 	 */
-	ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x00 << ADC0CF1_ADTK__SHIFT);
+	ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x0A << ADC0CF1_ADTK__SHIFT);
 	// [ADC0CF1 - ADC0 Configuration]$
 
 	// $[ADC0ASAL - ADC0 Autoscan Start Address Low Byte]
+	/*
+	 // ADC results in XRAM are stored in little-endian order. This will
+	 //     result in the most significant byte stored in the odd-numbered address
+	 */
+	SFRPAGE = 0x30;
+	ADC0ASAL |= ADC0ASAL_ENDIAN__LITTLE_ENDIAN;
 	// [ADC0ASAL - ADC0 Autoscan Start Address Low Byte]$
 
 	// $[ADC0GTH - ADC0 Greater-Than High Byte]
@@ -884,7 +898,6 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	 //     conversions within a scan cycle are performed automatically when the
 	 //     previous conversion is complete
 	 */
-	SFRPAGE = 0x30;
 	ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
 	// [ADC0ASCF - ADC0 Autoscan Configuration]$
 

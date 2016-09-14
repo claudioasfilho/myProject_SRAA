@@ -10,6 +10,8 @@
 
 void SetDACOutput(uint16_t value);
 
+void ReadADC(uint16_t value);
+
 void PIDHandler();
 
 void DACOutputHandler();

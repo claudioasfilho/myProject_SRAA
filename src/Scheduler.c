@@ -16,10 +16,7 @@ xdata SYSTASKS tasks[MAX_TASKS] =
 
     {   1,         0,      0,      &DACOutputHandler},
     {   10,         0,      0,      &PIDHandler},
-    {   1,         0,      0,      &DACOutputHandler},
-    {   10,         0,      0,      &PIDHandler},
-    {   1,         0,      0,      &DACOutputHandler},
-    {   10,         0,      0,      &PIDHandler},
+
 
 };
 
@@ -46,7 +43,7 @@ void Scheduler_CallBack(void)
 {
 static TASKSID taskCounter;
 
- for (taskCounter = DELAY_TASK; taskCounter < MAX_TASKS; taskCounter++)
+ for (taskCounter = PID_TASK; taskCounter < MAX_TASKS; taskCounter++)
     {
         if (tasks[taskCounter].Flags.Enabled == 1)
         {
