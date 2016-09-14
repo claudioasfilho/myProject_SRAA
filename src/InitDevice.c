@@ -820,6 +820,11 @@ extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
 
 extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CN2 - ADC0 Control 2]
+	/*
+	 // ADC0 conversion initiated on overflow of Timer 2
+	 // The ADC accumulator is over-written with the results of any conversion
+	 */
+	ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_DISABLED;
 	// [ADC0CN2 - ADC0 Control 2]$
 
 	// $[ADC0CN1 - ADC0 Control 1]

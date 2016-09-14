@@ -54,6 +54,10 @@ SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 {
 
+	SFRPAGE = 0x00;
+
+	ADC0CN0 &= 0xDF;			//It clears the ADC interrupt Flag
+
 	ToogleTest1();
 
 }
@@ -69,15 +73,10 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 //-----------------------------------------------------------------------------
 SI_INTERRUPT (TIMER2_ISR, TIMER2_IRQn)
 {
-
-/*	SFRPAGE = 0x00;
-	TMR2L = 0x0;
-	TMR2H=0x00;*/
-
 	SFRPAGE = 0x00;
 
-	//Trigger ADC
-	ADC0CN0 |= 0x10;
+	TMR2CN0 &= 0x3F;			//It clears the Timer 2 interrupt Flags
+
 
 
 }

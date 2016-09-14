@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 1   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE INITDEVICE
@@ -63,7 +63,7 @@ line level    source
   48   1              SFRPAGE = SFRPAGE_save;
   49   1              // [Config Calls]$
   50   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 2   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 2   
 
   51   1      }
   52          
@@ -128,7 +128,7 @@ line level    source
  111   1              // $[CMP0MD - Comparator 0 Mode]
  112   1              /*
  113   1               // Mode 0 
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 3   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 3   
 
  114   1               // Connect the CMP- input to the internal DAC output, and CMP+ is
  115   1               //     selected by CMXP. The internal DAC uses the signal specified by CMXN
@@ -193,7 +193,7 @@ line level    source
  174   1                              | P0MDOUT_B4__OPEN_DRAIN | P0MDOUT_B5__OPEN_DRAIN
  175   1                              | P0MDOUT_B6__OPEN_DRAIN | P0MDOUT_B7__OPEN_DRAIN;
  176   1              // [P0MDOUT - Port 0 Output Mode]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 4   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 4   
 
  177   1      
  178   1              // $[P0MDIN - Port 0 Input Mode]
@@ -258,7 +258,7 @@ line level    source
  237   1               // Clock derived from the Internal High Frequency Oscillator 0
  238   1               // SYSCLK is equal to selected clock source divided by 1
  239   1               */
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 5   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 5   
 
  240   1              SFRPAGE = 0x00;
  241   1              CLKSEL = CLKSEL_CLKSL__HFOSC0 | CLKSEL_CLKDIV__SYSCLK_DIV_1;
@@ -323,7 +323,7 @@ line level    source
  300   1              // $[Timer Restoration]
  301   1              // Restore Timer Configuration
  302   1              TMR2CN0 |= TMR2CN0_TR2_save;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 6   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 6   
 
  303   1              // [Timer Restoration]$
  304   1      
@@ -388,7 +388,7 @@ line level    source
  363   1               // Timer 0 interrupt priority MSB set to high
  364   1               // Timer 1 interrupt priority MSB set to low
  365   1               // Timer 2 interrupt priority MSB set to low
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 7   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 7   
 
  366   1               // UART0 interrupt priority MSB set to low
  367   1               */
@@ -453,7 +453,7 @@ line level    source
  426   1              // [PCA0POL - PCA Output Polarity]$
  427   1      
  428   1              // $[PCA0PWM - PCA PWM Configuration]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 8   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 8   
 
  429   1              // [PCA0PWM - PCA PWM Configuration]$
  430   1      
@@ -518,7 +518,7 @@ line level    source
  489   1      
  490   1      }
  491          
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 9   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 9   
 
  492          extern void TIMER01_0_enter_DefaultMode_from_RESET(void) {
  493   1              // $[Timer Initialization]
@@ -583,7 +583,7 @@ line level    source
  552   1      }
  553          
  554          extern void PORTS_3_enter_DefaultMode_from_RESET(void) {
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 10  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 10  
 
  555   1              // $[P3 - Port 3 Pin Latch]
  556   1              // [P3 - Port 3 Pin Latch]$
@@ -648,7 +648,7 @@ line level    source
  615   1              // [TMR4RLH - Timer 4 Reload High Byte]$
  616   1      
  617   1              // $[TMR4RLL - Timer 4 Reload Low Byte]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 11  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 11  
 
  618   1              /*
  619   1               // Timer 4 Reload Low Byte = 0x07
@@ -713,7 +713,7 @@ line level    source
  678   1              // [PCA0CPM1 - PCA Channel 1 Capture/Compare Mode]$
  679   1      
  680   1              // $[PCA0CPL1 - PCA Channel 1 Capture Module Low Byte]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 12  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 12  
 
  681   1              // [PCA0CPL1 - PCA Channel 1 Capture Module Low Byte]$
  682   1      
@@ -778,7 +778,7 @@ line level    source
  741   1               // 2.4 V reference output to VREF pin
  742   1               */
  743   1              SFRPAGE = 0x00;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 13  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 13  
 
  744   1              REF0CN = REF0CN_VREFSL__VREF_2P4;
  745   1              // [REF0CN - Voltage Reference Control]$
@@ -843,7 +843,7 @@ line level    source
  804   1              // $[P1MAT - Port 1 Match]
  805   1              /*
  806   1               // P1.0 pin logic value is compared with logic HIGH
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 14  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 14  
 
  807   1               // P1.1 pin logic value is compared with logic LOW
  808   1               // P1.2 pin logic value is compared with logic HIGH
@@ -861,85 +861,90 @@ line level    source
  820          
  821          extern void ADC_0_enter_DefaultMode_from_RESET(void) {
  822   1              // $[ADC0CN2 - ADC0 Control 2]
- 823   1              // [ADC0CN2 - ADC0 Control 2]$
- 824   1      
- 825   1              // $[ADC0CN1 - ADC0 Control 1]
- 826   1              // [ADC0CN1 - ADC0 Control 1]$
- 827   1      
- 828   1              // $[ADC0MX - ADC0 Multiplexer Selection]
- 829   1              /*
- 830   1               // Select ADC0.13
- 831   1               */
- 832   1              ADC0MX = ADC0MX_ADC0MX__ADC0P13;
- 833   1              // [ADC0MX - ADC0 Multiplexer Selection]$
- 834   1      
- 835   1              // $[ADC0CF2 - ADC0 Power Control]
- 836   1              /*
- 837   1               // The ADC0 ground reference is the GND pin
- 838   1               // The ADC0 voltage reference is the VREF pin 
- 839   1               // Power Up Delay Time = 0x1F
- 840   1               */
- 841   1              ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VREF_PIN
- 842   1                              | (0x1F << ADC0CF2_ADPWR__SHIFT);
- 843   1              // [ADC0CF2 - ADC0 Power Control]$
- 844   1      
- 845   1              // $[ADC0CF0 - ADC0 Configuration]
- 846   1              /*
- 847   1               // ADCCLK = SYSCLK
- 848   1               // SAR Clock Divider = 0x03
- 849   1               */
- 850   1              ADC0CF0 = ADC0CF0_ADCLKSEL__SYSCLK | (0x03 << ADC0CF0_ADSC__SHIFT);
- 851   1              // [ADC0CF0 - ADC0 Configuration]$
- 852   1      
- 853   1              // $[ADC0CF1 - ADC0 Configuration]
- 854   1              /*
- 855   1               // Enable low power mode
- 856   1               // Conversion Tracking Time = 0x00
- 857   1               */
- 858   1              ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x00 << ADC0CF1_ADTK__SHIFT);
- 859   1              // [ADC0CF1 - ADC0 Configuration]$
- 860   1      
- 861   1              // $[ADC0ASAL - ADC0 Autoscan Start Address Low Byte]
- 862   1              // [ADC0ASAL - ADC0 Autoscan Start Address Low Byte]$
- 863   1      
- 864   1              // $[ADC0GTH - ADC0 Greater-Than High Byte]
- 865   1              // [ADC0GTH - ADC0 Greater-Than High Byte]$
- 866   1      
- 867   1              // $[ADC0GTL - ADC0 Greater-Than Low Byte]
- 868   1              // [ADC0GTL - ADC0 Greater-Than Low Byte]$
- 869   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/13/2016 16:02:17 PAGE 15  
+ 823   1              /*
+ 824   1               // ADC0 conversion initiated on overflow of Timer 2
+ 825   1               // The ADC accumulator is over-written with the results of any conversion
+ 826   1               */
+ 827   1              ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_DISABLED;
+ 828   1              // [ADC0CN2 - ADC0 Control 2]$
+ 829   1      
+ 830   1              // $[ADC0CN1 - ADC0 Control 1]
+ 831   1              // [ADC0CN1 - ADC0 Control 1]$
+ 832   1      
+ 833   1              // $[ADC0MX - ADC0 Multiplexer Selection]
+ 834   1              /*
+ 835   1               // Select ADC0.13
+ 836   1               */
+ 837   1              ADC0MX = ADC0MX_ADC0MX__ADC0P13;
+ 838   1              // [ADC0MX - ADC0 Multiplexer Selection]$
+ 839   1      
+ 840   1              // $[ADC0CF2 - ADC0 Power Control]
+ 841   1              /*
+ 842   1               // The ADC0 ground reference is the GND pin
+ 843   1               // The ADC0 voltage reference is the VREF pin 
+ 844   1               // Power Up Delay Time = 0x1F
+ 845   1               */
+ 846   1              ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VREF_PIN
+ 847   1                              | (0x1F << ADC0CF2_ADPWR__SHIFT);
+ 848   1              // [ADC0CF2 - ADC0 Power Control]$
+ 849   1      
+ 850   1              // $[ADC0CF0 - ADC0 Configuration]
+ 851   1              /*
+ 852   1               // ADCCLK = SYSCLK
+ 853   1               // SAR Clock Divider = 0x03
+ 854   1               */
+ 855   1              ADC0CF0 = ADC0CF0_ADCLKSEL__SYSCLK | (0x03 << ADC0CF0_ADSC__SHIFT);
+ 856   1              // [ADC0CF0 - ADC0 Configuration]$
+ 857   1      
+ 858   1              // $[ADC0CF1 - ADC0 Configuration]
+ 859   1              /*
+ 860   1               // Enable low power mode
+ 861   1               // Conversion Tracking Time = 0x00
+ 862   1               */
+ 863   1              ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x00 << ADC0CF1_ADTK__SHIFT);
+ 864   1              // [ADC0CF1 - ADC0 Configuration]$
+ 865   1      
+ 866   1              // $[ADC0ASAL - ADC0 Autoscan Start Address Low Byte]
+ 867   1              // [ADC0ASAL - ADC0 Autoscan Start Address Low Byte]$
+ 868   1      
+ 869   1              // $[ADC0GTH - ADC0 Greater-Than High Byte]
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/14/2016 14:08:32 PAGE 15  
 
- 870   1              // $[ADC0LTH - ADC0 Less-Than High Byte]
- 871   1              // [ADC0LTH - ADC0 Less-Than High Byte]$
- 872   1      
- 873   1              // $[ADC0LTL - ADC0 Less-Than Low Byte]
- 874   1              // [ADC0LTL - ADC0 Less-Than Low Byte]$
- 875   1      
- 876   1              // $[ADC0ASCF - ADC0 Autoscan Configuration]
- 877   1              /*
- 878   1               // The selected conversion trigger source will begin each scan cycle. All
- 879   1               //     conversions within a scan cycle are performed automatically when the
- 880   1               //     previous conversion is complete
- 881   1               */
- 882   1              SFRPAGE = 0x30;
- 883   1              ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
- 884   1              // [ADC0ASCF - ADC0 Autoscan Configuration]$
- 885   1      
- 886   1              // $[ADC0CN0 - ADC0 Control 0]
- 887   1              /*
- 888   1               // Enable ADC0 
- 889   1               */
- 890   1              SFRPAGE = 0x00;
- 891   1              ADC0CN0 |= ADC0CN0_ADEN__ENABLED;
- 892   1              // [ADC0CN0 - ADC0 Control 0]$
- 893   1      
- 894   1      }
- 895          
+ 870   1              // [ADC0GTH - ADC0 Greater-Than High Byte]$
+ 871   1      
+ 872   1              // $[ADC0GTL - ADC0 Greater-Than Low Byte]
+ 873   1              // [ADC0GTL - ADC0 Greater-Than Low Byte]$
+ 874   1      
+ 875   1              // $[ADC0LTH - ADC0 Less-Than High Byte]
+ 876   1              // [ADC0LTH - ADC0 Less-Than High Byte]$
+ 877   1      
+ 878   1              // $[ADC0LTL - ADC0 Less-Than Low Byte]
+ 879   1              // [ADC0LTL - ADC0 Less-Than Low Byte]$
+ 880   1      
+ 881   1              // $[ADC0ASCF - ADC0 Autoscan Configuration]
+ 882   1              /*
+ 883   1               // The selected conversion trigger source will begin each scan cycle. All
+ 884   1               //     conversions within a scan cycle are performed automatically when the
+ 885   1               //     previous conversion is complete
+ 886   1               */
+ 887   1              SFRPAGE = 0x30;
+ 888   1              ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
+ 889   1              // [ADC0ASCF - ADC0 Autoscan Configuration]$
+ 890   1      
+ 891   1              // $[ADC0CN0 - ADC0 Control 0]
+ 892   1              /*
+ 893   1               // Enable ADC0 
+ 894   1               */
+ 895   1              SFRPAGE = 0x00;
+ 896   1              ADC0CN0 |= ADC0CN0_ADEN__ENABLED;
+ 897   1              // [ADC0CN0 - ADC0 Control 0]$
+ 898   1      
+ 899   1      }
+ 900          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    346    ----
+   CODE SIZE        =    349    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
