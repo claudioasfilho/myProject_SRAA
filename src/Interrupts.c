@@ -28,7 +28,8 @@ SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 
 	TCON |= 0x40;//Timer 1 Run
 
-//	ToogleTest1();
+
+	//ToogleTest1();
 
 	if (TL1>10)
 	{
@@ -53,6 +54,7 @@ SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 {
 
+	ToogleTest1();
 
 }
 
@@ -72,6 +74,11 @@ SI_INTERRUPT (TIMER2_ISR, TIMER2_IRQn)
 	TMR2L = 0x0;
 	TMR2H=0x00;*/
 
-	ToogleTest1();
+	SFRPAGE = 0x00;
+
+	//Trigger ADC
+	ADC0CN0 |= 0x10;
+
+
 }
 

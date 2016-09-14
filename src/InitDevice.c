@@ -820,22 +820,9 @@ extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
 
 extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CN2 - ADC0 Control 2]
-	/*
-	 // ADC0 conversion initiated on overflow of Timer 0
-	 // The ADC accumulator always adds new results to the existing output.
-	 //     The accumulator is never cleared in this mode
-	 */
-	ADC0CN2 = ADC0CN2_ADCM__TIMER0 | ADC0CN2_PACEN__PAC_ENABLED;
 	// [ADC0CN2 - ADC0 Control 2]$
 
 	// $[ADC0CN1 - ADC0 Control 1]
-	/*
-	 // ADC0 operates in 12-bit mode
-	 // Right justified. No shifting applied
-	 // Perform and Accumulate 32 conversions
-	 */
-	ADC0CN1 = ADC0CN1_ADBITS__12_BIT | ADC0CN1_ADSJST__RIGHT_NO_SHIFT
-			| ADC0CN1_ADRPT__ACC_32;
 	// [ADC0CN1 - ADC0 Control 1]$
 
 	// $[ADC0MX - ADC0 Multiplexer Selection]
@@ -866,9 +853,9 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CF1 - ADC0 Configuration]
 	/*
 	 // Enable low power mode
-	 // Conversion Tracking Time = 0x04
+	 // Conversion Tracking Time = 0x00
 	 */
-	ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x04 << ADC0CF1_ADTK__SHIFT);
+	ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x00 << ADC0CF1_ADTK__SHIFT);
 	// [ADC0CF1 - ADC0 Configuration]$
 
 	// $[ADC0ASAL - ADC0 Autoscan Start Address Low Byte]
@@ -887,9 +874,21 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// [ADC0LTL - ADC0 Less-Than Low Byte]$
 
 	// $[ADC0ASCF - ADC0 Autoscan Configuration]
+	/*
+	 // The selected conversion trigger source will begin each scan cycle. All
+	 //     conversions within a scan cycle are performed automatically when the
+	 //     previous conversion is complete
+	 */
+	SFRPAGE = 0x30;
+	ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
 	// [ADC0ASCF - ADC0 Autoscan Configuration]$
 
 	// $[ADC0CN0 - ADC0 Control 0]
+	/*
+	 // Enable ADC0 
+	 */
+	SFRPAGE = 0x00;
+	ADC0CN0 |= ADC0CN0_ADEN__ENABLED;
 	// [ADC0CN0 - ADC0 Control 0]$
 
 }
