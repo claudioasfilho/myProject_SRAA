@@ -59,7 +59,7 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 
 	ADC0CN0 &= 0xDF;			//It clears the ADC interrupt Flag
 
-	ReadADC(ADC0);
+	GetADC(ADC0);
 
 	ADC0=0;
 

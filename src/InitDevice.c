@@ -832,10 +832,10 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	/*
 	 // ADC0 operates in 12-bit mode
 	 // Right justified. No shifting applied
-	 // Perform and Accumulate 32 conversions
+	 // Perform and Accumulate 16 conversions
 	 */
 	ADC0CN1 = ADC0CN1_ADBITS__12_BIT | ADC0CN1_ADSJST__RIGHT_NO_SHIFT
-			| ADC0CN1_ADRPT__ACC_32;
+			| ADC0CN1_ADRPT__ACC_16;
 	// [ADC0CN1 - ADC0 Control 1]$
 
 	// $[ADC0MX - ADC0 Multiplexer Selection]

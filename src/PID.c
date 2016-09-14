@@ -75,9 +75,9 @@ void SetDACOutput(uint16_t value)
 	DAC0H= value >>8;
 }
 
-void ReadADC(uint16_t value)
+void GetADC(uint16_t value)
 {
-	ADCResult = value>>5; //Dividing by 32 to get the averaged value
+	ADCResult = value>>4; //Dividing by 16 to get the averaged value
 }
 
 void PIDHandler()
