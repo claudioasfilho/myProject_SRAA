@@ -1,4 +1,4 @@
-LX51 LINKER/LOCATER V4.66.30.0                                                          09/14/2016  15:27:20  PAGE 1
+LX51 LINKER/LOCATER V4.66.30.0                                                          09/16/2016  10:06:32  PAGE 1
 
 
 LX51 LINKER/LOCATER V4.66.30.0, INVOKED BY:
@@ -27,8 +27,6 @@ INPUT MODULES INCLUDED:
          COMMENT TYPE 0: C51 V9.53.0.0
   C:\SILICONLABS\SIMPLICITYSTUDIO\V3\DEVELOPER\TOOLCHAINS\KEIL_8051\9.53\LIB\C51S.LIB (?C_INIT)
          COMMENT TYPE 1: A51 / ASM51 Assembler
-  C:\SILICONLABS\SIMPLICITYSTUDIO\V3\DEVELOPER\TOOLCHAINS\KEIL_8051\9.53\LIB\C51S.LIB (?C?COPY)
-         COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\SILICONLABS\SIMPLICITYSTUDIO\V3\DEVELOPER\TOOLCHAINS\KEIL_8051\9.53\LIB\C51S.LIB (?C?IMUL)
          COMMENT TYPE 1: A51 / ASM51 Assembler
   C:\SILICONLABS\SIMPLICITYSTUDIO\V3\DEVELOPER\TOOLCHAINS\KEIL_8051\9.53\LIB\C51S.LIB (?C?ILDIX)
@@ -43,10 +41,10 @@ BASE        START       END         USED      MEMORY CLASS
 ==========================================================
 C:000000H   C:000000H   C:00FBFEH             ECODE
 B00:0000H   C:000000H   C:00FBFEH             HCONST
-X:000000H   X:000000H   X:000FFFH   000016H   XDATA
+X:000000H   X:000000H   X:000FFFH   000024H   XDATA
 X:000000H   X:000000H   X:000FFFH             HDATA
-C:000000H   C:000000H   C:00FFFFH   0003D8H   CODE
-I:000000H   I:000000H   I:00007FH   000012H   DATA
+C:000000H   C:000000H   C:00FFFFH   000497H   CODE
+I:000000H   I:000000H   I:00007FH   00000BH   DATA
 I:000000H   I:000000H   I:0000FFH   000001H   IDATA
 
 
@@ -58,66 +56,65 @@ START     STOP      LENGTH    ALIGN  RELOC    MEMORY CLASS   SEGMENT NAME
 
 * * * * * * * * * * *   D A T A   M E M O R Y   * * * * * * * * * * * * *
 000000H   000007H   000008H   ---    AT..     DATA           "REG BANK 0"
-000008H   00000EH   000007H   BYTE   UNIT     DATA           ?DT?PID
-00000FH   00000FH   000001H   BYTE   UNIT     DATA           ?DT?SCHEDULER
-000010H   000010H   000001H   BYTE   UNIT     DATA           ?DT?MYPROJECT_MAIN
-000011H   000011H   000001H   BYTE   UNIT     DATA           _DATA_GROUP_
-000012H   000012H   000001H   BYTE   UNIT     IDATA          ?STACK
-
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 2
-
+000008H   000008H   000001H   BYTE   UNIT     DATA           ?DT?SCHEDULER
+000009H   000009H   000001H   BYTE   UNIT     DATA           ?DT?MYPROJECT_MAIN
+00000AH   00000AH   000001H   BYTE   UNIT     DATA           _DATA_GROUP_
+00000BH   00000BH   000001H   BYTE   UNIT     IDATA          ?STACK
 
 * * * * * * * * * * *   C O D E   M E M O R Y   * * * * * * * * * * * * *
 000000H   000002H   000003H   ---    OFFS..   CODE           ?CO?SILABS_STARTUP?3
-000003H   00000AH   000008H   BYTE   UNIT     CODE           ?PR?_SETDACOUTPUT?PID
+000003H   000009H   000007H   BYTE   UNIT     CODE           ?PR?HFOSC_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 2
+
+
+00000AH   00000AH   000001H   ---    ---      **GAP**
 00000BH   00000DH   000003H   BYTE   OFFS..   CODE           ?INTERRUPTS?0000B
 00000EH   000029H   00001CH   BYTE   UNIT     CODE           ?PR?CMP_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-00002AH   00002AH   000001H   BYTE   UNIT     CODE           ?PR?PIDHANDLER?PID
+00002AH   00002AH   000001H   ---    ---      **GAP**
 00002BH   00002DH   000003H   BYTE   OFFS..   CODE           ?INTERRUPTS?0002B
 00002EH   00004FH   000022H   BYTE   UNIT     CODE           ?PR?ADC_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000050H   000050H   000001H   BYTE   UNIT     CODE           ?PR?DACOUTPUTHANDLER?PID
-000051H   000052H   000002H   ---    ---      **GAP**
+000050H   000052H   000003H   ---    ---      **GAP**
 000053H   000055H   000003H   BYTE   OFFS..   CODE           ?INTERRUPTS?00053
-000056H   000179H   000124H   BYTE   UNIT     CODE           ?C?LIB_CODE
-00017AH   000205H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
-000206H   000254H   00004FH   BYTE   UNIT     CODE           ?PR?ADC0EOC_ISR?INTERRUPTS
-000255H   00029AH   000046H   BYTE   UNIT     CODE           ?PR?ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-00029BH   0002B9H   00001FH   BYTE   UNIT     CODE           ?PR?TIMER0_ISR?INTERRUPTS
-0002BAH   0002D4H   00001BH   BYTE   UNIT     CODE           ?C_INITSEG
-0002D5H   0002EBH   000017H   BYTE   UNIT     CODE           ?PR?_GETADC?PID
-0002ECH   0002FEH   000013H   BYTE   UNIT     CODE           ?PR?TIMER16_2_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0002FFH   000311H   000013H   BYTE   UNIT     CODE           ?PR?TIMER16_4_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000312H   000322H   000011H   BYTE   UNIT     CODE           ?PR?PCA_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000323H   000332H   000010H   BYTE   UNIT     CODE           ?PR?PORTS_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000333H   000342H   000010H   BYTE   UNIT     CODE           ?PR?TIMER01_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000343H   00034FH   00000DH   BYTE   UNIT     CODE           ?PR?INTERRUPT_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000350H   00035CH   00000DH   BYTE   UNIT     CODE           ?PR?PCACH_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-00035DH   000369H   00000DH   BYTE   UNIT     CODE           ?PR?PORTS_1_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-00036AH   000375H   00000CH   BYTE   UNIT     CODE           ?PR?MAIN?MYPROJECT_MAIN
-000376H   000380H   00000BH   BYTE   UNIT     CODE           ?PR?CLOCK_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000381H   00038AH   00000AH   BYTE   UNIT     CODE           ?PR?PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-00038BH   000394H   00000AH   BYTE   UNIT     CODE           ?PR?WDT_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-000395H   00039EH   00000AH   BYTE   UNIT     CODE           ?PR?TIMER_SETUP_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-00039FH   0003A8H   00000AH   BYTE   UNIT     CODE           ?PR?PORTS_3_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0003A9H   0003B2H   00000AH   BYTE   UNIT     CODE           ?PR?TIMER16_5_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0003B3H   0003B9H   000007H   BYTE   UNIT     CODE           ?PR?HFOSC_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0003BAH   0003C0H   000007H   BYTE   UNIT     CODE           ?PR?PCACH_1_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0003C1H   0003C7H   000007H   BYTE   UNIT     CODE           ?PR?DAC_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0003C8H   0003CEH   000007H   BYTE   UNIT     CODE           ?PR?VREF_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-0003CFH   0003D5H   000007H   BYTE   UNIT     CODE           ?PR?TIMER2_ISR?INTERRUPTS
-0003D6H   0003D9H   000004H   BYTE   UNIT     CODE           ?PR?DACGCF_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000056H   000146H   0000F1H   BYTE   UNIT     CODE           ?PR?_CALCULATEPID?PID
+000147H   0001D2H   00008CH   BYTE   UNIT     CODE           ?C_C51STARTUP
+0001D3H   000251H   00007FH   BYTE   UNIT     CODE           ?PR?SCHEDULER_CALLBACK?SCHEDULER
+000252H   0002A2H   000051H   BYTE   UNIT     CODE           ?PR?TIMER0_ISR?INTERRUPTS
+0002A3H   0002ECH   00004AH   BYTE   UNIT     CODE           ?PR?ADC0EOC_ISR?INTERRUPTS
+0002EDH   000332H   000046H   BYTE   UNIT     CODE           ?PR?ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000333H   000360H   00002EH   BYTE   UNIT     CODE           ?C?LIB_CODE
+000361H   000379H   000019H   BYTE   UNIT     CODE           ?C_INITSEG
+00037AH   000390H   000017H   BYTE   UNIT     CODE           ?PR?_GETADC?PID
+000391H   0003A4H   000014H   BYTE   UNIT     CODE           ?PR?PIDHANDLER?PID
+0003A5H   0003B7H   000013H   BYTE   UNIT     CODE           ?PR?TIMER16_2_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+0003B8H   0003CAH   000013H   BYTE   UNIT     CODE           ?PR?TIMER16_4_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+0003CBH   0003DBH   000011H   BYTE   UNIT     CODE           ?PR?PCA_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+0003DCH   0003EBH   000010H   BYTE   UNIT     CODE           ?PR?PORTS_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+0003ECH   0003FBH   000010H   BYTE   UNIT     CODE           ?PR?TIMER01_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+0003FCH   000408H   00000DH   BYTE   UNIT     CODE           ?PR?INTERRUPT_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000409H   000415H   00000DH   BYTE   UNIT     CODE           ?PR?PCACH_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000416H   000422H   00000DH   BYTE   UNIT     CODE           ?PR?PORTS_1_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000423H   00042EH   00000CH   BYTE   UNIT     CODE           ?PR?_SETDACOUTPUT?PID
+00042FH   000439H   00000BH   BYTE   UNIT     CODE           ?PR?CLOCK_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00043AH   000444H   00000BH   BYTE   UNIT     CODE           ?PR?DACOUTPUTHANDLER?PID
+000445H   00044EH   00000AH   BYTE   UNIT     CODE           ?PR?PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00044FH   000458H   00000AH   BYTE   UNIT     CODE           ?PR?WDT_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000459H   000462H   00000AH   BYTE   UNIT     CODE           ?PR?TIMER_SETUP_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000463H   00046CH   00000AH   BYTE   UNIT     CODE           ?PR?PORTS_3_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00046DH   000476H   00000AH   BYTE   UNIT     CODE           ?PR?TIMER16_5_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000477H   00047DH   000007H   BYTE   UNIT     CODE           ?PR?PCACH_1_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00047EH   000484H   000007H   BYTE   UNIT     CODE           ?PR?DAC_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+000485H   00048BH   000007H   BYTE   UNIT     CODE           ?PR?VREF_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
+00048CH   000492H   000007H   BYTE   UNIT     CODE           ?PR?TIMER2_ISR?INTERRUPTS
+000493H   000497H   000005H   BYTE   UNIT     CODE           ?PR?MAIN?MYPROJECT_MAIN
+000498H   00049BH   000004H   BYTE   UNIT     CODE           ?PR?DACGCF_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
 
 * * * * * * * * * * *  X D A T A   M E M O R Y  * * * * * * * * * * * * *
-000000H   000013H   000014H   BYTE   UNIT     XDATA          ?XD?SCHEDULER
-000014H   000015H   000002H   BYTE   UNIT     XDATA          ?XD?PID
+000000H   000013H   000014H   BYTE   UNIT     XDATA          ?XD?PID
+000014H   000023H   000010H   BYTE   UNIT     XDATA          ?XD?SCHEDULER
 
 * * * * * * * * *   R E M O V E D     S E G M E N T S   * * * * * * * *
    *DEL*:           000004H   BYTE   UNIT     CODE           ?PR?CIP51_0_ENTER_DEFAULTMODE_FROM_RESET?INITDEVICE
-   *DEL*:           00005AH   BYTE   UNIT     CODE           ?PR?_CALCULATEPID?PID
-   *DEL*:           00001FH   BYTE   UNIT     CODE           ?PR?UPDATE_TASK_FLAGS?SCHEDULER
-   *DEL*:           000004H   BYTE   UNIT     DATA           ?DT?UPDATE_TASK_FLAGS?SCHEDULER
    *DEL*:           000014H   BYTE   UNIT     CODE           ?PR?_UPDATE_TASK_PERIOD?SCHEDULER
-   *DEL*:           00007FH   BYTE   UNIT     CODE           ?PR?SCHEDULER_CALLBACK?SCHEDULER
 
 
 
@@ -128,8 +125,11 @@ FUNCTION/MODULE                                BIT_GROUP   DATA_GROUP
 --> CALLED FUNCTION/MODULE                    START  STOP  START  STOP
 ======================================================================
 TIMER0_ISR/INTERRUPTS                         ----- -----  ----- -----
+  +--> SCHEDULER_CALLBACK/SCHEDULER
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 3
+SCHEDULER_CALLBACK/SCHEDULER                  ----- -----  ----- -----
+
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 3
 
 
 *** NEW ROOT ********************************
@@ -151,9 +151,8 @@ TIMER2_ISR/INTERRUPTS                         ----- -----  ----- -----
 
 MAIN/MYPROJECT_MAIN                           ----- -----  ----- -----
   +--> ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
-  +--> _SETDACOUTPUT/PID
 
-ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE       ----- -----  0011H 0011H
+ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE       ----- -----  000AH 000AH
   +--> WDT_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> PORTS_0_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
   +--> PORTS_1_ENTER_DEFAULTMODE_FROM_RESET/INITDEVICE
@@ -194,10 +193,10 @@ PBCFG_0_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
 ADC_0_ENTER_DEFAULTMODE_FROM_RESET/INITD+     ----- -----  ----- -----
 ... EVICE
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 4
-
-
 CMP_0_ENTER_DEFAULTMODE_FROM_RESET/INITD+     ----- -----  ----- -----
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 4
+
+
 ... EVICE
 
 DAC_0_ENTER_DEFAULTMODE_FROM_RESET/INITD+     ----- -----  ----- -----
@@ -242,39 +241,41 @@ PCACH_1_ENTER_DEFAULTMODE_FROM_RESET/INI+     ----- -----  ----- -----
 INTERRUPT_0_ENTER_DEFAULTMODE_FROM_RESET+     ----- -----  ----- -----
 ... /INITDEVICE
 
-_SETDACOUTPUT/PID                             ----- -----  ----- -----
-
 ?C_INITSEG                                    ----- -----  ----- -----
   +--> DACOUTPUTHANDLER/PID
   +--> PIDHANDLER/PID
 
 DACOUTPUTHANDLER/PID                          ----- -----  ----- -----
+  +--> _SETDACOUTPUT/PID
+
+_SETDACOUTPUT/PID                             ----- -----  ----- -----
 
 PIDHANDLER/PID                                ----- -----  ----- -----
+  +--> _CALCULATEPID/PID
+
+_CALCULATEPID/PID                             ----- -----  ----- -----
 
 
 
 PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 5
+
+
 
       VALUE       CLASS    TYPE      PUBLIC SYMBOL NAME
       =================================================
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 5
-
-
       00000000H   NUMBER   ---       ?C?CODESEG
-      01000126H   CODE     ---       ?C?COPY
-      01000174H   CODE     ---       ?C?ICALL
-      01000178H   CODE     ---       ?C?ICALL2
-      0100015EH   CODE     ---       ?C?ILDIX
-      0100014CH   CODE     ---       ?C?IMUL
+      0100035BH   CODE     ---       ?C?ICALL
+      0100035FH   CODE     ---       ?C?ICALL2
+      01000345H   CODE     ---       ?C?ILDIX
+      01000333H   CODE     ---       ?C?IMUL
       00000000H   NUMBER   ---       ?C?XDATASEG
-      010001C1H   CODE     ---       ?C_START
+      0100018EH   CODE     ---       ?C_START
       01000000H   CODE     NEAR LAB  ?C_STARTUP
-*DEL*:00000000H   DATA     BYTE      ?Update_task_Flags?BYTE
-*DEL*:00000000H   CODE     ---       _CalculatePID
-      010002D5H   CODE     ---       _GetADC
-      01000003H   CODE     ---       _SetDACOutput
+      01000056H   CODE     ---       _CalculatePID
+      0100037AH   CODE     ---       _GetADC
+      01000423H   CODE     ---       _SetDACOutput
 *DEL*:00000000H   CODE     ---       _Update_task_period
 *SFR* 000000E0H   DATA     BYTE      ACC
 *SFR* 000000E0H   DATA     BIT       ACC_ACC0
@@ -305,7 +306,7 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000E8H   DATA     BIT       ADC0CN0_TEMPE
 *SFR* 000000B2H   DATA     BYTE      ADC0CN1
 *SFR* 000000B3H   DATA     BYTE      ADC0CN2
-      01000206H   CODE     ---       ADC0EOC_ISR
+      010002A3H   CODE     ---       ADC0EOC_ISR
 *SFR* 000000C3H   DATA     WORD      ADC0GT
 *SFR* 000000C4H   DATA     BYTE      ADC0GTH
 *SFR* 000000C3H   DATA     BYTE      ADC0GTL
@@ -323,10 +324,10 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000F0H.3 DATA     BIT       B_B3
 *SFR* 000000F0H.4 DATA     BIT       B_B4
 *SFR* 000000F0H.5 DATA     BIT       B_B5
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 6
+
+
 *SFR* 000000F0H.6 DATA     BIT       B_B6
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 6
-
-
 *SFR* 000000F0H.7 DATA     BIT       B_B7
 *DEL*:00000000H   CODE     ---       CIP51_0_enter_DefaultMode_from_RESET
 *SFR* 0000008EH   DATA     BYTE      CKCON0
@@ -343,7 +344,7 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000E8H.6 DATA     BIT       CLIF0_C3FIF
 *SFR* 000000E8H.7 DATA     BIT       CLIF0_C3RIF
 *SFR* 000000A9H   DATA     BYTE      CLKSEL
-      01000376H   CODE     ---       CLOCK_0_enter_DefaultMode_from_RESET
+      0100042FH   CODE     ---       CLOCK_0_enter_DefaultMode_from_RESET
 *SFR* 000000D1H   DATA     BYTE      CLOUT0
 *SFR* 000000B1H   DATA     BYTE      CLU0CF
 *SFR* 000000AFH   DATA     BYTE      CLU0FN
@@ -388,11 +389,11 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 0000009AH   DATA     BYTE      DAC3CF0
 *SFR* 0000009CH   DATA     BYTE      DAC3CF1
 *SFR* 0000008EH   DATA     BYTE      DAC3H
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 7
+
+
 *SFR* 0000008DH   DATA     BYTE      DAC3L
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 7
-
-
-      010003C1H   CODE     ---       DAC_0_enter_DefaultMode_from_RESET
+      0100047EH   CODE     ---       DAC_0_enter_DefaultMode_from_RESET
 *SFR* 00000088H   DATA     BYTE      DACGCF0
 *SFR* 00000088H.3 DATA     BIT       DACGCF0_D01REFSL
 *SFR* 00000088H.2 DATA     BIT       DACGCF0_D1AMEN
@@ -408,9 +409,9 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 00000098H.2 DATA     BIT       DACGCF1_D2UDIS
 *SFR* 00000098H.3 DATA     BIT       DACGCF1_D3UDIS
 *SFR* 000000A2H   DATA     BYTE      DACGCF2
-      010003D6H   CODE     ---       DACGCF_0_enter_DefaultMode_from_RESET
-      01000050H   CODE     ---       DACOutputHandler
-      00000010H   DATA     BYTE      delay
+      01000498H   CODE     ---       DACGCF_0_enter_DefaultMode_from_RESET
+      0100043AH   CODE     ---       DACOutputHandler
+      00000009H   DATA     BYTE      delay
 *SFR* 000000ADH   DATA     BYTE      DERIVID
 *SFR* 000000B5H   DATA     BYTE      DEVICEID
 *SFR* 00000082H   DATA     WORD      DP
@@ -423,12 +424,12 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000EDH   DATA     BYTE      EIP2
 *SFR* 000000F6H   DATA     BYTE      EIP2H
 *SFR* 000000E7H   DATA     BYTE      EMI0CN
-      01000255H   CODE     ---       enter_DefaultMode_from_RESET
+      010002EDH   CODE     ---       enter_DefaultMode_from_RESET
 *SFR* 000000B7H   DATA     BYTE      FLKEY
 *SFR* 000000C7H   DATA     BYTE      HFO0CAL
 *SFR* 000000D6H   DATA     BYTE      HFO1CAL
 *SFR* 000000EFH   DATA     BYTE      HFOCN
-      010003B3H   CODE     ---       HFOSC_0_enter_DefaultMode_from_RESET
+      01000003H   CODE     ---       HFOSC_0_enter_DefaultMode_from_RESET
 *SFR* 000000FFH   DATA     BYTE      I2C0ADM
 *SFR* 000000BAH   DATA     BYTE      I2C0CN0
 *SFR* 000000BCH   DATA     BYTE      I2C0DIN
@@ -447,22 +448,22 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000A8H.5 DATA     BIT       IE_ET2
 *SFR* 000000A8H   DATA     BIT       IE_EX0
 *SFR* 000000A8H.2 DATA     BIT       IE_EX1
-      01000343H   CODE     ---       INTERRUPT_0_enter_DefaultMode_from_RESET
+      010003FCH   CODE     ---       INTERRUPT_0_enter_DefaultMode_from_RESET
 *SFR* 000000B8H   DATA     BYTE      IP
 *SFR* 000000B8H.4 DATA     BIT       IP_PS0
 *SFR* 000000B8H.6 DATA     BIT       IP_PSPI0
 *SFR* 000000B8H.1 DATA     BIT       IP_PT0
 *SFR* 000000B8H.3 DATA     BIT       IP_PT1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 8
+
+
 *SFR* 000000B8H.5 DATA     BIT       IP_PT2
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 8
-
-
 *SFR* 000000B8H   DATA     BIT       IP_PX0
 *SFR* 000000B8H.2 DATA     BIT       IP_PX1
 *SFR* 000000F2H   DATA     BYTE      IPH
 *SFR* 000000E4H   DATA     BYTE      IT01CF
 *SFR* 000000B1H   DATA     BYTE      LFO0CN
-      0100036AH   CODE     ---       main
+      01000493H   CODE     ---       main
 *SFR* 00000080H   DATA     BYTE      P0
 *SFR* 00000080H   DATA     BIT       P0_B0
 *SFR* 00000080H.1 DATA     BIT       P0_B1
@@ -513,15 +514,15 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000B0H.7 DATA     BIT       P3_B7
 *SFR* 000000F4H   DATA     BYTE      P3MDIN
 *SFR* 0000009CH   DATA     BYTE      P3MDOUT
-      01000381H   CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
+      01000445H   CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
 *SFR* 000000F9H   DATA     WORD      PCA0
 *SFR* 0000009EH   DATA     BYTE      PCA0CENT
 *SFR* 0000009CH   DATA     BYTE      PCA0CLR
 *SFR* 000000D8H   DATA     BYTE      PCA0CN0
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 9
+
+
 *SFR* 000000D8H   DATA     BIT       PCA0CN0_CCF0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 9
-
-
 *SFR* 000000D8H.1 DATA     BIT       PCA0CN0_CCF1
 *SFR* 000000D8H.2 DATA     BIT       PCA0CN0_CCF2
 *SFR* 000000D8H.3 DATA     BIT       PCA0CN0_CCF3
@@ -558,16 +559,16 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000D9H   DATA     BYTE      PCA0MD
 *SFR* 00000096H   DATA     BYTE      PCA0POL
 *SFR* 000000F7H   DATA     BYTE      PCA0PWM
-      01000312H   CODE     ---       PCA_0_enter_DefaultMode_from_RESET
-      01000350H   CODE     ---       PCACH_0_enter_DefaultMode_from_RESET
-      010003BAH   CODE     ---       PCACH_1_enter_DefaultMode_from_RESET
+      010003CBH   CODE     ---       PCA_0_enter_DefaultMode_from_RESET
+      01000409H   CODE     ---       PCACH_0_enter_DefaultMode_from_RESET
+      01000477H   CODE     ---       PCACH_1_enter_DefaultMode_from_RESET
 *SFR* 00000087H   DATA     BYTE      PCON0
 *SFR* 000000CDH   DATA     BYTE      PCON1
 *SFR* 000000C1H   DATA     BYTE      PFE0CN
-      0100002AH   CODE     ---       PIDHandler
-      01000323H   CODE     ---       PORTS_0_enter_DefaultMode_from_RESET
-      0100035DH   CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
-      0100039FH   CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
+      01000391H   CODE     ---       PIDHandler
+      010003DCH   CODE     ---       PORTS_0_enter_DefaultMode_from_RESET
+      01000416H   CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
+      01000463H   CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
 *SFR* 000000A0H   DATA     BYTE      PPAGE_SFR
 *SFR* 000000F6H   DATA     BYTE      PRTDRV
 *SFR* 0000008FH   DATA     BYTE      PSCTL
@@ -583,17 +584,17 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000D0H.4 DATA     BIT       PSW_RS1
 *SFR* 000000D1H   DATA     BYTE      REF0CN
 *SFR* 000000C9H   DATA     BYTE      REG0CN
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 10
+
+
 *SFR* 000000B6H   DATA     BYTE      REVID
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 10
-
-
 *SFR* 000000EFH   DATA     BYTE      RSTSRC
 *SFR* 00000094H   DATA     BYTE      SBCON1
 *SFR* 00000096H   DATA     BYTE      SBRLH1
 *SFR* 00000095H   DATA     BYTE      SBRLL1
 *SFR* 00000099H   DATA     BYTE      SBUF0
 *SFR* 00000092H   DATA     BYTE      SBUF1
-*DEL*:00000000H   CODE     ---       Scheduler_CallBack
+      010001D3H   CODE     ---       Scheduler_CallBack
 *SFR* 00000098H   DATA     BYTE      SCON0
 *SFR* 00000098H.5 DATA     BIT       SCON0_MCE
 *SFR* 00000098H.2 DATA     BIT       SCON0_RB8
@@ -648,11 +649,11 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 0000009AH   DATA     BYTE      SPI0FCN0
 *SFR* 0000009BH   DATA     BYTE      SPI0FCN1
 *SFR* 000000F7H   DATA     BYTE      SPI0FCT
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 11
+
+
 *SFR* 000000DFH   DATA     BYTE      SPI0PCF
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 11
-
-
-      02000000H   XDATA    ---       tasks
+      02000014H   XDATA    ---       tasks
 *SFR* 00000088H   DATA     BYTE      TCON
 *SFR* 00000088H.1 DATA     BIT       TCON_IE0
 *SFR* 00000088H.3 DATA     BIT       TCON_IE1
@@ -665,13 +666,13 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000B0H.3 DATA     BIT       TEST1
 *SFR* 0000008CH   DATA     BYTE      TH0
 *SFR* 0000008DH   DATA     BYTE      TH1
-      01000333H   CODE     ---       TIMER01_0_enter_DefaultMode_from_RESET
-      0100029BH   CODE     ---       TIMER0_ISR
-      010002ECH   CODE     ---       TIMER16_2_enter_DefaultMode_from_RESET
-      010002FFH   CODE     ---       TIMER16_4_enter_DefaultMode_from_RESET
-      010003A9H   CODE     ---       TIMER16_5_enter_DefaultMode_from_RESET
-      010003CFH   CODE     ---       TIMER2_ISR
-      01000395H   CODE     ---       TIMER_SETUP_0_enter_DefaultMode_from_RESET
+      010003ECH   CODE     ---       TIMER01_0_enter_DefaultMode_from_RESET
+      01000252H   CODE     ---       TIMER0_ISR
+      010003A5H   CODE     ---       TIMER16_2_enter_DefaultMode_from_RESET
+      010003B8H   CODE     ---       TIMER16_4_enter_DefaultMode_from_RESET
+      0100046DH   CODE     ---       TIMER16_5_enter_DefaultMode_from_RESET
+      0100048CH   CODE     ---       TIMER2_ISR
+      01000459H   CODE     ---       TIMER_SETUP_0_enter_DefaultMode_from_RESET
 *SFR* 0000008AH   DATA     BYTE      TL0
 *SFR* 0000008BH   DATA     BYTE      TL1
 *SFR* 00000089H   DATA     BYTE      TMOD
@@ -713,10 +714,10 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000A5H   DATA     BYTE      TMR4H
 *SFR* 000000A4H   DATA     BYTE      TMR4L
 *SFR* 000000A2H   DATA     WORD      TMR4RL
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 12
+
+
 *SFR* 000000A3H   DATA     BYTE      TMR4RLH
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 12
-
-
 *SFR* 000000A2H   DATA     BYTE      TMR4RLL
 *SFR* 000000D4H   DATA     WORD      TMR5
 *SFR* 000000C0H   DATA     BYTE      TMR5CN0
@@ -748,10 +749,9 @@ PUBLIC SYMBOLS OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
 *SFR* 000000FAH   DATA     BYTE      UART1FCT
 *SFR* 0000009EH   DATA     BYTE      UART1LIN
 *SFR* 000000DAH   DATA     BYTE      UART1PCF
-*DEL*:00000000H   CODE     ---       Update_task_Flags
 *SFR* 000000FFH   DATA     BYTE      VDM0CN
-      010003C8H   CODE     ---       VREF_0_enter_DefaultMode_from_RESET
-      0100038BH   CODE     ---       WDT_0_enter_DefaultMode_from_RESET
+      01000485H   CODE     ---       VREF_0_enter_DefaultMode_from_RESET
+      0100044FH   CODE     ---       WDT_0_enter_DefaultMode_from_RESET
 *SFR* 00000097H   DATA     BYTE      WDTCN
 *SFR* 000000E1H   DATA     BYTE      XBR0
 *SFR* 000000E2H   DATA     BYTE      XBR1
@@ -766,30 +766,30 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       ====================================================
       ---         MODULE    ---      ---       INITDEVICE
       0100002EH   PUBLIC    CODE     ---       ADC_0_enter_DefaultMode_from_RESET
-      0100035DH   PUBLIC    CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
-      010003C8H   PUBLIC    CODE     ---       VREF_0_enter_DefaultMode_from_RESET
-      010003D6H   PUBLIC    CODE     ---       DACGCF_0_enter_DefaultMode_from_RESET
-      010003C1H   PUBLIC    CODE     ---       DAC_0_enter_DefaultMode_from_RESET
-      010003BAH   PUBLIC    CODE     ---       PCACH_1_enter_DefaultMode_from_RESET
-      010003A9H   PUBLIC    CODE     ---       TIMER16_5_enter_DefaultMode_from_RESET
-      010002FFH   PUBLIC    CODE     ---       TIMER16_4_enter_DefaultMode_from_RESET
-      0100039FH   PUBLIC    CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
-      01000395H   PUBLIC    CODE     ---       TIMER_SETUP_0_enter_DefaultMode_from_RESET
-      01000333H   PUBLIC    CODE     ---       TIMER01_0_enter_DefaultMode_from_RESET
-      0100038BH   PUBLIC    CODE     ---       WDT_0_enter_DefaultMode_from_RESET
-      01000350H   PUBLIC    CODE     ---       PCACH_0_enter_DefaultMode_from_RESET
-      01000312H   PUBLIC    CODE     ---       PCA_0_enter_DefaultMode_from_RESET
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 13
+      01000416H   PUBLIC    CODE     ---       PORTS_1_enter_DefaultMode_from_RESET
+      01000485H   PUBLIC    CODE     ---       VREF_0_enter_DefaultMode_from_RESET
+      01000498H   PUBLIC    CODE     ---       DACGCF_0_enter_DefaultMode_from_RESET
+      0100047EH   PUBLIC    CODE     ---       DAC_0_enter_DefaultMode_from_RESET
+      01000477H   PUBLIC    CODE     ---       PCACH_1_enter_DefaultMode_from_RESET
+      0100046DH   PUBLIC    CODE     ---       TIMER16_5_enter_DefaultMode_from_RESET
+      010003B8H   PUBLIC    CODE     ---       TIMER16_4_enter_DefaultMode_from_RESET
+      01000463H   PUBLIC    CODE     ---       PORTS_3_enter_DefaultMode_from_RESET
+      01000459H   PUBLIC    CODE     ---       TIMER_SETUP_0_enter_DefaultMode_from_RESET
+      010003ECH   PUBLIC    CODE     ---       TIMER01_0_enter_DefaultMode_from_RESET
+      0100044FH   PUBLIC    CODE     ---       WDT_0_enter_DefaultMode_from_RESET
+      01000409H   PUBLIC    CODE     ---       PCACH_0_enter_DefaultMode_from_RESET
+      010003CBH   PUBLIC    CODE     ---       PCA_0_enter_DefaultMode_from_RESET
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 13
 
 
-      01000343H   PUBLIC    CODE     ---       INTERRUPT_0_enter_DefaultMode_from_RESET
-      010002ECH   PUBLIC    CODE     ---       TIMER16_2_enter_DefaultMode_from_RESET
-      01000376H   PUBLIC    CODE     ---       CLOCK_0_enter_DefaultMode_from_RESET
-      01000323H   PUBLIC    CODE     ---       PORTS_0_enter_DefaultMode_from_RESET
-      010003B3H   PUBLIC    CODE     ---       HFOSC_0_enter_DefaultMode_from_RESET
+      010003FCH   PUBLIC    CODE     ---       INTERRUPT_0_enter_DefaultMode_from_RESET
+      010003A5H   PUBLIC    CODE     ---       TIMER16_2_enter_DefaultMode_from_RESET
+      0100042FH   PUBLIC    CODE     ---       CLOCK_0_enter_DefaultMode_from_RESET
+      010003DCH   PUBLIC    CODE     ---       PORTS_0_enter_DefaultMode_from_RESET
+      01000003H   PUBLIC    CODE     ---       HFOSC_0_enter_DefaultMode_from_RESET
       0100000EH   PUBLIC    CODE     ---       CMP_0_enter_DefaultMode_from_RESET
-      01000381H   PUBLIC    CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
-      01000255H   PUBLIC    CODE     ---       enter_DefaultMode_from_RESET
+      01000445H   PUBLIC    CODE     ---       PBCFG_0_enter_DefaultMode_from_RESET
+      010002EDH   PUBLIC    CODE     ---       enter_DefaultMode_from_RESET
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000C8H.6 SFRSYM    DATA     BIT       SCON1_PERR
@@ -844,7 +844,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D8H.3 SFRSYM    DATA     BIT       UART1FCN1_RFRQ
       000000F0H.2 SFRSYM    DATA     BIT       B_B2
       000000BCH   SFRSYM    DATA     BYTE      SFRPGCN
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 14
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 14
 
 
       000000FBH   SFRSYM    DATA     BYTE      PCA0CPL0
@@ -909,7 +909,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D8H   SFRSYM    DATA     BIT       PCA0CN0_CCF0
       000000E0H.5 SFRSYM    DATA     BIT       ACC_ACC5
       00000098H.2 SFRSYM    DATA     BIT       TMR4CN0_TR4
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 15
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 15
 
 
       000000D8H.1 SFRSYM    DATA     BIT       PCA0CN0_CCF1
@@ -974,7 +974,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000DFH   SFRSYM    DATA     BYTE      ADC0CF2
       0000009AH   SFRSYM    DATA     BYTE      DAC3CF0
       00000096H   SFRSYM    DATA     BYTE      DAC2CF1
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 16
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 16
 
 
       000000CFH   SFRSYM    DATA     BYTE      CRC0FLIP
@@ -1039,7 +1039,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       0000008DH   SFRSYM    DATA     BYTE      DAC3L
       000000FBH   SFRSYM    DATA     WORD      PCA0CP0
       000000DAH   SFRSYM    DATA     BYTE      UART1PCF
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 17
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 17
 
 
       000000E9H   SFRSYM    DATA     WORD      PCA0CP1
@@ -1104,7 +1104,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000A0H.3 SFRSYM    DATA     BIT       P2_B3
       00000090H.4 SFRSYM    DATA     BIT       P1_B4
       00000080H.5 SFRSYM    DATA     BIT       P0_B5
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 18
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 18
 
 
       00000098H   SFRSYM    DATA     BIT       DACGCF1_D0UDIS
@@ -1169,7 +1169,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000FBH   SFRSYM    DATA     BYTE      P2MAT
       00000098H.6 SFRSYM    DATA     BIT       TMR4CN0_TF4L
       000000E8H.4 SFRSYM    DATA     BIT       ADC0CN0_ADBUSY
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 19
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 19
 
 
       000000D6H   SFRSYM    DATA     BYTE      SMB0ADM
@@ -1234,46 +1234,46 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000E8H.6 SFRSYM    DATA     BIT       CLIF0_C3FIF
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 20
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 20
 
 
-      01000255H   BLOCK     CODE     ---       LVL=0
-      01000255H   BLOCK     CODE     NEAR LAB  LVL=1
-      00000011H   SYMBOL    DATA     BYTE      SFRPAGE_save
+      010002EDH   BLOCK     CODE     ---       LVL=0
+      010002EDH   BLOCK     CODE     NEAR LAB  LVL=1
+      0000000AH   SYMBOL    DATA     BYTE      SFRPAGE_save
       ---         BLOCKEND  ---      ---       LVL=1
-      01000255H   LINE      CODE     ---       #22
-      01000255H   LINE      CODE     ---       #25
-      01000258H   LINE      CODE     ---       #26
-      0100025BH   LINE      CODE     ---       #27
-      0100025EH   LINE      CODE     ---       #28
-      01000261H   LINE      CODE     ---       #29
-      01000264H   LINE      CODE     ---       #30
-      01000267H   LINE      CODE     ---       #31
-      0100026AH   LINE      CODE     ---       #32
-      0100026DH   LINE      CODE     ---       #33
-      01000270H   LINE      CODE     ---       #34
-      01000273H   LINE      CODE     ---       #35
-      01000276H   LINE      CODE     ---       #36
-      01000279H   LINE      CODE     ---       #37
-      0100027CH   LINE      CODE     ---       #38
-      0100027FH   LINE      CODE     ---       #39
-      01000282H   LINE      CODE     ---       #40
-      01000285H   LINE      CODE     ---       #41
-      01000288H   LINE      CODE     ---       #42
-      0100028BH   LINE      CODE     ---       #43
-      0100028EH   LINE      CODE     ---       #44
-      01000291H   LINE      CODE     ---       #45
-      01000294H   LINE      CODE     ---       #46
-      01000297H   LINE      CODE     ---       #48
-      0100029AH   LINE      CODE     ---       #51
+      010002EDH   LINE      CODE     ---       #22
+      010002EDH   LINE      CODE     ---       #25
+      010002F0H   LINE      CODE     ---       #26
+      010002F3H   LINE      CODE     ---       #27
+      010002F6H   LINE      CODE     ---       #28
+      010002F9H   LINE      CODE     ---       #29
+      010002FCH   LINE      CODE     ---       #30
+      010002FFH   LINE      CODE     ---       #31
+      01000302H   LINE      CODE     ---       #32
+      01000305H   LINE      CODE     ---       #33
+      01000308H   LINE      CODE     ---       #34
+      0100030BH   LINE      CODE     ---       #35
+      0100030EH   LINE      CODE     ---       #36
+      01000311H   LINE      CODE     ---       #37
+      01000314H   LINE      CODE     ---       #38
+      01000317H   LINE      CODE     ---       #39
+      0100031AH   LINE      CODE     ---       #40
+      0100031DH   LINE      CODE     ---       #41
+      01000320H   LINE      CODE     ---       #42
+      01000323H   LINE      CODE     ---       #43
+      01000326H   LINE      CODE     ---       #44
+      01000329H   LINE      CODE     ---       #45
+      0100032CH   LINE      CODE     ---       #46
+      0100032FH   LINE      CODE     ---       #48
+      01000332H   LINE      CODE     ---       #51
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000381H   BLOCK     CODE     ---       LVL=0
-      01000381H   LINE      CODE     ---       #53
-      01000381H   LINE      CODE     ---       #62
-      01000384H   LINE      CODE     ---       #63
-      01000387H   LINE      CODE     ---       #82
-      0100038AH   LINE      CODE     ---       #86
+      01000445H   BLOCK     CODE     ---       LVL=0
+      01000445H   LINE      CODE     ---       #53
+      01000445H   LINE      CODE     ---       #62
+      01000448H   LINE      CODE     ---       #63
+      0100044BH   LINE      CODE     ---       #82
+      0100044EH   LINE      CODE     ---       #86
       ---         BLOCKEND  ---      ---       LVL=0
 
       0100000EH   BLOCK     CODE     ---       LVL=0
@@ -1292,177 +1292,177 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       01000029H   LINE      CODE     ---       #131
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003B3H   BLOCK     CODE     ---       LVL=0
-      010003B3H   LINE      CODE     ---       #133
-      010003B3H   LINE      CODE     ---       #139
-      010003B6H   LINE      CODE     ---       #140
-      010003B9H   LINE      CODE     ---       #143
+      01000003H   BLOCK     CODE     ---       LVL=0
+      01000003H   LINE      CODE     ---       #133
+      01000003H   LINE      CODE     ---       #139
+      01000006H   LINE      CODE     ---       #140
+      01000009H   LINE      CODE     ---       #143
       ---         BLOCKEND  ---      ---       LVL=0
 
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 21
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 21
 
 
-      01000323H   BLOCK     CODE     ---       LVL=0
-      01000323H   LINE      CODE     ---       #145
-      01000323H   LINE      CODE     ---       #157
-      01000326H   LINE      CODE     ---       #172
-      01000329H   LINE      CODE     ---       #189
-      0100032CH   LINE      CODE     ---       #205
-      0100032FH   LINE      CODE     ---       #225
-      01000332H   LINE      CODE     ---       #229
+      010003DCH   BLOCK     CODE     ---       LVL=0
+      010003DCH   LINE      CODE     ---       #145
+      010003DCH   LINE      CODE     ---       #157
+      010003DFH   LINE      CODE     ---       #172
+      010003E2H   LINE      CODE     ---       #189
+      010003E5H   LINE      CODE     ---       #205
+      010003E8H   LINE      CODE     ---       #225
+      010003EBH   LINE      CODE     ---       #229
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000376H   BLOCK     CODE     ---       LVL=0
-      01000376H   LINE      CODE     ---       #231
-      01000376H   LINE      CODE     ---       #240
-      01000379H   LINE      CODE     ---       #241
-      0100037BH   LINE      CODE     ---       #242
-      01000380H   LINE      CODE     ---       #246
+      0100042FH   BLOCK     CODE     ---       LVL=0
+      0100042FH   LINE      CODE     ---       #231
+      0100042FH   LINE      CODE     ---       #240
+      01000432H   LINE      CODE     ---       #241
+      01000434H   LINE      CODE     ---       #242
+      01000439H   LINE      CODE     ---       #246
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002ECH   BLOCK     CODE     ---       LVL=0
-      010002ECH   BLOCK     CODE     NEAR LAB  LVL=1
+      010003A5H   BLOCK     CODE     ---       LVL=0
+      010003A5H   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     BYTE      TMR2CN0_TR2_save
       ---         BLOCKEND  ---      ---       LVL=1
-      010002ECH   LINE      CODE     ---       #258
-      010002ECH   LINE      CODE     ---       #262
-      010002F0H   LINE      CODE     ---       #264
-      010002F3H   LINE      CODE     ---       #283
-      010002F6H   LINE      CODE     ---       #290
-      010002F9H   LINE      CODE     ---       #297
-      010002FCH   LINE      CODE     ---       #302
-      010002FEH   LINE      CODE     ---       #305
+      010003A5H   LINE      CODE     ---       #258
+      010003A5H   LINE      CODE     ---       #262
+      010003A9H   LINE      CODE     ---       #264
+      010003ACH   LINE      CODE     ---       #283
+      010003AFH   LINE      CODE     ---       #290
+      010003B2H   LINE      CODE     ---       #297
+      010003B5H   LINE      CODE     ---       #302
+      010003B7H   LINE      CODE     ---       #305
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000343H   BLOCK     CODE     ---       LVL=0
-      01000343H   LINE      CODE     ---       #307
-      01000343H   LINE      CODE     ---       #319
-      01000346H   LINE      CODE     ---       #350
-      01000349H   LINE      CODE     ---       #368
-      0100034CH   LINE      CODE     ---       #369
-      0100034FH   LINE      CODE     ---       #373
+      010003FCH   BLOCK     CODE     ---       LVL=0
+      010003FCH   LINE      CODE     ---       #307
+      010003FCH   LINE      CODE     ---       #319
+      010003FFH   LINE      CODE     ---       #350
+      01000402H   LINE      CODE     ---       #368
+      01000405H   LINE      CODE     ---       #369
+      01000408H   LINE      CODE     ---       #373
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000312H   BLOCK     CODE     ---       LVL=0
-      01000312H   LINE      CODE     ---       #375
-      01000312H   LINE      CODE     ---       #377
-      01000314H   LINE      CODE     ---       #387
-      01000317H   LINE      CODE     ---       #405
-      0100031AH   LINE      CODE     ---       #415
-      0100031DH   LINE      CODE     ---       #422
-      01000320H   LINE      CODE     ---       #432
-      01000322H   LINE      CODE     ---       #435
+      010003CBH   BLOCK     CODE     ---       LVL=0
+      010003CBH   LINE      CODE     ---       #375
+      010003CBH   LINE      CODE     ---       #377
+      010003CDH   LINE      CODE     ---       #387
+      010003D0H   LINE      CODE     ---       #405
+      010003D3H   LINE      CODE     ---       #415
+      010003D6H   LINE      CODE     ---       #422
+      010003D9H   LINE      CODE     ---       #432
+      010003DBH   LINE      CODE     ---       #435
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000350H   BLOCK     CODE     ---       LVL=0
-      01000350H   LINE      CODE     ---       #437
-      01000350H   LINE      CODE     ---       #440
-      01000353H   LINE      CODE     ---       #454
-      01000356H   LINE      CODE     ---       #464
-      01000359H   LINE      CODE     ---       #471
-      0100035CH   LINE      CODE     ---       #480
+      01000409H   BLOCK     CODE     ---       LVL=0
+      01000409H   LINE      CODE     ---       #437
+      01000409H   LINE      CODE     ---       #440
+      0100040CH   LINE      CODE     ---       #454
+      0100040FH   LINE      CODE     ---       #464
+      01000412H   LINE      CODE     ---       #471
+      01000415H   LINE      CODE     ---       #480
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100038BH   BLOCK     CODE     ---       LVL=0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 22
+      0100044FH   BLOCK     CODE     ---       LVL=0
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 22
 
 
-      0100038BH   LINE      CODE     ---       #482
-      0100038BH   LINE      CODE     ---       #484
-      0100038EH   LINE      CODE     ---       #486
-      01000391H   LINE      CODE     ---       #487
-      01000394H   LINE      CODE     ---       #490
+      0100044FH   LINE      CODE     ---       #482
+      0100044FH   LINE      CODE     ---       #484
+      01000452H   LINE      CODE     ---       #486
+      01000455H   LINE      CODE     ---       #487
+      01000458H   LINE      CODE     ---       #490
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000333H   BLOCK     CODE     ---       LVL=0
-      01000333H   BLOCK     CODE     NEAR LAB  LVL=1
+      010003ECH   BLOCK     CODE     ---       LVL=0
+      010003ECH   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     BYTE      TCON_save
       ---         BLOCKEND  ---      ---       LVL=1
-      01000333H   LINE      CODE     ---       #492
-      01000333H   LINE      CODE     ---       #496
-      01000335H   LINE      CODE     ---       #498
-      01000338H   LINE      CODE     ---       #516
-      01000342H   LINE      CODE     ---       #520
+      010003ECH   LINE      CODE     ---       #492
+      010003ECH   LINE      CODE     ---       #496
+      010003EEH   LINE      CODE     ---       #498
+      010003F1H   LINE      CODE     ---       #516
+      010003FBH   LINE      CODE     ---       #520
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000395H   BLOCK     CODE     ---       LVL=0
-      01000395H   LINE      CODE     ---       #522
-      01000395H   LINE      CODE     ---       #540
-      01000398H   LINE      CODE     ---       #541
-      0100039BH   LINE      CODE     ---       #549
-      0100039EH   LINE      CODE     ---       #552
+      01000459H   BLOCK     CODE     ---       LVL=0
+      01000459H   LINE      CODE     ---       #522
+      01000459H   LINE      CODE     ---       #540
+      0100045CH   LINE      CODE     ---       #541
+      0100045FH   LINE      CODE     ---       #549
+      01000462H   LINE      CODE     ---       #552
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100039FH   BLOCK     CODE     ---       LVL=0
-      0100039FH   LINE      CODE     ---       #554
-      0100039FH   LINE      CODE     ---       #567
-      010003A2H   LINE      CODE     ---       #568
-      010003A5H   LINE      CODE     ---       #582
-      010003A8H   LINE      CODE     ---       #586
+      01000463H   BLOCK     CODE     ---       LVL=0
+      01000463H   LINE      CODE     ---       #554
+      01000463H   LINE      CODE     ---       #567
+      01000466H   LINE      CODE     ---       #568
+      01000469H   LINE      CODE     ---       #582
+      0100046CH   LINE      CODE     ---       #586
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002FFH   BLOCK     CODE     ---       LVL=0
-      010002FFH   BLOCK     CODE     NEAR LAB  LVL=1
+      010003B8H   BLOCK     CODE     ---       LVL=0
+      010003B8H   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     BYTE      TMR4CN0_TR4_save
       ---         BLOCKEND  ---      ---       LVL=1
-      010002FFH   LINE      CODE     ---       #588
-      010002FFH   LINE      CODE     ---       #592
-      01000302H   LINE      CODE     ---       #593
-      01000306H   LINE      CODE     ---       #595
-      01000309H   LINE      CODE     ---       #614
-      0100030CH   LINE      CODE     ---       #621
-      0100030FH   LINE      CODE     ---       #629
-      01000311H   LINE      CODE     ---       #632
+      010003B8H   LINE      CODE     ---       #588
+      010003B8H   LINE      CODE     ---       #592
+      010003BBH   LINE      CODE     ---       #593
+      010003BFH   LINE      CODE     ---       #595
+      010003C2H   LINE      CODE     ---       #614
+      010003C5H   LINE      CODE     ---       #621
+      010003C8H   LINE      CODE     ---       #629
+      010003CAH   LINE      CODE     ---       #632
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003A9H   BLOCK     CODE     ---       LVL=0
-      010003A9H   BLOCK     CODE     NEAR LAB  LVL=1
+      0100046DH   BLOCK     CODE     ---       LVL=0
+      0100046DH   BLOCK     CODE     NEAR LAB  LVL=1
       00000007H   SYMBOL    DATA     BYTE      TMR5CN0_TR5_save
       ---         BLOCKEND  ---      ---       LVL=1
-      010003A9H   LINE      CODE     ---       #634
-      010003A9H   LINE      CODE     ---       #638
-      010003ADH   LINE      CODE     ---       #640
-      010003B0H   LINE      CODE     ---       #666
-      010003B2H   LINE      CODE     ---       #669
+      0100046DH   LINE      CODE     ---       #634
+      0100046DH   LINE      CODE     ---       #638
+      01000471H   LINE      CODE     ---       #640
+      01000474H   LINE      CODE     ---       #666
+      01000476H   LINE      CODE     ---       #669
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003BAH   BLOCK     CODE     ---       LVL=0
-      010003BAH   LINE      CODE     ---       #671
-      010003BAH   LINE      CODE     ---       #674
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 23
+      01000477H   BLOCK     CODE     ---       LVL=0
+      01000477H   LINE      CODE     ---       #671
+      01000477H   LINE      CODE     ---       #674
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 23
 
 
-      010003BDH   LINE      CODE     ---       #687
-      010003C0H   LINE      CODE     ---       #696
+      0100047AH   LINE      CODE     ---       #687
+      0100047DH   LINE      CODE     ---       #696
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003C1H   BLOCK     CODE     ---       LVL=0
-      010003C1H   LINE      CODE     ---       #698
-      010003C1H   LINE      CODE     ---       #706
-      010003C4H   LINE      CODE     ---       #707
-      010003C7H   LINE      CODE     ---       #714
+      0100047EH   BLOCK     CODE     ---       LVL=0
+      0100047EH   LINE      CODE     ---       #698
+      0100047EH   LINE      CODE     ---       #706
+      01000481H   LINE      CODE     ---       #707
+      01000484H   LINE      CODE     ---       #714
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003D6H   BLOCK     CODE     ---       LVL=0
-      010003D6H   LINE      CODE     ---       #716
-      010003D6H   LINE      CODE     ---       #728
-      010003D9H   LINE      CODE     ---       #736
+      01000498H   BLOCK     CODE     ---       LVL=0
+      01000498H   LINE      CODE     ---       #716
+      01000498H   LINE      CODE     ---       #728
+      0100049BH   LINE      CODE     ---       #736
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003C8H   BLOCK     CODE     ---       LVL=0
-      010003C8H   LINE      CODE     ---       #738
-      010003C8H   LINE      CODE     ---       #743
-      010003CBH   LINE      CODE     ---       #744
-      010003CEH   LINE      CODE     ---       #747
+      01000485H   BLOCK     CODE     ---       LVL=0
+      01000485H   LINE      CODE     ---       #738
+      01000485H   LINE      CODE     ---       #743
+      01000488H   LINE      CODE     ---       #744
+      0100048BH   LINE      CODE     ---       #747
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100035DH   BLOCK     CODE     ---       LVL=0
-      0100035DH   LINE      CODE     ---       #749
-      0100035DH   LINE      CODE     ---       #761
-      01000360H   LINE      CODE     ---       #779
-      01000363H   LINE      CODE     ---       #795
-      01000366H   LINE      CODE     ---       #815
-      01000369H   LINE      CODE     ---       #819
+      01000416H   BLOCK     CODE     ---       LVL=0
+      01000416H   LINE      CODE     ---       #749
+      01000416H   LINE      CODE     ---       #761
+      01000419H   LINE      CODE     ---       #779
+      0100041CH   LINE      CODE     ---       #795
+      0100041FH   LINE      CODE     ---       #815
+      01000422H   LINE      CODE     ---       #819
       ---         BLOCKEND  ---      ---       LVL=0
 
       0100002EH   BLOCK     CODE     ---       LVL=0
@@ -1482,9 +1482,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       INTERRUPTS
-      010003CFH   PUBLIC    CODE     ---       TIMER2_ISR
-      01000206H   PUBLIC    CODE     ---       ADC0EOC_ISR
-      0100029BH   PUBLIC    CODE     ---       TIMER0_ISR
+      0100048CH   PUBLIC    CODE     ---       TIMER2_ISR
+      010002A3H   PUBLIC    CODE     ---       ADC0EOC_ISR
+      01000252H   PUBLIC    CODE     ---       TIMER0_ISR
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000C8H.6 SFRSYM    DATA     BIT       SCON1_PERR
@@ -1494,7 +1494,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000F8H.1 SFRSYM    DATA     BIT       SPI0CN0_TXNF
       00000097H   SFRSYM    DATA     BYTE      WDTCN
       000000A0H   SFRSYM    DATA     BYTE      P2
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 24
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 24
 
 
       000000B0H   SFRSYM    DATA     BYTE      P3
@@ -1559,7 +1559,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000E8H.6 SFRSYM    DATA     BIT       ADC0CN0_IPOEN
       000000E8H   SFRSYM    DATA     BIT       ADC0CN0_TEMPE
       000000DCH   SFRSYM    DATA     BYTE      PCA0CPM2
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 25
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 25
 
 
       000000F4H   SFRSYM    DATA     BYTE      PCA0CPL3
@@ -1624,7 +1624,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D4H   SFRSYM    DATA     WORD      TMR5
       000000C0H.3 SFRSYM    DATA     BIT       SMB0CN0_ACKRQ
       000000D8H.5 SFRSYM    DATA     BIT       PCA0CN0_CCF5
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 26
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 26
 
 
       000000FFH   SFRSYM    DATA     BYTE      VDM0CN
@@ -1689,7 +1689,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000A8H.5 SFRSYM    DATA     BIT       IE_ET2
       00000088H   SFRSYM    DATA     BIT       DACGCF0_D1SRC0
       000000D5H   SFRSYM    DATA     BYTE      P1SKIP
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 27
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 27
 
 
       000000C0H.1 SFRSYM    DATA     BIT       TMR5CN0_T5XCLK1
@@ -1754,7 +1754,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000FAH   SFRSYM    DATA     BYTE      PCA0H
       000000F5H   SFRSYM    DATA     BYTE      I2C0FCT
       000000B8H.1 SFRSYM    DATA     BIT       IP_PT0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 28
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 28
 
 
       000000DDH   SFRSYM    DATA     WORD      PCA0CP5
@@ -1819,7 +1819,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000C5H   SFRSYM    DATA     BYTE      SMB0RXLN
       000000F6H   SFRSYM    DATA     BYTE      EIP2H
       000000A0H.6 SFRSYM    DATA     BIT       P2_B6
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 29
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 29
 
 
       00000090H.7 SFRSYM    DATA     BIT       P1_B7
@@ -1884,7 +1884,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000FFH   SFRSYM    DATA     BYTE      TMR4CN1
       000000D7H   SFRSYM    DATA     BYTE      SMB0ADR
       00000088H.4 SFRSYM    DATA     BIT       TCON_TR0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 30
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 30
 
 
       000000F1H   SFRSYM    DATA     BYTE      TMR5CN1
@@ -1933,44 +1933,45 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000E8H.6 SFRSYM    DATA     BIT       CLIF0_C3FIF
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
 
-      0100029BH   BLOCK     CODE     ---       LVL=0
-      0100029BH   LINE      CODE     ---       #24
-      0100029FH   LINE      CODE     ---       #26
-      010002A2H   LINE      CODE     ---       #28
-      010002A5H   LINE      CODE     ---       #30
-      010002A8H   LINE      CODE     ---       #35
-      010002AFH   LINE      CODE     ---       #36
-      010002AFH   LINE      CODE     ---       #38
-      010002B2H   LINE      CODE     ---       #39
-      010002B5H   LINE      CODE     ---       #40
-      010002B5H   LINE      CODE     ---       #45
+      01000252H   BLOCK     CODE     ---       LVL=0
+      01000252H   LINE      CODE     ---       #24
+      0100026FH   LINE      CODE     ---       #26
+      01000272H   LINE      CODE     ---       #28
+      01000275H   LINE      CODE     ---       #30
+      01000278H   LINE      CODE     ---       #35
+      0100027BH   LINE      CODE     ---       #37
+      01000282H   LINE      CODE     ---       #38
+      01000282H   LINE      CODE     ---       #40
+      01000285H   LINE      CODE     ---       #41
+      01000288H   LINE      CODE     ---       #42
+      01000288H   LINE      CODE     ---       #47
       ---         BLOCKEND  ---      ---       LVL=0
 
-      01000206H   BLOCK     CODE     ---       LVL=0
-      01000206H   LINE      CODE     ---       #55
-      01000223H   LINE      CODE     ---       #58
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 31
+      010002A3H   BLOCK     CODE     ---       LVL=0
+      010002A3H   LINE      CODE     ---       #57
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 31
 
 
-      01000226H   LINE      CODE     ---       #60
-      01000229H   LINE      CODE     ---       #62
-      01000230H   LINE      CODE     ---       #64
-      01000235H   LINE      CODE     ---       #66
-      0100023AH   LINE      CODE     ---       #68
+      010002C0H   LINE      CODE     ---       #60
+      010002C3H   LINE      CODE     ---       #62
+      010002C6H   LINE      CODE     ---       #64
+      010002CDH   LINE      CODE     ---       #66
+      010002D2H   LINE      CODE     ---       #69
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010003CFH   BLOCK     CODE     ---       LVL=0
-      010003CFH   LINE      CODE     ---       #79
-      010003CFH   LINE      CODE     ---       #81
-      010003D2H   LINE      CODE     ---       #83
-      010003D5H   LINE      CODE     ---       #87
+      0100048CH   BLOCK     CODE     ---       LVL=0
+      0100048CH   LINE      CODE     ---       #80
+      0100048CH   LINE      CODE     ---       #82
+      0100048FH   LINE      CODE     ---       #84
+      01000492H   LINE      CODE     ---       #88
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       PID
-      01000050H   PUBLIC    CODE     ---       DACOutputHandler
-      0100002AH   PUBLIC    CODE     ---       PIDHandler
-      010002D5H   PUBLIC    CODE     ---       _GetADC
-      01000003H   PUBLIC    CODE     ---       _SetDACOutput
+      0100043AH   PUBLIC    CODE     ---       DACOutputHandler
+      01000391H   PUBLIC    CODE     ---       PIDHandler
+      0100037AH   PUBLIC    CODE     ---       _GetADC
+      01000423H   PUBLIC    CODE     ---       _SetDACOutput
+      01000056H   PUBLIC    CODE     ---       _CalculatePID
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000C8H.6 SFRSYM    DATA     BIT       SCON1_PERR
@@ -2013,10 +2014,10 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000092H   SFRSYM    DATA     BYTE      TMR3RLL
       000000EAH   SFRSYM    DATA     BYTE      PCA0CPH1
       00000098H.3 SFRSYM    DATA     BIT       SCON0_TB8
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 32
+
+
       000000F0H   SFRSYM    DATA     BIT       B_B0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 32
-
-
       00000082H   SFRSYM    DATA     WORD      DP
       000000A2H   SFRSYM    DATA     BYTE      TMR4RLL
       000000ECH   SFRSYM    DATA     BYTE      PCA0CPH2
@@ -2078,10 +2079,10 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000CAH   SFRSYM    DATA     BYTE      CRC0IN
       000000B6H   SFRSYM    DATA     BYTE      CLU2CF
       000000A6H   SFRSYM    DATA     BYTE      CKCON1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 33
+
+
       000000C8H.2 SFRSYM    DATA     BIT       TMR2CN0_TR2
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 33
-
-
       000000E0H.2 SFRSYM    DATA     BIT       ACC_ACC2
       000000BFH   SFRSYM    DATA     BYTE      CLU3CF
       000000E0H.3 SFRSYM    DATA     BIT       ACC_ACC3
@@ -2143,10 +2144,10 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000BCH   SFRSYM    DATA     BYTE      ADC0CF0
       000000C8H   SFRSYM    DATA     BIT       TMR2CN0_T2XCLK0
       00000093H   SFRSYM    DATA     BYTE      DAC1CF0
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 34
+
+
       00000092H   SFRSYM    DATA     BYTE      DAC0CF1
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 34
-
-
       000000B9H   SFRSYM    DATA     BYTE      ADC0CF1
       000000C8H.1 SFRSYM    DATA     BIT       TMR2CN0_T2XCLK1
       000000C8H.3 SFRSYM    DATA     BIT       SCON1_TBX
@@ -2208,10 +2209,10 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000088H.6 SFRSYM    DATA     BIT       DACGCF0_D3AMEN
       000000CAH   SFRSYM    DATA     WORD      TMR2RL
       00000084H   SFRSYM    DATA     BYTE      DAC0L
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 35
+
+
       000000BDH   SFRSYM    DATA     BYTE      ADC0L
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 35
-
-
       00000092H   SFRSYM    DATA     WORD      TMR3RL
       00000089H   SFRSYM    DATA     BYTE      DAC1L
       000000A2H   SFRSYM    DATA     WORD      TMR4RL
@@ -2273,10 +2274,10 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000088H.3 SFRSYM    DATA     BIT       TCON_IE1
       000000B0H   SFRSYM    DATA     BIT       P3_B0
       000000A0H.1 SFRSYM    DATA     BIT       P2_B1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 36
+
+
       00000090H.2 SFRSYM    DATA     BIT       P1_B2
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 36
-
-
       00000080H.3 SFRSYM    DATA     BIT       P0_B3
       000000C0H   SFRSYM    DATA     BYTE      SMB0CN0
       000000ACH   SFRSYM    DATA     BYTE      CMP1CN1
@@ -2338,10 +2339,10 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000FDH   SFRSYM    DATA     BYTE      P0MAT
       000000CBH   SFRSYM    DATA     BYTE      CRC0DAT
       000000C0H.7 SFRSYM    DATA     BIT       TMR5CN0_TF5H
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 37
+
+
       000000C0H.3 SFRSYM    DATA     BIT       TMR5CN0_T5SPLIT
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 37
-
-
       00000088H.2 SFRSYM    DATA     BIT       TCON_IT1
       000000D7H   SFRSYM    DATA     BYTE      SFRSTACK
       00000098H   SFRSYM    DATA     BYTE      SCON0
@@ -2384,6 +2385,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D5H   SFRSYM    DATA     BYTE      TMR5H
       000000EFH   SFRSYM    DATA     BYTE      SMB0FCT
       00000096H   SFRSYM    DATA     BYTE      PCA0POL
+      000000B0H.3 SFRSYM    DATA     BIT       TEST1
       000000CEH   SFRSYM    DATA     BYTE      TMR2L
       000000C0H.4 SFRSYM    DATA     BIT       TMR5CN0_TF5CEN
       000000F8H.7 SFRSYM    DATA     BIT       SPI0CN0_SPIF
@@ -2402,11 +2404,11 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000F8H.3 SFRSYM    DATA     BIT       SPI0CN0_NSSMD1
       000000BDH   SFRSYM    DATA     WORD      ADC0
       000000D8H   SFRSYM    DATA     BYTE      UART1FCN1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 38
+
+
       000000ABH   SFRSYM    DATA     BYTE      I2C0FCN1
       000000E8H   SFRSYM    DATA     BIT       CLIF0_C0FIF
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 38
-
-
       00000098H.5 SFRSYM    DATA     BIT       TMR4CN0_TF4LEN
       000000E8H.2 SFRSYM    DATA     BIT       CLIF0_C1FIF
       000000D0H   SFRSYM    DATA     BYTE      PSW
@@ -2417,43 +2419,76 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000C0H.5 SFRSYM    DATA     BIT       TMR5CN0_TF5LEN
       000000E8H.6 SFRSYM    DATA     BIT       CLIF0_C3FIF
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
-      00000008H   SYMBOL    DATA     INT       PIDresult
-      0000000AH   SYMBOL    DATA     CHAR      n1_error
-      0000000BH   SYMBOL    DATA     CHAR      error
-      02000014H   SYMBOL    XDATA    WORD      ADCResult
-      0000000CH   SYMBOL    DATA     CHAR      D_term
-      0000000DH   SYMBOL    DATA     CHAR      I_term
-      0000000EH   SYMBOL    DATA     CHAR      P_term
-      00000006H   SYMBOL    DATA     WORD      current_error
+      02000000H   SYMBOL    XDATA    INT       PIDresult
+      02000002H   SYMBOL    XDATA    INT       Error_Derivative
+      02000004H   SYMBOL    XDATA    INT       Error
+      02000006H   SYMBOL    XDATA    WORD      OutputResult
+      02000008H   SYMBOL    XDATA    INT       Error_Integral
+      0200000AH   SYMBOL    XDATA    WORD      ADCResult
+      0200000CH   SYMBOL    XDATA    INT       Previous_Error
+      0200000EH   SYMBOL    XDATA    INT       D_term
+      02000010H   SYMBOL    XDATA    INT       I_term
+      02000012H   SYMBOL    XDATA    INT       P_term
 
-      01000003H   BLOCK     CODE     ---       LVL=0
+      01000056H   BLOCK     CODE     ---       LVL=0
+      00000006H   SYMBOL    DATA     WORD      current_ADC
+      01000056H   LINE      CODE     ---       #52
+      01000056H   LINE      CODE     ---       #53
+      01000056H   LINE      CODE     ---       #57
+      01000065H   LINE      CODE     ---       #60
+      01000071H   LINE      CODE     ---       #62
+      01000080H   LINE      CODE     ---       #63
+      01000080H   LINE      CODE     ---       #64
+      01000089H   LINE      CODE     ---       #65
+      0100008BH   LINE      CODE     ---       #67
+      01000096H   LINE      CODE     ---       #68
+      01000096H   LINE      CODE     ---       #69
+      010000A0H   LINE      CODE     ---       #70
+      010000A0H   LINE      CODE     ---       #72
+      010000BCH   LINE      CODE     ---       #73
+      010000C4H   LINE      CODE     ---       #75
+      01000101H   LINE      CODE     ---       #78
+      0100011BH   LINE      CODE     ---       #80
+      01000125H   LINE      CODE     ---       #81
+      01000125H   LINE      CODE     ---       #82
+      0100012FH   LINE      CODE     ---       #83
+      0100012FH   LINE      CODE     ---       #85
+      0100013EH   LINE      CODE     ---       #89
+      01000146H   LINE      CODE     ---       #90
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      01000423H   BLOCK     CODE     ---       LVL=0
+      00000004H   SYMBOL    DATA     WORD      value
+      01000423H   LINE      CODE     ---       #92
+      01000427H   LINE      CODE     ---       #93
+      01000427H   LINE      CODE     ---       #95
+      0100042AH   LINE      CODE     ---       #96
+      0100042CH   LINE      CODE     ---       #97
+      0100042EH   LINE      CODE     ---       #98
+      ---         BLOCKEND  ---      ---       LVL=0
+
+      0100037AH   BLOCK     CODE     ---       LVL=0
       00000006H   SYMBOL    DATA     WORD      value
-      01000003H   LINE      CODE     ---       #70
-      01000003H   LINE      CODE     ---       #71
-      01000003H   LINE      CODE     ---       #72
-      01000006H   LINE      CODE     ---       #74
-      01000008H   LINE      CODE     ---       #75
-      0100000AH   LINE      CODE     ---       #76
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 39
+
+
+      0100037AH   LINE      CODE     ---       #100
+      0100037AH   LINE      CODE     ---       #101
+      0100037AH   LINE      CODE     ---       #102
+      01000390H   LINE      CODE     ---       #103
       ---         BLOCKEND  ---      ---       LVL=0
 
-      010002D5H   BLOCK     CODE     ---       LVL=0
-      00000006H   SYMBOL    DATA     WORD      value
-      010002D5H   LINE      CODE     ---       #78
-      010002D5H   LINE      CODE     ---       #79
-      010002D5H   LINE      CODE     ---       #80
-      010002EBH   LINE      CODE     ---       #81
+      01000391H   BLOCK     CODE     ---       LVL=0
+      01000391H   LINE      CODE     ---       #105
+      01000391H   LINE      CODE     ---       #106
+      01000391H   LINE      CODE     ---       #108
+      010003A4H   LINE      CODE     ---       #110
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100002AH   BLOCK     CODE     ---       LVL=0
-      0100002AH   LINE      CODE     ---       #83
-      0100002AH   LINE      CODE     ---       #84
-      0100002AH   LINE      CODE     ---       #86
-      ---         BLOCKEND  ---      ---       LVL=0
-
-      01000050H   BLOCK     CODE     ---       LVL=0
-      01000050H   LINE      CODE     ---       #89
-      01000050H   LINE      CODE     ---       #90
-      01000050H   LINE      CODE     ---       #92
+      0100043AH   BLOCK     CODE     ---       LVL=0
+      0100043AH   LINE      CODE     ---       #113
+      0100043AH   LINE      CODE     ---       #114
+      0100043AH   LINE      CODE     ---       #115
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_STARTUP
@@ -2467,17 +2502,14 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000000H   SYMBOL    NUMBER   ---       IBPSTACK
       00000100H   SYMBOL    NUMBER   ---       IBPSTACKTOP
       00000080H   SYMBOL    NUMBER   ---       IDATALEN
-      0100017DH   SYMBOL    CODE     NEAR LAB  IDATALOOP
+      0100014AH   SYMBOL    CODE     NEAR LAB  IDATALOOP
       00000000H   SYMBOL    NUMBER   ---       PBPSTACK
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 39
-
-
       00000100H   SYMBOL    NUMBER   ---       PBPSTACKTOP
       00000000H   SYMBOL    NUMBER   ---       PDATALEN
       00000000H   SYMBOL    NUMBER   ---       PDATASTART
       00000000H   SYMBOL    NUMBER   ---       PPAGE
       00000000H   SYMBOL    NUMBER   ---       PPAGEENABLE
-      0100017AH   SYMBOL    CODE     NEAR LAB  STARTUP1
+      01000147H   SYMBOL    CODE     NEAR LAB  STARTUP1
       00000000H   SYMBOL    NUMBER   ---       XBPSTACK
       00010000H   SYMBOL    NUMBER   ---       XBPSTACKTOP
       00000000H   SYMBOL    NUMBER   ---       XDATALEN
@@ -2487,20 +2519,24 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       01000000H   LINE      CODE     ---       #126
       ---         BLOCKEND  ---      ---       LVL=0
 
-      0100017AH   BLOCK     CODE     NEAR LAB  LVL=0
-      0100017AH   LINE      CODE     ---       #138
-      0100017CH   LINE      CODE     ---       #139
-      0100017DH   LINE      CODE     ---       #140
-      0100017EH   LINE      CODE     ---       #141
-      01000180H   LINE      CODE     ---       #190
-      01000183H   LINE      CODE     ---       #201
+      01000147H   BLOCK     CODE     NEAR LAB  LVL=0
+      01000147H   LINE      CODE     ---       #138
+      01000149H   LINE      CODE     ---       #139
+      0100014AH   LINE      CODE     ---       #140
+      0100014BH   LINE      CODE     ---       #141
+      0100014DH   LINE      CODE     ---       #190
+      01000150H   LINE      CODE     ---       #201
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       SCHEDULER
-      02000000H   PUBLIC    XDATA    ---       tasks
+      02000014H   PUBLIC    XDATA    ---       tasks
+      010001D3H   PUBLIC    CODE     ---       Scheduler_CallBack
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000C8H.6 SFRSYM    DATA     BIT       SCON1_PERR
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 40
+
+
       000000D0H.2 SFRSYM    DATA     BIT       PSW_OV
       00000086H   SFRSYM    DATA     BYTE      XOSC0CN
       00000090H   SFRSYM    DATA     BYTE      P1
@@ -2534,9 +2570,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000BBH   SFRSYM    DATA     BYTE      EIP1
       000000D3H   SFRSYM    DATA     BYTE      TMR5RLH
       000000EDH   SFRSYM    DATA     BYTE      EIP2
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 40
-
-
       00000098H.2 SFRSYM    DATA     BIT       SCON0_RB8
       000000CAH   SFRSYM    DATA     BYTE      TMR2RLL
       000000FCH   SFRSYM    DATA     BYTE      PCA0CPH0
@@ -2566,6 +2599,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000F0H.4 SFRSYM    DATA     BIT       B_B4
       000000DBH   SFRSYM    DATA     BYTE      PCA0CPM1
       000000EBH   SFRSYM    DATA     BYTE      PCA0CPL2
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 41
+
+
       000000A1H   SFRSYM    DATA     BYTE      ADC0ASCF
       000000B6H   SFRSYM    DATA     BYTE      ADC0ASAH
       000000F0H.5 SFRSYM    DATA     BIT       B_B5
@@ -2599,9 +2635,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000E0H   SFRSYM    DATA     BIT       ACC_ACC0
       000000D1H   SFRSYM    DATA     BYTE      REF0CN
       000000B3H   SFRSYM    DATA     BYTE      CLU1CF
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 41
-
-
       0000008EH   SFRSYM    DATA     BYTE      CKCON0
       000000E0H.1 SFRSYM    DATA     BIT       ACC_ACC1
       000000C9H   SFRSYM    DATA     BYTE      REG0CN
@@ -2631,6 +2664,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       0000009BH   SFRSYM    DATA     BYTE      SPI0FCN1
       000000C0H.2 SFRSYM    DATA     BIT       TMR5CN0_TR5
       000000D8H.3 SFRSYM    DATA     BIT       PCA0CN0_CCF3
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 42
+
+
       000000A4H   SFRSYM    DATA     WORD      TMR4
       00000094H   SFRSYM    DATA     BYTE      SBCON1
       000000D8H.4 SFRSYM    DATA     BIT       PCA0CN0_CCF4
@@ -2664,9 +2700,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D2H   SFRSYM    DATA     BYTE      CRC0ST
       000000F8H.4 SFRSYM    DATA     BIT       SPI0CN0_RXOVRN
       000000D0H.4 SFRSYM    DATA     BIT       PSW_RS1
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 42
-
-
       00000095H   SFRSYM    DATA     BYTE      SBRLL1
       000000C8H.2 SFRSYM    DATA     BIT       SCON1_RBX
       00000091H   SFRSYM    DATA     BYTE      DAC0CF0
@@ -2696,6 +2729,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000098H.1 SFRSYM    DATA     BIT       TMR4CN0_T4XCLK1
       000000A8H.3 SFRSYM    DATA     BIT       IE_ET1
       000000D4H   SFRSYM    DATA     BYTE      P0SKIP
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 43
+
+
       000000D1H   SFRSYM    DATA     BYTE      CLOUT0
       000000D8H   SFRSYM    DATA     BIT       UART1FCN1_RIE
       000000C0H   SFRSYM    DATA     BIT       TMR5CN0_T5XCLK0
@@ -2729,9 +2765,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000BEH   SFRSYM    DATA     BYTE      ADC0H
       000000FFH   SFRSYM    DATA     BYTE      I2C0ADM
       0000008AH   SFRSYM    DATA     BYTE      DAC1H
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 43
-
-
       00000088H.2 SFRSYM    DATA     BIT       DACGCF0_D1AMEN
       0000008CH   SFRSYM    DATA     BYTE      DAC2H
       0000008EH   SFRSYM    DATA     BYTE      DAC3H
@@ -2761,6 +2794,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000A2H   SFRSYM    DATA     BYTE      DACGCF2
       00000086H   SFRSYM    DATA     BYTE      CRC0CN1
       000000B8H.4 SFRSYM    DATA     BIT       IP_PS0
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 44
+
+
       00000084H   SFRSYM    DATA     WORD      PCA0CP4
       000000FAH   SFRSYM    DATA     BYTE      UART1FCT
       0000008DH   SFRSYM    DATA     BYTE      TH1
@@ -2794,9 +2830,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000088H.1 SFRSYM    DATA     BIT       TCON_IE0
       000000A0H   SFRSYM    DATA     BIT       P2_B0
       00000090H.1 SFRSYM    DATA     BIT       P1_B1
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 44
-
-
       00000080H.2 SFRSYM    DATA     BIT       P0_B2
       000000BFH   SFRSYM    DATA     BYTE      CMP1CN0
       00000099H   SFRSYM    DATA     BYTE      CMP0CN1
@@ -2826,6 +2859,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D8H.2 SFRSYM    DATA     BIT       UART1FCN1_RXTO1
       000000B0H.4 SFRSYM    DATA     BIT       P3_B4
       000000A0H.5 SFRSYM    DATA     BIT       P2_B5
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 45
+
+
       00000090H.6 SFRSYM    DATA     BIT       P1_B6
       00000080H.7 SFRSYM    DATA     BIT       P0_B7
       00000098H.2 SFRSYM    DATA     BIT       DACGCF1_D2UDIS
@@ -2859,9 +2895,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000092H   SFRSYM    DATA     BYTE      SBUF1
       000000CDH   SFRSYM    DATA     BYTE      PCON1
       000000C6H   SFRSYM    DATA     BYTE      ADC0LTH
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 45
-
-
       00000088H   SFRSYM    DATA     BIT       TCON_IT0
       000000C8H.1 SFRSYM    DATA     BIT       SCON1_TI
       000000EFH   SFRSYM    DATA     BYTE      RSTSRC
@@ -2891,6 +2924,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000C8H   SFRSYM    DATA     BYTE      TMR2CN0
       00000091H   SFRSYM    DATA     BYTE      TMR3CN0
       000000FDH   SFRSYM    DATA     BYTE      TMR2CN1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 46
+
+
       00000098H   SFRSYM    DATA     BYTE      TMR4CN0
       000000FEH   SFRSYM    DATA     BYTE      TMR3CN1
       000000C0H   SFRSYM    DATA     BYTE      TMR5CN0
@@ -2911,6 +2947,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D5H   SFRSYM    DATA     BYTE      TMR5H
       000000EFH   SFRSYM    DATA     BYTE      SMB0FCT
       00000096H   SFRSYM    DATA     BYTE      PCA0POL
+      000000B0H.3 SFRSYM    DATA     BIT       TEST1
       000000CEH   SFRSYM    DATA     BYTE      TMR2L
       000000C0H.4 SFRSYM    DATA     BIT       TMR5CN0_TF5CEN
       000000F8H.7 SFRSYM    DATA     BIT       SPI0CN0_SPIF
@@ -2924,9 +2961,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D0H.7 SFRSYM    DATA     BIT       PSW_CY
       0000009DH   SFRSYM    DATA     BYTE      UART1FCN0
       000000DFH   SFRSYM    DATA     BYTE      SPI0PCF
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 46
-
-
       000000A3H   SFRSYM    DATA     BYTE      SPI0DAT
       000000ADH   SFRSYM    DATA     BYTE      I2C0FCN0
       000000F8H.3 SFRSYM    DATA     BIT       SPI0CN0_NSSMD1
@@ -2946,11 +2980,33 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
       00000006H   SYMBOL    DATA     WORD      period
       00000005H   SYMBOL    DATA     BYTE      tasknum
-      0000000FH   SYMBOL    DATA     BYTE      taskCounter
+
+      010001D3H   BLOCK     CODE     ---       LVL=0
+      010001D3H   BLOCK     CODE     NEAR LAB  LVL=1
+      00000008H   SYMBOL    DATA     BYTE      taskCounter
+      ---         BLOCKEND  ---      ---       LVL=1
+      010001D3H   LINE      CODE     ---       #42
+      010001D3H   LINE      CODE     ---       #43
+      010001D3H   LINE      CODE     ---       #46
+      010001D6H   LINE      CODE     ---       #47
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 47
+
+
+      010001D6H   LINE      CODE     ---       #48
+      010001EAH   LINE      CODE     ---       #49
+      010001EAH   LINE      CODE     ---       #50
+      0100021DH   LINE      CODE     ---       #51
+      0100021DH   LINE      CODE     ---       #52
+      01000235H   LINE      CODE     ---       #53
+      01000248H   LINE      CODE     ---       #54
+      01000248H   LINE      CODE     ---       #55
+      01000248H   LINE      CODE     ---       #57
+      01000251H   LINE      CODE     ---       #62
+      ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       MYPROJECT_MAIN
-      00000010H   PUBLIC    DATA     BYTE      delay
-      0100036AH   PUBLIC    CODE     ---       main
+      00000009H   PUBLIC    DATA     BYTE      delay
+      01000493H   PUBLIC    CODE     ---       main
       000000A2H   SFRSYM    DATA     BYTE      SPI0CKR
       00000080H   SFRSYM    DATA     BYTE      P0
       000000C8H.6 SFRSYM    DATA     BIT       SCON1_PERR
@@ -2989,9 +3045,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000EDH   SFRSYM    DATA     BYTE      EIP2
       00000098H.2 SFRSYM    DATA     BIT       SCON0_RB8
       000000CAH   SFRSYM    DATA     BYTE      TMR2RLL
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 47
-
-
       000000FCH   SFRSYM    DATA     BYTE      PCA0CPH0
       00000092H   SFRSYM    DATA     BYTE      TMR3RLL
       000000EAH   SFRSYM    DATA     BYTE      PCA0CPH1
@@ -3001,6 +3054,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000A2H   SFRSYM    DATA     BYTE      TMR4RLL
       000000ECH   SFRSYM    DATA     BYTE      PCA0CPH2
       000000F0H.1 SFRSYM    DATA     BIT       B_B1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 48
+
+
       000000C3H   SFRSYM    DATA     WORD      ADC0GT
       000000D2H   SFRSYM    DATA     BYTE      TMR5RLL
       000000F5H   SFRSYM    DATA     BYTE      PCA0CPH3
@@ -3054,9 +3110,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000B3H   SFRSYM    DATA     BYTE      CLU1CF
       0000008EH   SFRSYM    DATA     BYTE      CKCON0
       000000E0H.1 SFRSYM    DATA     BIT       ACC_ACC1
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 48
-
-
       000000C9H   SFRSYM    DATA     BYTE      REG0CN
       000000CAH   SFRSYM    DATA     BYTE      CRC0IN
       000000B6H   SFRSYM    DATA     BYTE      CLU2CF
@@ -3066,6 +3119,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000BFH   SFRSYM    DATA     BYTE      CLU3CF
       000000E0H.3 SFRSYM    DATA     BIT       ACC_ACC3
       00000081H   SFRSYM    DATA     BYTE      SP
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 49
+
+
       0000009DH   SFRSYM    DATA     BYTE      CMP0MD
       000000E0H.4 SFRSYM    DATA     BIT       ACC_ACC4
       000000B1H   SFRSYM    DATA     BYTE      LFO0CN
@@ -3119,9 +3175,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D0H.4 SFRSYM    DATA     BIT       PSW_RS1
       00000095H   SFRSYM    DATA     BYTE      SBRLL1
       000000C8H.2 SFRSYM    DATA     BIT       SCON1_RBX
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 49
-
-
       00000091H   SFRSYM    DATA     BYTE      DAC0CF0
       000000BCH   SFRSYM    DATA     BYTE      ADC0CF0
       000000C8H   SFRSYM    DATA     BIT       TMR2CN0_T2XCLK0
@@ -3131,6 +3184,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000C8H.1 SFRSYM    DATA     BIT       TMR2CN0_T2XCLK1
       000000C8H.3 SFRSYM    DATA     BIT       SCON1_TBX
       000000E8H.7 SFRSYM    DATA     BIT       ADC0CN0_ADEN
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 50
+
+
       00000089H   SFRSYM    DATA     BYTE      TMOD
       00000088H   SFRSYM    DATA     BYTE      TCON
       00000095H   SFRSYM    DATA     BYTE      DAC2CF0
@@ -3184,9 +3240,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       0000008AH   SFRSYM    DATA     BYTE      DAC1H
       00000088H.2 SFRSYM    DATA     BIT       DACGCF0_D1AMEN
       0000008CH   SFRSYM    DATA     BYTE      DAC2H
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 50
-
-
       0000008EH   SFRSYM    DATA     BYTE      DAC3H
       00000088H.6 SFRSYM    DATA     BIT       DACGCF0_D3AMEN
       000000CAH   SFRSYM    DATA     WORD      TMR2RL
@@ -3196,6 +3249,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000089H   SFRSYM    DATA     BYTE      DAC1L
       000000A2H   SFRSYM    DATA     WORD      TMR4RL
       000000D8H   SFRSYM    DATA     BYTE      PCA0CN0
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 51
+
+
       0000008BH   SFRSYM    DATA     BYTE      DAC2L
       000000E0H   SFRSYM    DATA     BYTE      ACC
       000000D2H   SFRSYM    DATA     WORD      TMR5RL
@@ -3249,9 +3305,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000090H.1 SFRSYM    DATA     BIT       P1_B1
       00000080H.2 SFRSYM    DATA     BIT       P0_B2
       000000BFH   SFRSYM    DATA     BYTE      CMP1CN0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 51
-
-
       00000099H   SFRSYM    DATA     BYTE      CMP0CN1
       00000088H.3 SFRSYM    DATA     BIT       TCON_IE1
       000000B0H   SFRSYM    DATA     BIT       P3_B0
@@ -3261,6 +3314,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000C0H   SFRSYM    DATA     BYTE      SMB0CN0
       000000ACH   SFRSYM    DATA     BYTE      CMP1CN1
       000000B0H.1 SFRSYM    DATA     BIT       P3_B1
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 52
+
+
       000000A0H.2 SFRSYM    DATA     BIT       P2_B2
       00000090H.3 SFRSYM    DATA     BIT       P1_B3
       00000080H.4 SFRSYM    DATA     BIT       P0_B4
@@ -3314,9 +3370,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000C6H   SFRSYM    DATA     BYTE      ADC0LTH
       00000088H   SFRSYM    DATA     BIT       TCON_IT0
       000000C8H.1 SFRSYM    DATA     BIT       SCON1_TI
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 52
-
-
       000000EFH   SFRSYM    DATA     BYTE      RSTSRC
       000000FDH   SFRSYM    DATA     BYTE      P0MAT
       000000CBH   SFRSYM    DATA     BYTE      CRC0DAT
@@ -3326,6 +3379,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D7H   SFRSYM    DATA     BYTE      SFRSTACK
       00000098H   SFRSYM    DATA     BYTE      SCON0
       000000F6H   SFRSYM    DATA     BYTE      PRTDRV
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 53
+
+
       000000EDH   SFRSYM    DATA     BYTE      P1MAT
       000000E8H.3 SFRSYM    DATA     BIT       ADC0CN0_ADWINT
       00000093H   SFRSYM    DATA     BYTE      SMOD1
@@ -3364,6 +3420,7 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000D5H   SFRSYM    DATA     BYTE      TMR5H
       000000EFH   SFRSYM    DATA     BYTE      SMB0FCT
       00000096H   SFRSYM    DATA     BYTE      PCA0POL
+      000000B0H.3 SFRSYM    DATA     BIT       TEST1
       000000CEH   SFRSYM    DATA     BYTE      TMR2L
       000000C0H.4 SFRSYM    DATA     BIT       TMR5CN0_TF5CEN
       000000F8H.7 SFRSYM    DATA     BIT       SPI0CN0_SPIF
@@ -3379,9 +3436,6 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000DFH   SFRSYM    DATA     BYTE      SPI0PCF
       000000A3H   SFRSYM    DATA     BYTE      SPI0DAT
       000000ADH   SFRSYM    DATA     BYTE      I2C0FCN0
-LX51 LINKER/LOCATER V4.66.30.0                                                        09/14/2016  15:27:20  PAGE 53
-
-
       000000F8H.3 SFRSYM    DATA     BIT       SPI0CN0_NSSMD1
       000000BDH   SFRSYM    DATA     WORD      ADC0
       000000D8H   SFRSYM    DATA     BYTE      UART1FCN1
@@ -3390,6 +3444,9 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       00000098H.5 SFRSYM    DATA     BIT       TMR4CN0_TF4LEN
       000000E8H.2 SFRSYM    DATA     BIT       CLIF0_C1FIF
       000000D0H   SFRSYM    DATA     BYTE      PSW
+LX51 LINKER/LOCATER V4.66.30.0                                                        09/16/2016  10:06:32  PAGE 54
+
+
       000000F7H   SFRSYM    DATA     BYTE      PCA0PWM
       000000E8H.4 SFRSYM    DATA     BIT       CLIF0_C2FIF
       000000F7H   SFRSYM    DATA     BYTE      SPI0FCT
@@ -3398,29 +3455,25 @@ SYMBOL TABLE OF MODULE:  MYPROJECT - DAC ENABLED.OMF.CRBUILD (INITDEVICE)
       000000E8H.6 SFRSYM    DATA     BIT       CLIF0_C3FIF
       000000B7H   SFRSYM    DATA     BYTE      FLKEY
 
-      0100036AH   BLOCK     CODE     ---       LVL=0
-      0100036AH   LINE      CODE     ---       #13
-      0100036AH   LINE      CODE     ---       #16
-      0100036DH   LINE      CODE     ---       #18
-      01000374H   LINE      CODE     ---       #20
-      01000374H   LINE      CODE     ---       #23
+      01000493H   BLOCK     CODE     ---       LVL=0
+      01000493H   LINE      CODE     ---       #13
+      01000493H   LINE      CODE     ---       #16
+      01000496H   LINE      CODE     ---       #20
+      01000496H   LINE      CODE     ---       #23
       ---         BLOCKEND  ---      ---       LVL=0
 
       ---         MODULE    ---      ---       ?C_INIT
-      010001C1H   PUBLIC    CODE     ---       ?C_START
-
-      ---         MODULE    ---      ---       ?C?COPY
-      01000126H   PUBLIC    CODE     ---       ?C?COPY
+      0100018EH   PUBLIC    CODE     ---       ?C_START
 
       ---         MODULE    ---      ---       ?C?IMUL
-      0100014CH   PUBLIC    CODE     ---       ?C?IMUL
+      01000333H   PUBLIC    CODE     ---       ?C?IMUL
 
       ---         MODULE    ---      ---       ?C?ILDIX
-      0100015EH   PUBLIC    CODE     ---       ?C?ILDIX
+      01000345H   PUBLIC    CODE     ---       ?C?ILDIX
 
       ---         MODULE    ---      ---       ?C?ICALL
-      01000174H   PUBLIC    CODE     ---       ?C?ICALL
-      01000178H   PUBLIC    CODE     ---       ?C?ICALL2
+      0100035BH   PUBLIC    CODE     ---       ?C?ICALL
+      0100035FH   PUBLIC    CODE     ---       ?C?ICALL2
 
-Program Size: data=19.0 xdata=22 const=0 code=984
+Program Size: data=12.0 xdata=36 const=0 code=1175
 LX51 RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

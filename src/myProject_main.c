@@ -15,7 +15,7 @@ int main(void) {
 
 	enter_DefaultMode_from_RESET();
 
-	SetDACOutput(0x7ff);
+	//SetDACOutput(0x7ff);
 
 	while (1) {
 // $[Generated Run-time code]

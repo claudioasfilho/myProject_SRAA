@@ -10,14 +10,23 @@
 
 #include <SI_EFM8BB3_Register_Enums.h>                  // SFR declarations
 
-typedef struct
+/*typedef union
         {
-    	  uint8_t		Enabled;         // Is the task enabled or not?
-    	  uint8_t		Finished;
-    	  uint8_t		Status;
 
+	struct{
+	  	  bit		Unused0;
+	  	  bit		Unused1;
+	  	  bit		Unused2;
+	  	  bit		Unused3;
+	  	  bit		Unused4;
+    	  bit		Enabled;         // Is the task enabled or not?
+    	  bit		Finished;
+    	  bit		Status;
+	}bits;
+
+	uint8_t all;
     } OBJFLAGS;
-
+*/
 
 typedef enum
     {
@@ -33,7 +42,7 @@ typedef struct
 {
     uint16_t period;                    // How Often the function gets called
     uint16_t counter;                   // Local Counter incremented by the scheduler. Once "counter" matches "period" Function is executed  holds how many ticks
-    OBJFLAGS Flags;                     //Flags that will be used by the Scheduler and System in general
+    uint8_t  Enabled;                     //Flags that will be used by the Scheduler and System in general
     void (*function)(void);             // Function pointer for task
 
 } SYSTASKS;
@@ -43,7 +52,7 @@ void Scheduler_CallBack(void);
 
 /*Functions used by the objects*/
 void Update_task_period ( uint16_t period , TASKSID tasknum);
-void Update_task_Flags ( OBJFLAGS Flags , TASKSID tasknum);
+//void Update_task_Flags ( OBJFLAGS Flags , TASKSID tasknum);
 
 #endif	/* SCHEDULER_H */
 

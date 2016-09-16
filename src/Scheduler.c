@@ -12,10 +12,10 @@
 xdata SYSTASKS tasks[MAX_TASKS] =
 {
     /*
-     * period,  counter,    Flags,  Function Pointer (To Object Handler that requires constant threat) */
+     * period,  counter,    Enabled,  Function Pointer (To Object Handler that requires constant threat) */
 
-    {   1,         0,      0,      &DACOutputHandler},
-    {   10,         0,      0,      &PIDHandler},
+    {   5,         0,      1,      &DACOutputHandler},
+    {   10,         0,      1,      &PIDHandler},
 
 
 };
@@ -23,10 +23,10 @@ xdata SYSTASKS tasks[MAX_TASKS] =
 
 /*This Function is called by the objects and update the flags*/
 
-void Update_task_Flags ( OBJFLAGS Flags , TASKSID tasknum)
+/*void Update_task_Flags ( OBJFLAGS Flags , TASKSID tasknum)
 {
     tasks[tasknum].Flags = Flags;
-}
+}*/
 
 /*This Function is called by the objects and update the period, which is how often every task should run*/
 void Update_task_period ( uint16_t period , TASKSID tasknum)
@@ -45,7 +45,7 @@ static TASKSID taskCounter;
 
  for (taskCounter = PID_TASK; taskCounter < MAX_TASKS; taskCounter++)
     {
-        if (tasks[taskCounter].Flags.Enabled == 1)
+        if (tasks[taskCounter].Enabled == 1)
         {
             if (tasks[taskCounter].counter++ == tasks[taskCounter].period)
                  {

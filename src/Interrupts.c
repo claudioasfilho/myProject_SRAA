@@ -8,10 +8,10 @@
 
 // USER INCLUDES
 #include <SI_EFM8BB3_Register_Enums.h>
+#include "Scheduler.h"
 #include "PID.h"
 
-SI_SBIT (TEST1,SFR_P3, 3);			   //Test LED
-#define ToogleTest1() TEST1^=1;
+
 
 //-----------------------------------------------------------------------------
 // TIMER0_ISR
@@ -31,6 +31,8 @@ SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 
 
 	//ToogleTest1();
+
+	Scheduler_CallBack();
 
 	if (TL1>10)
 	{
@@ -63,7 +65,6 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 
 	ADC0=0;
 
-	ToogleTest1();
 
 }
 
