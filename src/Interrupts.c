@@ -27,19 +27,12 @@ SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 
 	TCON &= 0xdf; //Clear the interrupt Flag
 
-	TCON |= 0x40;//Timer 1 Run
-
 
 	//ToogleTest1();
 
 	Scheduler_CallBack();
 
-	if (TL1>10)
-	{
-		//	ToogleTest1();
-		TL1=0;
-		TH1=0;
-	}
+
 
 //	TL1=0;
 //	TH1=0;

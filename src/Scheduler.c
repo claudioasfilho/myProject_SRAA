@@ -14,6 +14,7 @@ xdata SYSTASKS tasks[MAX_TASKS] =
     /*
      * period,  counter,    Enabled,  Function Pointer (To Object Handler that requires constant threat) */
 
+	{   1,         0,      1,      &DimmerCounterHandler},
     {   5,         0,      1,      &DACOutputHandler},
     {   10,         0,      1,      &PIDHandler},
 
@@ -43,7 +44,7 @@ void Scheduler_CallBack(void)
 {
 static TASKSID taskCounter;
 
- for (taskCounter = PID_TASK; taskCounter < MAX_TASKS; taskCounter++)
+ for (taskCounter = 0; taskCounter < MAX_TASKS; taskCounter++)
     {
         if (tasks[taskCounter].Enabled == 1)
         {

@@ -20,4 +20,6 @@ void PIDHandler();
 
 void DACOutputHandler();
 
+void DimmerCounterHandler();
+
 #endif /* PID_H_ */

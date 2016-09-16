@@ -30,7 +30,8 @@
 
 typedef enum
     {
-        PID_TASK=0,
+        DIMMERCOUNTER_TASK=0,
+		PID_TASK,
         DACOUTPUT_TASK,
         MAX_TASKS
     } TASKSID;
