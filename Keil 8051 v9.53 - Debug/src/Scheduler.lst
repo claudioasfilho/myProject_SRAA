@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   SCHEDULER                                                         09/16/2016 11:00:55 PAGE 1   
+C51 COMPILER V9.53.0.0   SCHEDULER                                                         09/19/2016 16:36:46 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE SCHEDULER
@@ -30,7 +30,7 @@ line level    source
   15               * period,  counter,    Enabled,  Function Pointer (To Object Handler that requires constant threat) *
              -/
   16          
-  17                  {   1,         0,      1,      &DimmerCounterHandler},
+  17                  {   19,         0,      1,      &DimmerCounterHandler},
   18              {   5,         0,      1,      &DACOutputHandler},
   19              {   10,         0,      1,      &PIDHandler},
   20          
@@ -63,7 +63,7 @@ line level    source
   47   1       for (taskCounter = 0; taskCounter < MAX_TASKS; taskCounter++)
   48   1          {
   49   2              if (tasks[taskCounter].Enabled == 1)
-C51 COMPILER V9.53.0.0   SCHEDULER                                                         09/16/2016 11:00:55 PAGE 2   
+C51 COMPILER V9.53.0.0   SCHEDULER                                                         09/19/2016 16:36:46 PAGE 2   
 
   50   2              {
   51   3                  if (tasks[taskCounter].counter++ == tasks[taskCounter].period)

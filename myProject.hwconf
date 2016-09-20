@@ -68,16 +68,15 @@
     <property object="P3.3" propertyId="ports.settings.outputmode" value="Push-pull"/>
     <property object="PBCFG_0" propertyId="pbcfg.settings.enablecrossbar" value="Enabled"/>
     <property object="PCACH_0" propertyId="ABPeripheral.included" value="true"/>
-    <property object="PCACH_0" propertyId="pcach.pcachannel.capturecomparehighbyte" value="127"/>
-    <property object="PCACH_0" propertyId="pcach.pcachannel.capturecomparelowbyte" value="254"/>
-    <property object="PCACH_0" propertyId="pcach.pcachannel.capturecompareregister" value="32766"/>
+    <property object="PCACH_0" propertyId="pcach.pcachannel.capturecomparehighbyte" value="3"/>
+    <property object="PCACH_0" propertyId="pcach.pcachannel.capturecomparelowbyte" value="255"/>
+    <property object="PCACH_0" propertyId="pcach.pcachannel.capturecompareregister" value="1023"/>
     <property object="PCACH_0" propertyId="pcach.pcachannel.clockdivider" value="100"/>
     <property object="PCACH_0" propertyId="pcach.pcachannel.enablecomparatorclearforcex" value="Enabled"/>
     <property object="PCACH_0" propertyId="pcach.pcachannel.matchfunction" value="Enabled"/>
-    <property object="PCACH_0" propertyId="pcach.pcachannelcapturecomparemode.enablechannel16bitpulsewidthmodulation" value="Enabled"/>
     <property object="PCACH_0" propertyId="pcach.pcachannelcapturecomparemode.enablechannelcomparatorfunction" value="Enabled"/>
     <property object="PCACH_0" propertyId="pcach.pcachannelcapturecomparemode.enablechannelpulsewidthmodulationmoden" value="Enabled"/>
-    <property object="PCACH_0" propertyId="pcach.pcacontrol.channelcapturecomparemode" value="16-Bit pulse width modulator"/>
+    <property object="PCACH_0" propertyId="pcach.pcacontrol.channelcapturecomparemode" value="Predefined 8~11-bit pulse modulator"/>
     <property object="PCACH_1" propertyId="ABPeripheral.included" value="true"/>
     <property object="PCACH_1" propertyId="pcach.pcachannel.capturecomparehighbyte" value="1"/>
     <property object="PCACH_1" propertyId="pcach.pcachannel.capturecompareregister" value="256"/>
@@ -86,16 +85,16 @@
     <property object="PCACH_4" propertyId="ABPeripheral.included" value="true"/>
     <property object="PCACH_5" propertyId="ABPeripheral.included" value="true"/>
     <property object="PCA_0" propertyId="ABPeripheral.included" value="true"/>
-    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.enablepcacountertimeroverflowinterrupt" value="Enabled"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcaclockfrequency" value="24.500 MHz"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcaclockfrequencyintegervalue" value="24500000"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcaclockperiod" value="40.000 nS"/>
-    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcacontertimerhighbyte" value="255"/>
-    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcacontertimerlowbyte" value="5"/>
-    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcacountertimer" value="65285"/>
+    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcacontertimerhighbyte" value="3"/>
+    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcacontertimerlowbyte" value="232"/>
+    <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcacountertimer" value="1000"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.selectpcacountertimerpulse" value="SYSCLK"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerruncontrol.pcarun" value="Start"/>
     <property object="PCA_0" propertyId="pca.pcapwmconfiguration.cex0comparatorclearenable" value="Enabled"/>
+    <property object="PCA_0" propertyId="pca.pcapwmconfiguration.selectcyclelength" value="11 bits"/>
     <property object="PMU_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="SFR_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER01_0" propertyId="ABPeripheral.included" value="true"/>
@@ -118,6 +117,7 @@
     <property object="TIMER16_5" propertyId="timer16.control.timerhighbyterunningstate" value="Timer is Running"/>
     <property object="TIMER16_5" propertyId="timer16.initandreloadvaluehighbyte.timerreloadvalue" value="52"/>
     <property object="TIMER_SETUP_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="TIMER_SETUP_0" propertyId="timer_setup.clockcontrol0.timer01prescale" value="SYSCLK / 4"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.mode" value="Mode 1, 16-bit Counter/Timer"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerrunningstate" value="Timer is Running"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.timerswitch1:runcontrol" value="Start"/>

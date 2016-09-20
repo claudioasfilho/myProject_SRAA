@@ -381,10 +381,10 @@ extern void PCA_0_enter_DefaultMode_from_RESET(void) {
 	/*
 	 // PCA continues to function normally while the system controller is in
 	 //     Idle Mode
-	 // Enable a PCA Counter/Timer Overflow interrupt request when CF is set
+	 // Disable the CF interrupt
 	 // System clock
 	 */
-	PCA0MD = PCA0MD_CIDL__NORMAL | PCA0MD_ECF__OVF_INT_ENABLED
+	PCA0MD = PCA0MD_CIDL__NORMAL | PCA0MD_ECF__OVF_INT_DISABLED
 			| PCA0MD_CPS__SYSCLK;
 	// [PCA0MD - PCA Mode]$
 
@@ -410,22 +410,27 @@ extern void PCA_0_enter_DefaultMode_from_RESET(void) {
 
 	// $[PCA0L - PCA Counter/Timer Low Byte]
 	/*
-	 // PCA Counter/Timer Low Byte = 0x05
+	 // PCA Counter/Timer Low Byte = 0xE8
 	 */
-	PCA0L = (0x05 << PCA0L_PCA0L__SHIFT);
+	PCA0L = (0xE8 << PCA0L_PCA0L__SHIFT);
 	// [PCA0L - PCA Counter/Timer Low Byte]$
 
 	// $[PCA0H - PCA Counter/Timer High Byte]
 	/*
-	 // PCA Counter/Timer High Byte = 0xFF
+	 // PCA Counter/Timer High Byte = 0x03
 	 */
-	PCA0H = (0xFF << PCA0H_PCA0H__SHIFT);
+	PCA0H = (0x03 << PCA0H_PCA0H__SHIFT);
 	// [PCA0H - PCA Counter/Timer High Byte]$
 
 	// $[PCA0POL - PCA Output Polarity]
 	// [PCA0POL - PCA Output Polarity]$
 
 	// $[PCA0PWM - PCA PWM Configuration]
+	/*
+	 // 11 bits
+	 */
+	PCA0PWM &= ~PCA0PWM_CLSEL__FMASK;
+	PCA0PWM |= PCA0PWM_CLSEL__11_BITS;
 	// [PCA0PWM - PCA PWM Configuration]$
 
 	// $[PCA On]
@@ -445,33 +450,45 @@ extern void PCACH_0_enter_DefaultMode_from_RESET(void) {
 	 // Disable negative edge capture
 	 // Disable CCF0 interrupts
 	 // Enable match function
-	 // 16-bit PWM selected
+	 // 8 to 11-bit PWM selected
 	 // Disable positive edge capture
 	 // Enable comparator function
 	 // Enable PWM function
 	 // Disable toggle function
 	 */
 	PCA0CPM0 = PCA0CPM0_CAPN__DISABLED | PCA0CPM0_ECCF__DISABLED
-			| PCA0CPM0_MAT__ENABLED | PCA0CPM0_PWM16__16_BIT
+			| PCA0CPM0_MAT__ENABLED | PCA0CPM0_PWM16__8_BIT
 			| PCA0CPM0_CAPP__DISABLED | PCA0CPM0_ECOM__ENABLED
 			| PCA0CPM0_PWM__ENABLED | PCA0CPM0_TOG__DISABLED;
 	// [PCA0CPM0 - PCA Channel 0 Capture/Compare Mode]$
 
 	// $[PCA0CPL0 - PCA Channel 0 Capture Module Low Byte]
 	/*
-	 // PCA Channel 0 Capture Module Low Byte = 0xFE
+	 // PCA Channel 0 Capture Module Low Byte = 0xFF
 	 */
-	PCA0CPL0 = (0xFE << PCA0CPL0_PCA0CPL0__SHIFT);
+	PCA0CPL0 = (0xFF << PCA0CPL0_PCA0CPL0__SHIFT);
 	// [PCA0CPL0 - PCA Channel 0 Capture Module Low Byte]$
 
 	// $[PCA0CPH0 - PCA Channel 0 Capture Module High Byte]
 	/*
-	 // PCA Channel 0 Capture Module High Byte = 0x7F
+	 // PCA Channel 0 Capture Module High Byte = 0x03
 	 */
-	PCA0CPH0 = (0x7F << PCA0CPH0_PCA0CPH0__SHIFT);
+	PCA0CPH0 = (0x03 << PCA0CPH0_PCA0CPH0__SHIFT);
 	// [PCA0CPH0 - PCA Channel 0 Capture Module High Byte]$
 
 	// $[Auto-reload]
+	PCA0PWM |= PCA0PWM_ARSEL__AUTORELOAD;
+	/*
+	 // PCA Channel 0 Capture Module Low Byte = 0xFF
+	 */
+	PCA0CPL0 = (0xFF << PCA0CPL0_PCA0CPL0__SHIFT);
+
+	/*
+	 // PCA Channel 0 Capture Module High Byte = 0x03
+	 */
+	PCA0CPH0 = (0x03 << PCA0CPH0_PCA0CPH0__SHIFT);
+
+	PCA0PWM &= ~PCA0PWM_ARSEL__BMASK;
 	// [Auto-reload]$
 
 	// $[PCA0 Settings Restore]
@@ -521,6 +538,20 @@ extern void TIMER01_0_enter_DefaultMode_from_RESET(void) {
 
 extern void TIMER_SETUP_0_enter_DefaultMode_from_RESET(void) {
 	// $[CKCON0 - Clock Control 0]
+	/*
+	 // System clock divided by 4
+	 // Counter/Timer 0 uses the clock defined by the prescale field, SCA
+	 // Timer 2 high byte uses the clock defined by T2XCLK in TMR2CN0
+	 // Timer 2 low byte uses the clock defined by T2XCLK in TMR2CN0
+	 // Timer 3 high byte uses the clock defined by T3XCLK in TMR3CN0
+	 // Timer 3 low byte uses the clock defined by T3XCLK in TMR3CN0
+	 // Timer 1 uses the clock defined by the prescale field, SCA
+	 */
+	SFRPAGE = 0x00;
+	CKCON0 = CKCON0_SCA__SYSCLK_DIV_4 | CKCON0_T0M__PRESCALE
+			| CKCON0_T2MH__EXTERNAL_CLOCK | CKCON0_T2ML__EXTERNAL_CLOCK
+			| CKCON0_T3MH__EXTERNAL_CLOCK | CKCON0_T3ML__EXTERNAL_CLOCK
+			| CKCON0_T1M__PRESCALE;
 	// [CKCON0 - Clock Control 0]$
 
 	// $[CKCON1 - Clock Control 1]
@@ -537,7 +568,6 @@ extern void TIMER_SETUP_0_enter_DefaultMode_from_RESET(void) {
 	 //     external pin
 	 // Timer 1 enabled when TR1 = 1 irrespective of INT1 logic level
 	 */
-	SFRPAGE = 0x00;
 	TMOD = TMOD_T0M__MODE1 | TMOD_T1M__MODE1 | TMOD_CT0__TIMER
 			| TMOD_GATE0__DISABLED | TMOD_CT1__COUNTER | TMOD_GATE1__DISABLED;
 	// [TMOD - Timer 0/1 Mode]$

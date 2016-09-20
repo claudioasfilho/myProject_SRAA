@@ -14,7 +14,7 @@ xdata SYSTASKS tasks[MAX_TASKS] =
     /*
      * period,  counter,    Enabled,  Function Pointer (To Object Handler that requires constant threat) */
 
-	{   1,         0,      1,      &DimmerCounterHandler},
+	{   19,         0,      1,      &DimmerCounterHandler},
     {   5,         0,      1,      &DACOutputHandler},
     {   10,         0,      1,      &PIDHandler},
 

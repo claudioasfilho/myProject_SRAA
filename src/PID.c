@@ -126,16 +126,17 @@ void DimmerCounterHandler()
 {
 	//Un comment if this is called from another interrupt vector that is not timer 0
 
-	//SFRPAGE = 0x00;
+	SFRPAGE = 0x00;
 
 	TCON &= 0xBF;	//Stop Timer 1 count
 
 	DimmerCount = TH1<<8;
 	DimmerCount += TL1;
 
-	if (DimmerCount>1)
+	if (DimmerCount>10)
 	{
-			ToogleTest1();
+		//PCA0CN0 &= 0x70;	//Clears PCA0 interrupt
+			//ToogleTest1();
 
 		//It Resets Timer 1 count because something was captured
 		TL1=0;
