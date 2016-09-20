@@ -10,6 +10,8 @@
 
 SI_SBIT (TEST1,SFR_P3, 3);			   //Test LED
 #define ToogleTest1() TEST1^=1;
+#define SetTest1() TEST1=1;
+#define ClearTest1() TEST1=0;
 
 
 void SetDACOutput(uint16_t value);

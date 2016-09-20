@@ -1,4 +1,4 @@
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 1   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE INITDEVICE
@@ -63,7 +63,7 @@ line level    source
   48   1              SFRPAGE = SFRPAGE_save;
   49   1              // [Config Calls]$
   50   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 2   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 2   
 
   51   1      }
   52          
@@ -128,7 +128,7 @@ line level    source
  111   1              // $[CMP0MD - Comparator 0 Mode]
  112   1              /*
  113   1               // Mode 0 
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 3   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 3   
 
  114   1               // Connect the CMP- input to the internal DAC output, and CMP+ is
  115   1               //     selected by CMXP. The internal DAC uses the signal specified by CMXN
@@ -193,7 +193,7 @@ line level    source
  174   1                              | P0MDOUT_B4__OPEN_DRAIN | P0MDOUT_B5__OPEN_DRAIN
  175   1                              | P0MDOUT_B6__OPEN_DRAIN | P0MDOUT_B7__OPEN_DRAIN;
  176   1              // [P0MDOUT - Port 0 Output Mode]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 4   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 4   
 
  177   1      
  178   1              // $[P0MDIN - Port 0 Input Mode]
@@ -258,7 +258,7 @@ line level    source
  237   1               // Clock derived from the Internal High Frequency Oscillator 0
  238   1               // SYSCLK is equal to selected clock source divided by 1
  239   1               */
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 5   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 5   
 
  240   1              SFRPAGE = 0x00;
  241   1              CLKSEL = CLKSEL_CLKSL__HFOSC0 | CLKSEL_CLKDIV__SYSCLK_DIV_1;
@@ -323,7 +323,7 @@ line level    source
  300   1              // $[Timer Restoration]
  301   1              // Restore Timer Configuration
  302   1              TMR2CN0 |= TMR2CN0_TR2_save;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 6   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 6   
 
  303   1              // [Timer Restoration]$
  304   1      
@@ -388,7 +388,7 @@ line level    source
  363   1               // Timer 0 interrupt priority MSB set to high
  364   1               // Timer 1 interrupt priority MSB set to low
  365   1               // Timer 2 interrupt priority MSB set to low
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 7   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 7   
 
  366   1               // UART0 interrupt priority MSB set to low
  367   1               */
@@ -453,7 +453,7 @@ line level    source
  426   1              // [PCA0POL - PCA Output Polarity]$
  427   1      
  428   1              // $[PCA0PWM - PCA PWM Configuration]
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 8   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 8   
 
  429   1              /*
  430   1               // 11 bits
@@ -518,7 +518,7 @@ line level    source
  489   1              PCA0CPH0 = (0x03 << PCA0CPH0_PCA0CPH0__SHIFT);
  490   1      
  491   1              PCA0PWM &= ~PCA0PWM_ARSEL__BMASK;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 9   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 9   
 
  492   1              // [Auto-reload]$
  493   1      
@@ -583,7 +583,7 @@ line level    source
  552   1                              | CKCON0_T2MH__EXTERNAL_CLOCK | CKCON0_T2ML__EXTERNAL_CLOCK
  553   1                              | CKCON0_T3MH__EXTERNAL_CLOCK | CKCON0_T3ML__EXTERNAL_CLOCK
  554   1                              | CKCON0_T1M__PRESCALE;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 10  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 10  
 
  555   1              // [CKCON0 - Clock Control 0]$
  556   1      
@@ -648,7 +648,7 @@ line level    source
  615   1      
  616   1      }
  617          
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 11  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 11  
 
  618          extern void TIMER16_4_enter_DefaultMode_from_RESET(void) {
  619   1              // $[Timer Initialization]
@@ -713,7 +713,7 @@ line level    source
  678   1      
  679   1              // $[TMR5H - Timer 5 High Byte]
  680   1              // [TMR5H - Timer 5 High Byte]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 12  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 12  
 
  681   1      
  682   1              // $[TMR5L - Timer 5 Low Byte]
@@ -778,7 +778,7 @@ line level    source
  741   1              // $[DAC0CF1 - DAC0 Configuration 1]
  742   1              // [DAC0CF1 - DAC0 Configuration 1]$
  743   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 13  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 13  
 
  744   1      }
  745          
@@ -843,7 +843,7 @@ line level    source
  804   1               // P1.4 pin is configured for digital mode
  805   1               // P1.5 pin is configured for digital mode
  806   1               // P1.6 pin is configured for digital mode
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 14  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 14  
 
  807   1               // P1.7 pin is configured for analog mode
  808   1               */
@@ -908,7 +908,7 @@ line level    source
  867   1              ADC0CN1 = ADC0CN1_ADBITS__12_BIT | ADC0CN1_ADSJST__RIGHT_NO_SHIFT
  868   1                              | ADC0CN1_ADRPT__ACC_16;
  869   1              // [ADC0CN1 - ADC0 Control 1]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 15  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 15  
 
  870   1      
  871   1              // $[ADC0MX - ADC0 Multiplexer Selection]
@@ -973,7 +973,7 @@ line level    source
  930   1               */
  931   1              ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
  932   1              // [ADC0ASCF - ADC0 Autoscan Configuration]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:35:27 PAGE 16  
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/20/2016 15:57:36 PAGE 16  
 
  933   1      
  934   1              // $[ADC0CN0 - ADC0 Control 0]
