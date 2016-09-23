@@ -26,6 +26,7 @@ extern void enter_DefaultMode_from_RESET(void) {
 	WDT_0_enter_DefaultMode_from_RESET();
 	PORTS_0_enter_DefaultMode_from_RESET();
 	PORTS_1_enter_DefaultMode_from_RESET();
+	PORTS_2_enter_DefaultMode_from_RESET();
 	PORTS_3_enter_DefaultMode_from_RESET();
 	PBCFG_0_enter_DefaultMode_from_RESET();
 	ADC_0_enter_DefaultMode_from_RESET();
@@ -69,6 +70,19 @@ extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
 	// [PRTDRV - Port Drive Strength]$
 
 	// $[XBR0 - Port I/O Crossbar 0]
+	/*
+	 // UART0 I/O unavailable at Port pin
+	 // SPI I/O unavailable at Port pins
+	 // SMBus 0 I/O unavailable at Port pins
+	 // CP0 routed to Port pin
+	 // Asynchronous CP0 unavailable at Port pin
+	 // CP1 unavailable at Port pin
+	 // Asynchronous CP1 unavailable at Port pin
+	 // SYSCLK unavailable at Port pin
+	 */
+	XBR0 = XBR0_URT0E__DISABLED | XBR0_SPI0E__DISABLED | XBR0_SMB0E__DISABLED
+			| XBR0_CP0E__ENABLED | XBR0_CP0AE__DISABLED | XBR0_CP1E__DISABLED
+			| XBR0_CP1AE__DISABLED | XBR0_SYSCKE__DISABLED;
 	// [XBR0 - Port I/O Crossbar 0]$
 
 	// $[XBR1 - Port I/O Crossbar 1]
@@ -114,11 +128,10 @@ extern void CMP_0_enter_DefaultMode_from_RESET(void) {
 	 // Connect the CMP- input to the internal DAC output, and CMP+ is
 	 //     selected by CMXP. The internal DAC uses the signal specified by CMXN
 	 //     as its full-scale reference
-	 // Output is inverted
 	 */
 	SFRPAGE = 0x00;
 	CMP0MD &= ~CMP0MD_CPMD__FMASK;
-	CMP0MD |= CMP0MD_INSL__CMXP_DAC | CMP0MD_CPINV__INVERT;
+	CMP0MD |= CMP0MD_INSL__CMXP_DAC;
 	// [CMP0MD - Comparator 0 Mode]$
 
 	// $[CMP0CN0 - Comparator 0 Control 0]
@@ -148,13 +161,13 @@ extern void PORTS_0_enter_DefaultMode_from_RESET(void) {
 	 // P0.0 is high. Set P0.0 to drive or float high
 	 // P0.1 is high. Set P0.1 to drive or float high
 	 // P0.2 is high. Set P0.2 to drive or float high
-	 // P0.3 is low. Set P0.3 to drive low
-	 // P0.4 is high. Set P0.4 to drive or float high
+	 // P0.3 is high. Set P0.3 to drive or float high
+	 // P0.4 is low. Set P0.4 to drive low
 	 // P0.5 is low. Set P0.5 to drive low
 	 // P0.6 is high. Set P0.6 to drive or float high
 	 // P0.7 is high. Set P0.7 to drive or float high
 	 */
-	P0 = P0_B0__HIGH | P0_B1__HIGH | P0_B2__HIGH | P0_B3__LOW | P0_B4__HIGH
+	P0 = P0_B0__HIGH | P0_B1__HIGH | P0_B2__HIGH | P0_B3__HIGH | P0_B4__LOW
 			| P0_B5__LOW | P0_B6__HIGH | P0_B7__HIGH;
 	// [P0 - Port 0 Pin Latch]$
 
@@ -163,14 +176,14 @@ extern void PORTS_0_enter_DefaultMode_from_RESET(void) {
 	 // P0.0 output is open-drain
 	 // P0.1 output is push-pull
 	 // P0.2 output is open-drain
-	 // P0.3 output is open-drain
+	 // P0.3 output is push-pull
 	 // P0.4 output is open-drain
 	 // P0.5 output is open-drain
 	 // P0.6 output is open-drain
 	 // P0.7 output is open-drain
 	 */
 	P0MDOUT = P0MDOUT_B0__OPEN_DRAIN | P0MDOUT_B1__PUSH_PULL
-			| P0MDOUT_B2__OPEN_DRAIN | P0MDOUT_B3__OPEN_DRAIN
+			| P0MDOUT_B2__OPEN_DRAIN | P0MDOUT_B3__PUSH_PULL
 			| P0MDOUT_B4__OPEN_DRAIN | P0MDOUT_B5__OPEN_DRAIN
 			| P0MDOUT_B6__OPEN_DRAIN | P0MDOUT_B7__OPEN_DRAIN;
 	// [P0MDOUT - Port 0 Output Mode]$
@@ -217,13 +230,13 @@ extern void PORTS_0_enter_DefaultMode_from_RESET(void) {
 	 // P0.1 pin logic value is compared with logic HIGH
 	 // P0.2 pin logic value is compared with logic HIGH
 	 // P0.3 pin logic value is compared with logic LOW
-	 // P0.4 pin logic value is compared with logic HIGH
+	 // P0.4 pin logic value is compared with logic LOW
 	 // P0.5 pin logic value is compared with logic LOW
 	 // P0.6 pin logic value is compared with logic HIGH
 	 // P0.7 pin logic value is compared with logic HIGH
 	 */
 	P0MAT = P0MAT_B0__HIGH | P0MAT_B1__HIGH | P0MAT_B2__HIGH | P0MAT_B3__LOW
-			| P0MAT_B4__HIGH | P0MAT_B5__LOW | P0MAT_B6__HIGH | P0MAT_B7__HIGH;
+			| P0MAT_B4__LOW | P0MAT_B5__LOW | P0MAT_B6__HIGH | P0MAT_B7__HIGH;
 	// [P0MAT - Port 0 Match]$
 
 }
@@ -278,16 +291,16 @@ extern void TIMER16_2_enter_DefaultMode_from_RESET(void) {
 
 	// $[TMR2RLH - Timer 2 Reload High Byte]
 	/*
-	 // Timer 2 Reload High Byte = 0xFF
+	 // Timer 2 Reload High Byte = 0xFC
 	 */
-	TMR2RLH = (0xFF << TMR2RLH_TMR2RLH__SHIFT);
+	TMR2RLH = (0xFC << TMR2RLH_TMR2RLH__SHIFT);
 	// [TMR2RLH - Timer 2 Reload High Byte]$
 
 	// $[TMR2RLL - Timer 2 Reload Low Byte]
 	/*
-	 // Timer 2 Reload Low Byte = 0xEC
+	 // Timer 2 Reload Low Byte = 0x03
 	 */
-	TMR2RLL = (0xEC << TMR2RLL_TMR2RLL__SHIFT);
+	TMR2RLL = (0x03 << TMR2RLL_TMR2RLL__SHIFT);
 	// [TMR2RLL - Timer 2 Reload Low Byte]$
 
 	// $[TMR2CN0]
@@ -402,7 +415,7 @@ extern void PCA_0_enter_DefaultMode_from_RESET(void) {
 	 // Disable the comparator clear function on PCA channel 4
 	 // Disable the comparator clear function on PCA channel 5
 	 */
-	PCA0CLR = PCA0CLR_CPCPOL__LOW | PCA0CLR_CPCSEL__CMP_0
+	PCA0CLR = PCA0CLR_CPCPOL__HIGH | PCA0CLR_CPCSEL__CMP_0
 			| PCA0CLR_CPCE0__ENABLED | PCA0CLR_CPCE1__DISABLED
 			| PCA0CLR_CPCE2__DISABLED | PCA0CLR_CPCE3__DISABLED
 			| PCA0CLR_CPCE4__DISABLED | PCA0CLR_CPCE5__DISABLED;
@@ -683,9 +696,17 @@ extern void TIMER16_5_enter_DefaultMode_from_RESET(void) {
 	// [TMR5L - Timer 5 Low Byte]$
 
 	// $[TMR5RLH - Timer 5 Reload High Byte]
+	/*
+	 // Timer 5 Reload High Byte = 0xFC
+	 */
+	TMR5RLH = (0xFC << TMR5RLH_TMR5RLH__SHIFT);
 	// [TMR5RLH - Timer 5 Reload High Byte]$
 
 	// $[TMR5RLL - Timer 5 Reload Low Byte]
+	/*
+	 // Timer 5 Reload Low Byte = 0x03
+	 */
+	TMR5RLL = (0x03 << TMR5RLL_TMR5RLL__SHIFT);
 	// [TMR5RLL - Timer 5 Reload Low Byte]$
 
 	// $[TMR5CN0]
@@ -779,7 +800,7 @@ extern void VREF_0_enter_DefaultMode_from_RESET(void) {
 extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
 	// $[P1 - Port 1 Pin Latch]
 	/*
-	 // P1.0 is high. Set P1.0 to drive or float high
+	 // P1.0 is low. Set P1.0 to drive low
 	 // P1.1 is low. Set P1.1 to drive low
 	 // P1.2 is high. Set P1.2 to drive or float high
 	 // P1.3 is low. Set P1.3 to drive low
@@ -788,7 +809,7 @@ extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
 	 // P1.6 is high. Set P1.6 to drive or float high
 	 // P1.7 is high. Set P1.7 to drive or float high
 	 */
-	P1 = P1_B0__HIGH | P1_B1__LOW | P1_B2__HIGH | P1_B3__LOW | P1_B4__HIGH
+	P1 = P1_B0__LOW | P1_B1__LOW | P1_B2__HIGH | P1_B3__LOW | P1_B4__HIGH
 			| P1_B5__HIGH | P1_B6__HIGH | P1_B7__HIGH;
 	// [P1 - Port 1 Pin Latch]$
 
@@ -876,13 +897,6 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// [ADC0MX - ADC0 Multiplexer Selection]$
 
 	// $[ADC0CF2 - ADC0 Power Control]
-	/*
-	 // The ADC0 ground reference is the GND pin
-	 // The ADC0 voltage reference is the VDD pin
-	 // Power Up Delay Time = 0x1F
-	 */
-	ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VDD_PIN
-			| (0x1F << ADC0CF2_ADPWR__SHIFT);
 	// [ADC0CF2 - ADC0 Power Control]$
 
 	// $[ADC0CF0 - ADC0 Configuration]
@@ -938,6 +952,52 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	SFRPAGE = 0x00;
 	ADC0CN0 |= ADC0CN0_ADEN__ENABLED;
 	// [ADC0CN0 - ADC0 Control 0]$
+
+}
+
+extern void PORTS_2_enter_DefaultMode_from_RESET(void) {
+	// $[P2 - Port 2 Pin Latch]
+	// [P2 - Port 2 Pin Latch]$
+
+	// $[P2MDOUT - Port 2 Output Mode]
+	/*
+	 // P2.0 output is open-drain
+	 // P2.1 output is open-drain
+	 // P2.2 output is open-drain
+	 // P2.3 output is open-drain
+	 // P2.4 output is open-drain
+	 // P2.5 output is push-pull
+	 // P2.6 output is open-drain
+	 */
+	P2MDOUT = P2MDOUT_B0__OPEN_DRAIN | P2MDOUT_B1__OPEN_DRAIN
+			| P2MDOUT_B2__OPEN_DRAIN | P2MDOUT_B3__OPEN_DRAIN
+			| P2MDOUT_B4__OPEN_DRAIN | P2MDOUT_B5__PUSH_PULL
+			| P2MDOUT_B6__OPEN_DRAIN;
+	// [P2MDOUT - Port 2 Output Mode]$
+
+	// $[P2MDIN - Port 2 Input Mode]
+	// [P2MDIN - Port 2 Input Mode]$
+
+	// $[P2SKIP - Port 2 Skip]
+	// [P2SKIP - Port 2 Skip]$
+
+	// $[P2MASK - Port 2 Mask]
+	// [P2MASK - Port 2 Mask]$
+
+	// $[P2MAT - Port 2 Match]
+	// [P2MAT - Port 2 Match]$
+
+}
+
+extern void CLU_0_enter_DefaultMode_from_RESET(void) {
+
+}
+
+extern void CLU_3_enter_DefaultMode_from_RESET(void) {
+
+}
+
+extern void CL_0_enter_DefaultMode_from_RESET(void) {
 
 }
 

@@ -11,8 +11,6 @@
 #include "Scheduler.h"
 #include "PID.h"
 
-
-
 //-----------------------------------------------------------------------------
 // TIMER0_ISR
 //-----------------------------------------------------------------------------
@@ -21,21 +19,18 @@
 // TCON::TF0 (Timer 0 Overflow Flag)
 //
 //-----------------------------------------------------------------------------
+
 SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 {
+	//Time Base is 10.8ms
+
 	SFRPAGE = 0x00;
 
 	TCON &= 0xdf; //Clear the interrupt Flag
 
-
 	//ToogleTest1();
-
 	Scheduler_CallBack();
 
-
-
-//	TL1=0;
-//	TH1=0;
 
 }
 
@@ -58,7 +53,6 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 
 	ADC0=0;
 
-
 }
 
 //-----------------------------------------------------------------------------
@@ -70,13 +64,12 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 // TMR2CN0::TF2L (Timer # Low Byte Overflow Flag)
 //
 //-----------------------------------------------------------------------------
+
 SI_INTERRUPT (TIMER2_ISR, TIMER2_IRQn)
 {
+	// Time base is 500us
 	SFRPAGE = 0x00;
 
 	TMR2CN0 &= 0x3F;			//It clears the Timer 2 interrupt Flags
 
-
-
 }
-

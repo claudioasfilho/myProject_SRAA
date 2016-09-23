@@ -111,9 +111,9 @@ void GetADC(uint16_t value)
 
 void PIDHandler()
 {
-	SetTest1();
+	//SetTest1();
 	OutputResult = CalculatePID(ADCResult);
-	ClearTest1();
+	//ClearTest1();
 }
 
 void DACOutputHandler()

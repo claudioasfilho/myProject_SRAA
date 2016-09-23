@@ -11,20 +11,28 @@
     <property object="ADC14_0" propertyId="adc14.powercontrol.enablelowpowermode" value="Enabled"/>
     <property object="ADC14_0" propertyId="adc14.throughput.conversiontrackingtimesetting" value="10"/>
     <property object="ADC14_0" propertyId="adc14.view.view" value="Advanced"/>
-    <property object="ADC14_0" propertyId="adc14.voltagereference.selectvoltagereference" value="VDD pin"/>
     <property object="ADC14_0" propertyId="autoscan.configuration.triggermode" value="Start an entire scan on trigger"/>
     <property object="ADC14_0" propertyId="autoscan.outputconfiguration.outputendianness" value="Little-endian storage"/>
     <property object="C2DEBUG_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="CIP51_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="CLOCK_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="CLOCK_0" propertyId="clock.clockselect.clocksourcedivider" value="SYSCLK / 1"/>
+    <property object="CLU_0" propertyId="clu.functionselect.lutfunction" value="15"/>
+    <property object="CLU_0" propertyId="clu.outputfunction.logicalexpression" value="~A"/>
+    <property object="CLU_3" propertyId="clu.enable.enableclu#" value="Enabled"/>
+    <property object="CLU_3" propertyId="clu.functionselect.lutfunction" value="15"/>
+    <property object="CLU_3" propertyId="clu.multiplexer.ainput" value="CLU3A.12 (P1.2)"/>
+    <property object="CLU_3" propertyId="clu.outputconfiguration.outputselection" value="LUT"/>
+    <property object="CLU_3" propertyId="clu.outputconfiguration.portoutputenable" value="Enable"/>
+    <property object="CLU_3" propertyId="clu.outputfunction.logicalexpression" value="~A"/>
+    <property object="CL_0" propertyId="cl.configurablelogicenable0.enableclu3" value="Enabled"/>
     <property object="CMP_0" propertyId="ABPeripheral.included" value="true"/>
-    <property object="CMP_0" propertyId="cmp.control.outputinversion" value="Invert"/>
     <property object="CMP_0" propertyId="cmp.enable.enablecomparator" value="Enabled"/>
     <property object="CMP_0" propertyId="cmp.input.inputselection" value="CMP+ and DAC"/>
     <property object="CMP_0" propertyId="cmp.input.internalcomparatordacreferencesetting" value="31"/>
     <property object="CMP_0" propertyId="cmp.input.positiveinputmuxselection" value="CMP0P.1 (P0.2)"/>
     <property object="CMP_0" propertyId="cmp.mode.selectcomparatormode" value="Mode 0 (fastest response, highest power)"/>
+    <property object="CROSSBAR0" propertyId="xbar0.comparator0.syncoutput" value="Enabled"/>
     <property object="CROSSBAR0" propertyId="xbar0.pca0.cex" value="CEX0"/>
     <property object="CROSSBAR0" propertyId="xbar0.timer1.timer1input" value="Enabled"/>
     <property object="DACGCF_0" propertyId="ABPeripheral.included" value="true"/>
@@ -51,10 +59,14 @@
     <property object="P0.2" propertyId="ports.settings.inputmode" value="Analog"/>
     <property object="P0.2" propertyId="ports.settings.iomode" value="Analog I/O"/>
     <property object="P0.2" propertyId="ports.settings.skip" value="Skipped"/>
-    <property object="P0.3" propertyId="ports.settings.latch" value="Low"/>
+    <property object="P0.3" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
     <property object="P0.3" propertyId="ports.settings.matchvalue" value="Low"/>
+    <property object="P0.3" propertyId="ports.settings.outputmode" value="Push-pull"/>
+    <property object="P0.4" propertyId="ports.settings.latch" value="Low"/>
+    <property object="P0.4" propertyId="ports.settings.matchvalue" value="Low"/>
     <property object="P0.5" propertyId="ports.settings.latch" value="Low"/>
     <property object="P0.5" propertyId="ports.settings.matchvalue" value="Low"/>
+    <property object="P1.0" propertyId="ports.settings.latch" value="Low"/>
     <property object="P1.1" propertyId="ports.settings.latch" value="Low"/>
     <property object="P1.1" propertyId="ports.settings.matchvalue" value="Low"/>
     <property object="P1.3" propertyId="ports.settings.latch" value="Low"/>
@@ -62,6 +74,8 @@
     <property object="P1.7" propertyId="ports.settings.inputmode" value="Analog"/>
     <property object="P1.7" propertyId="ports.settings.iomode" value="Analog I/O"/>
     <property object="P1.7" propertyId="ports.settings.skip" value="Skipped"/>
+    <property object="P2.5" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
+    <property object="P2.5" propertyId="ports.settings.outputmode" value="Push-pull"/>
     <property object="P3.0" propertyId="ports.settings.inputmode" value="Analog"/>
     <property object="P3.0" propertyId="ports.settings.iomode" value="Analog I/O"/>
     <property object="P3.3" propertyId="ports.settings.iomode" value="Digital Push-Pull Output"/>
@@ -85,6 +99,7 @@
     <property object="PCACH_4" propertyId="ABPeripheral.included" value="true"/>
     <property object="PCACH_5" propertyId="ABPeripheral.included" value="true"/>
     <property object="PCA_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="PCA_0" propertyId="pca.pcacomparatorclearcontrol.clearcomparatorpolarity" value="High"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcaclockfrequency" value="24.500 MHz"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcaclockfrequencyintegervalue" value="24500000"/>
     <property object="PCA_0" propertyId="pca.pcacountertimerconfiguration.pcaclockperiod" value="40.000 nS"/>
@@ -103,10 +118,10 @@
     <property object="TIMER16_2" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER16_2" propertyId="timer16.control.runcontrol" value="Start"/>
     <property object="TIMER16_2" propertyId="timer16.control.timerrunningstate" value="Timer is Running"/>
-    <property object="TIMER16_2" propertyId="timer16.initandreloadvalue.targetoverflowfrequency" value="100000"/>
-    <property object="TIMER16_2" propertyId="timer16.initandreloadvalue.timerreloadvalue" value="65516"/>
-    <property object="TIMER16_2" propertyId="timer16.reloadhighbyte.reloadhighbyte" value="255"/>
-    <property object="TIMER16_2" propertyId="timer16.reloadlowbyte.reloadlowbyte" value="236"/>
+    <property object="TIMER16_2" propertyId="timer16.initandreloadvalue.targetoverflowfrequency" value="2000"/>
+    <property object="TIMER16_2" propertyId="timer16.initandreloadvalue.timerreloadvalue" value="64515"/>
+    <property object="TIMER16_2" propertyId="timer16.reloadhighbyte.reloadhighbyte" value="252"/>
+    <property object="TIMER16_2" propertyId="timer16.reloadlowbyte.reloadlowbyte" value="3"/>
     <property object="TIMER16_3" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER16_4" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER16_4" propertyId="timer16.initandreloadvalue.targetoverflowfrequency" value="1000.32"/>
@@ -115,7 +130,11 @@
     <property object="TIMER16_4" propertyId="timer16.reloadlowbyte.reloadlowbyte" value="7"/>
     <property object="TIMER16_5" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER16_5" propertyId="timer16.control.timerhighbyterunningstate" value="Timer is Running"/>
+    <property object="TIMER16_5" propertyId="timer16.initandreloadvalue.targetoverflowfrequency" value="2000"/>
+    <property object="TIMER16_5" propertyId="timer16.initandreloadvalue.timerreloadvalue" value="64515"/>
     <property object="TIMER16_5" propertyId="timer16.initandreloadvaluehighbyte.timerreloadvalue" value="52"/>
+    <property object="TIMER16_5" propertyId="timer16.reloadhighbyte.reloadhighbyte" value="252"/>
+    <property object="TIMER16_5" propertyId="timer16.reloadlowbyte.reloadlowbyte" value="3"/>
     <property object="TIMER_SETUP_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.clockcontrol0.timer01prescale" value="SYSCLK / 4"/>
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer0.mode" value="Mode 1, 16-bit Counter/Timer"/>
