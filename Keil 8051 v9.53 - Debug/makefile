@@ -20,24 +20,24 @@ RM := rm -rf
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: myProject\ -\ DAC\ Enabled.omf
+all: Soraa\ -\ MR16v3.omf
 
 # Tool invocations
-myProject\ -\ DAC\ Enabled.omf: echo_path $(OBJS)
+Soraa\ -\ MR16v3.omf: echo_path $(OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Keil 8051 Linker'
-	LX51 "@myProject - DAC Enabled.lnp" || $(RC)
+	LX51 "@Soraa - MR16v3.lnp" || $(RC)
 	@echo 'Finished building target: $@'
 
 # Change from all upper case to the expected case
-	@-mv "MYPROJECT - DAC ENABLED.OMF.CRBUILD" "$@"
+	@-mv "SORAA - MR16V3.OMF.CRBUILD" "$@"
 
-# Generate hex file: myProject - DAC Enabled.hex
-	@Ohx51 "myProject - DAC Enabled.omf" "HEXFILE (myProject - DAC Enabled.hex)" "H386" 2>&1 >/dev/null
+# Generate hex file: Soraa - MR16v3.hex
+	@Ohx51 "Soraa - MR16v3.omf" "HEXFILE (Soraa - MR16v3.hex)" "H386" 2>&1 >/dev/null
 
 # Other Targets
 clean:
-	-$(RM) $(OBJS)$(EXECUTABLES) "myProject - DAC Enabled.omf"
+	-$(RM) $(OBJS)$(EXECUTABLES) "Soraa - MR16v3.omf"
 	-@echo ' '
 
 .PHONY: all clean dependents

@@ -1,15 +1,14 @@
-C51 COMPILER V9.53.0.0   SCHEDULER                                                         09/22/2016 10:26:23 PAGE 1   
+C51 COMPILER V9.53.0.0   SCHEDULER                                                         10/04/2016 11:04:50 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE SCHEDULER
 OBJECT MODULE PLACED IN .\src\Scheduler.OBJ
-COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v3\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\clfilho
-                    -\SimplicityStudio\v3_workspace\myProject - DAC Enabled\src\Scheduler.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGL
-                    -EVEL(2) FLOATFUZZY(3) OPTIMIZE(8,SPEED) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:/Users/clfilho/SimplicityStudio/v3_workspa
-                    -ce/myProject - DAC Enabled/inc;C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/shared/si8051Base;C:/
-                    -SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/EFM8BB3;C:/SiliconLabs/SimplicityStudio/v3/developer/sd
-                    -ks/si8051/v3//Device/EFM8BB3/inc) PRINT(.\src\Scheduler.lst) COND PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\Scheduler.O
-                    -BJ)
+COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v3\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\john\Si
+                    -mplicityStudio\v3_workspace\Soraa - MR16\src\Scheduler.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOATF
+                    -UZZY(3) OPTIMIZE(8,SPEED) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:/Users/john/SimplicityStudio/v3_workspace/Soraa - MR16/i
+                    -nc;C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/shared/si8051Base;C:/SiliconLabs/SimplicityStudio
+                    -/v3/developer/sdks/si8051/v3//Device/EFM8BB3;C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/EFM8BB3
+                    -/inc) PRINT(.\src\Scheduler.lst) COND PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\Scheduler.OBJ)
 
 line level    source
 
@@ -30,64 +29,65 @@ line level    source
   15               * period,  counter,    Enabled,  Function Pointer (To Object Handler that requires constant threat) *
              -/
   16          
-  17                  {   39,         0,      1,      &DimmerCounterHandler},
-  18              {   2,         0,      1,      &DACOutputHandler},
-  19              {   5,         0,      1,      &PIDHandler},
-  20          
+  17                  {   39,         0,      0,     &DimmerCounterHandler},
+  18              {   2,         0,      1,      &ADCAverageHandler},
+  19              {   2,         0,      1,      &PIDHandler},
+  20              {   2,         0,      1,      &DACOutputHandler},
   21          
-  22          };
-  23          
+  22          
+  23          };
   24          
-  25          /*This Function is called by the objects and update the flags*/
-  26          
-  27          /*void Update_task_Flags ( OBJFLAGS Flags , TASKSID tasknum)
-  28          {
-  29              tasks[tasknum].Flags = Flags;
-  30          }*/
-  31          
-  32          /*This Function is called by the objects and update the period, which is how often every task should run*/
-  33          void Update_task_period ( uint16_t period , TASKSID tasknum)
-  34          {
-  35   1          tasks[tasknum].period = period;
-  36   1      }
-  37          
-  38          /*This is the Scheduler itself. It is called by the Timer 2 interrupt and then it jumps on the tasks
-  39           * once the Task period matches. The priority is defined by the way they are listed on the TASKSID
-  40           * enumeration. */
-  41          
+  25          
+  26          /*This Function is called by the objects and update the flags*/
+  27          
+  28          /*void Update_task_Flags ( OBJFLAGS Flags , TASKSID tasknum)
+  29          {
+  30              tasks[tasknum].Flags = Flags;
+  31          }*/
+  32          
+  33          /*This Function is called by the objects and update the period, which is how often every task should run*/
+  34          void Update_task_period ( uint16_t period , TASKSID tasknum)
+  35          {
+  36   1          tasks[tasknum].period = period;
+  37   1      }
+  38          
+  39          /*This is the Scheduler itself. It is called by the Timer 2 interrupt and then it jumps on the tasks
+  40           * once the Task period matches. The priority is defined by the way they are listed on the TASKSID
+  41           * enumeration. */
   42          
-  43          void Scheduler_CallBack(void)
-  44          {
-  45   1      static TASKSID taskCounter;
-  46   1      
-  47   1       for (taskCounter = 0; taskCounter < MAX_TASKS; taskCounter++)
-  48   1          {
-  49   2              if (tasks[taskCounter].Enabled == 1)
-C51 COMPILER V9.53.0.0   SCHEDULER                                                         09/22/2016 10:26:23 PAGE 2   
+  43          
+  44          void Scheduler_CallBack(void)
+  45          {
+  46   1      static TASKSID taskCounter;
+  47   1      
+  48   1       for (taskCounter = 0; taskCounter < MAX_TASKS; taskCounter++)
+  49   1          {
+  50   2              if (tasks[taskCounter].Enabled == 1)
+C51 COMPILER V9.53.0.0   SCHEDULER                                                         10/04/2016 11:04:50 PAGE 2   
 
-  50   2              {
-  51   3                  if (tasks[taskCounter].counter++ == tasks[taskCounter].period)
-  52   3                       {
-  53   4                           (tasks[taskCounter].function)();
-  54   4                           tasks[taskCounter].counter=0;
-  55   4                       }
-  56   3              }
-  57   2       
-  58   2          }
-  59   1      
+  51   2              {
+  52   3                  if (tasks[taskCounter].counter++ == tasks[taskCounter].period)
+  53   3                       {
+  54   4                           (tasks[taskCounter].function)();
+  55   4                           tasks[taskCounter].counter=0;
+  56   4                       }
+  57   3              }
+  58   2       
+  59   2          }
   60   1      
   61   1      
-  62   1         // Buttons_Handler();
-  63   1      }
-  64          /**
-  65            End of File
-  66          */
+  62   1      
+  63   1         // Buttons_Handler();
+  64   1      }
+  65          /**
+  66            End of File
+  67          */
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    147    ----
    CONSTANT SIZE    =   ----    ----
-   XDATA SIZE       =     24    ----
+   XDATA SIZE       =     32    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      1    ----
    IDATA SIZE       =   ----    ----

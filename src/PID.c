@@ -18,21 +18,21 @@
 //Constants for the PID Controller
 
 //Error Limits
-#define errorlimitH 50
-#define errorlimitL -50
-
+#define errorlimitH 800
+#define errorlimitL -800
+#define errorlimitenable 0
 //PID Output Limit
 #define PIDOutlimitH 4095
 
 //System Set point
-#define OutputSetPoint	4000
+#define OutputSetPoint	2000
 
 //PID Multiplying Factors
-#define Kp 0x0003
-#define Ki 0x00101
-#define Kd 0x01000
+#define Kp 1000
+#define Ki 2
+#define Kd 1000
 
-
+#define AverageADCEnabled 0
 //Static Variables for PID Control
 
 static xdata int16_t Error;
@@ -42,10 +42,21 @@ static xdata  int16_t Previous_Error =0;
 static xdata  int16_t P_term;
 static xdata  int16_t I_term;
 static xdata  int16_t D_term;
-static xdata  int16_t PIDresult;
+static xdata  int32_t PIDresult;
 
-static xdata uint16_t ADCResult;
+#define PIDARRAYSIZE 100
+static xdata PIDR PIDread[PIDARRAYSIZE];
+static xdata uint8_t PIDcounter=0;
+
+static xdata uint16_t ADCResult=0;
+static xdata uint32_t ADCAveragedValue=0;
+
+static xdata uint16_t ADCResultArray[PIDARRAYSIZE]=0;
+
+static xdata uint16_t ADCCounter=1;
 static xdata uint16_t OutputResult;
+
+static xdata uint32_t tickcounter=0;
 
 //Static Variables for PID Control
 
@@ -60,9 +71,11 @@ uint16_t CalculatePID(uint16_t current_ADC)
 
 	Error = OutputSetPoint - current_ADC;
 
+	PIDread[PIDcounter].ADC = current_ADC;
 
 	Error_Integral = Error_Integral + Error;
-
+#if  errorlimitenable
+/* XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx*/
 	if(Error_Integral > errorlimitH)
 			{
 				Error_Integral = errorlimitH;
@@ -72,14 +85,32 @@ uint16_t CalculatePID(uint16_t current_ADC)
 		{
 			Error_Integral = errorlimitL;
 		}
+/*XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+#endif
 
 	Error_Derivative = Error - Previous_Error;
+
 	Previous_Error = Error;
 
-	PIDresult = (Kp*Error) + (Ki*Error_Integral) + (Kd*Error_Derivative);
+	//P_term = (Kp*Error);
+	P_term = Error/Kp;
+	PIDread[PIDcounter].P_term = P_term;
+
+	//I_term = (Ki*Error_Integral);
+	I_term = Error_Integral>>Ki;
+	PIDread[PIDcounter].I_term= I_term;
+
+	D_term = (Error_Derivative/Kd);
+	PIDread[PIDcounter].D_term = D_term;
 
 
-	PIDresult = PIDresult>>2;
+	PIDresult = P_term + I_term + D_term;
+
+	//PIDread[PIDcounter].Result = PIDresult;
+
+
+
+	//PIDresult = PIDresult;
 
 	if(PIDresult >= PIDOutlimitH)
 	{
@@ -93,20 +124,64 @@ uint16_t CalculatePID(uint16_t current_ADC)
 	return PIDresult;
 }
 
+void Tick()
+{
+	if (tickcounter++>=500) tickcounter=500;
+}
+
 void SetDACOutput(uint16_t value)
 {
 
 	SFRPAGE = 0x30;
 	DAC0H = value >>8;
 	DAC0L= (char) value;
+	PIDread[PIDcounter++].DAC = value;
+	if(PIDcounter==PIDARRAYSIZE)
+
+		{
+			PIDcounter=0;
+		}
+/*
+	if (  ( (value > (PIDread[PIDcounter-1].DAC + 5)) || (value < (PIDread[PIDcounter-1].DAC - 5)) ) && (tickcounter>500))
+	{
+		value = value;
+	}
+*/
 }
 
 void GetADC(uint16_t value)
 {
-	ADCResult = value>>4; //Dividing by 16 to get the averaged value from the 16 reads
+#if AverageADCEnabled
+	//ADCAveragedValue += value>>4;
+	ADCResultArray[ADCCounter] = value;
+	ADCAveragedValue += value;
+	ADCCounter++;
+	if (ADCAveragedValue > 245000)
+	{
+		NOP();
+	}
+
+#else
+	ADCResult = value;
+#endif
 }
 
+void ADCAverageHandler()
+{
+#if AverageADCEnabled
+	ADCResult = ADCAveragedValue / ADCCounter;
 
+	if (ADCResult > 3500)
+	{
+		//ADCResult = 2000;
+		ADCAveragedValue=0;
+	}
+	ADCAveragedValue=0;
+	ADCCounter=0;
+#else
+
+#endif
+}
 
 
 void PIDHandler()
@@ -118,6 +193,7 @@ void PIDHandler()
 
 void DACOutputHandler()
 {
+
 	SetDACOutput(OutputResult);
 }
 

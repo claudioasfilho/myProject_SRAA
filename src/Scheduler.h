@@ -31,6 +31,7 @@
 typedef enum
     {
         DIMMERCOUNTER_TASK=0,
+        ADCAVERAGE_TASK,
 		PID_TASK,
         DACOUTPUT_TASK,
         MAX_TASKS

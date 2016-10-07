@@ -28,7 +28,6 @@ SI_INTERRUPT (TIMER0_ISR, TIMER0_IRQn)
 
 	TCON &= 0xdf; //Clear the interrupt Flag
 
-	//ToogleTest1();
 	Scheduler_CallBack();
 
 
@@ -52,6 +51,8 @@ SI_INTERRUPT (ADC0EOC_ISR, ADC0EOC_IRQn)
 	GetADC(ADC0);
 
 	ADC0=0;
+
+	//ToogleTest1();
 
 }
 

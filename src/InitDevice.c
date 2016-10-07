@@ -760,6 +760,10 @@ extern void DAC_0_enter_DefaultMode_from_RESET(void) {
 	// [DAC0CF0 - DAC0 Configuration 0]$
 
 	// $[DAC0CF1 - DAC0 Configuration 1]
+	/*
+	 // DAC output gain is 2
+	 */
+	DAC0CF1 = DAC0CF1_DRVGAIN__GAIN_2P0;
 	// [DAC0CF1 - DAC0 Configuration 1]$
 
 }
@@ -782,6 +786,11 @@ extern void DACGCF_0_enter_DefaultMode_from_RESET(void) {
 	// [DACGCF0 - DAC Global Configuration 0]$
 
 	// $[DACGCF2 - DAC Global Configuration 2]
+	/*
+	 // Selected reference will be attenuated by a factor of 2
+	 // Selected reference will be attenuated by a factor of 2.4 
+	 */
+	DACGCF2 = DACGCF2_D01REFGN__ATTEN_2P0 | DACGCF2_D23REFGN__ATTEN_2P4;
 	// [DACGCF2 - DAC Global Configuration 2]$
 
 }
@@ -789,10 +798,10 @@ extern void DACGCF_0_enter_DefaultMode_from_RESET(void) {
 extern void VREF_0_enter_DefaultMode_from_RESET(void) {
 	// $[REF0CN - Voltage Reference Control]
 	/*
-	 // 2.4 V reference output to VREF pin
+	 // 1.2 V reference output to VREF pin
 	 */
 	SFRPAGE = 0x00;
-	REF0CN = REF0CN_VREFSL__VREF_2P4;
+	REF0CN = REF0CN_VREFSL__VREF_1P2;
 	// [REF0CN - Voltage Reference Control]$
 
 }
@@ -873,30 +882,29 @@ extern void ADC_0_enter_DefaultMode_from_RESET(void) {
 	// $[ADC0CN2 - ADC0 Control 2]
 	/*
 	 // ADC0 conversion initiated on overflow of Timer 2
-	 // The ADC accumulator always adds new results to the existing output.
-	 //     The accumulator is never cleared in this mode
+	 // The ADC accumulator is over-written with the results of any conversion
 	 */
-	ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_ENABLED;
+	ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_DISABLED;
 	// [ADC0CN2 - ADC0 Control 2]$
 
 	// $[ADC0CN1 - ADC0 Control 1]
-	/*
-	 // ADC0 operates in 12-bit mode
-	 // Right justified. No shifting applied
-	 // Perform and Accumulate 16 conversions
-	 */
-	ADC0CN1 = ADC0CN1_ADBITS__12_BIT | ADC0CN1_ADSJST__RIGHT_NO_SHIFT
-			| ADC0CN1_ADRPT__ACC_16;
 	// [ADC0CN1 - ADC0 Control 1]$
 
 	// $[ADC0MX - ADC0 Multiplexer Selection]
 	/*
-	 // Select ADC0.13
+	 // Select ADC0.17
 	 */
-	ADC0MX = ADC0MX_ADC0MX__ADC0P13;
+	ADC0MX = ADC0MX_ADC0MX__ADC0P17;
 	// [ADC0MX - ADC0 Multiplexer Selection]$
 
 	// $[ADC0CF2 - ADC0 Power Control]
+	/*
+	 // The ADC0 ground reference is the GND pin
+	 // The ADC0 voltage reference is the VREF pin 
+	 // Power Up Delay Time = 0x1F
+	 */
+	ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VREF_PIN
+			| (0x1F << ADC0CF2_ADPWR__SHIFT);
 	// [ADC0CF2 - ADC0 Power Control]$
 
 	// $[ADC0CF0 - ADC0 Configuration]

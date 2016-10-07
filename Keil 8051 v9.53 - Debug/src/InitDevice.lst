@@ -1,15 +1,14 @@
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 1   
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 1   
 
 
 C51 COMPILER V9.53.0.0, COMPILATION OF MODULE INITDEVICE
 OBJECT MODULE PLACED IN .\src\InitDevice.OBJ
-COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v3\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\clfilho
-                    -\SimplicityStudio\v3_workspace\myProject - DAC Enabled\src\InitDevice.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNING
-                    -LEVEL(2) FLOATFUZZY(3) OPTIMIZE(8,SPEED) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:/Users/clfilho/SimplicityStudio/v3_worksp
-                    -ace/myProject - DAC Enabled/inc;C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/shared/si8051Base;C:
-                    -/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/EFM8BB3;C:/SiliconLabs/SimplicityStudio/v3/developer/s
-                    -dks/si8051/v3//Device/EFM8BB3/inc) PRINT(.\src\InitDevice.lst) COND PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\InitDevic
-                    -e.OBJ)
+COMPILER INVOKED BY: c:\SiliconLabs\SimplicityStudio\v3\developer\toolchains\keil_8051\9.53\BIN\C51.exe C:\Users\john\Si
+                    -mplicityStudio\v3_workspace\Soraa - MR16\src\InitDevice.c OMF2 SMALL DEBUG OBJECTEXTEND ROM(LARGE) WARNINGLEVEL(2) FLOAT
+                    -FUZZY(3) OPTIMIZE(8,SPEED) INTVECTOR(0X0000) INTPROMOTE INCDIR(C:/Users/john/SimplicityStudio/v3_workspace/Soraa - MR16/
+                    -inc;C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/shared/si8051Base;C:/SiliconLabs/SimplicityStudi
+                    -o/v3/developer/sdks/si8051/v3//Device/EFM8BB3;C:/SiliconLabs/SimplicityStudio/v3/developer/sdks/si8051/v3//Device/EFM8BB
+                    -3/inc) PRINT(.\src\InitDevice.lst) COND PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\InitDevice.OBJ)
 
 line level    source
 
@@ -63,9 +62,9 @@ line level    source
   48   1              // Restore the SFRPAGE
   49   1              SFRPAGE = SFRPAGE_save;
   50   1              // [Config Calls]$
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 2   
-
   51   1      
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 2   
+
   52   1      }
   53          
   54          extern void PBCFG_0_enter_DefaultMode_from_RESET(void) {
@@ -128,9 +127,9 @@ line level    source
  111   1              // Delay to allow the comparator inputs to settle
  112   1              for (delay = 0; delay < 0x20; delay++)
  113   1                      ;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 3   
-
  114   1              // [CMP0MX - Comparator 0 Multiplexer Selection]$
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 3   
+
  115   1      
  116   1              // $[CMP0CN1 - Comparator 0 Control 1]
  117   1              /*
@@ -193,9 +192,9 @@ line level    source
  174   1              // $[P0MDOUT - Port 0 Output Mode]
  175   1              /*
  176   1               // P0.0 output is open-drain
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 4   
-
  177   1               // P0.1 output is push-pull
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 4   
+
  178   1               // P0.2 output is open-drain
  179   1               // P0.3 output is push-pull
  180   1               // P0.4 output is open-drain
@@ -258,9 +257,9 @@ line level    source
  237   1               */
  238   1              P0MAT = P0MAT_B0__HIGH | P0MAT_B1__HIGH | P0MAT_B2__HIGH | P0MAT_B3__LOW
  239   1                              | P0MAT_B4__LOW | P0MAT_B5__LOW | P0MAT_B6__HIGH | P0MAT_B7__HIGH;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 5   
-
  240   1              // [P0MAT - Port 0 Match]$
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 5   
+
  241   1      
  242   1      }
  243          
@@ -323,9 +322,9 @@ line level    source
  300   1              /*
  301   1               // Timer 2 Reload Low Byte = 0x03
  302   1               */
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 6   
-
  303   1              TMR2RLL = (0x03 << TMR2RLL_TMR2RLL__SHIFT);
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 6   
+
  304   1              // [TMR2RLL - Timer 2 Reload Low Byte]$
  305   1      
  306   1              // $[TMR2CN0]
@@ -388,9 +387,9 @@ line level    source
  363   1              IE = IE_EA__ENABLED | IE_EX0__DISABLED | IE_EX1__DISABLED
  364   1                              | IE_ESPI0__DISABLED | IE_ET0__ENABLED | IE_ET1__DISABLED
  365   1                              | IE_ET2__ENABLED | IE_ES0__DISABLED;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 7   
-
  366   1              // [IE - Interrupt Enable]$
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 7   
+
  367   1      
  368   1              // $[IP - Interrupt Priority]
  369   1              // [IP - Interrupt Priority]$
@@ -453,9 +452,9 @@ line level    source
  426   1               // PCA Counter/Timer Low Byte = 0xE8
  427   1               */
  428   1              PCA0L = (0xE8 << PCA0L_PCA0L__SHIFT);
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 8   
-
  429   1              // [PCA0L - PCA Counter/Timer Low Byte]$
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 8   
+
  430   1      
  431   1              // $[PCA0H - PCA Counter/Timer High Byte]
  432   1              /*
@@ -518,9 +517,9 @@ line level    source
  489   1              PCA0CPH0 = (0x03 << PCA0CPH0_PCA0CPH0__SHIFT);
  490   1              // [PCA0CPH0 - PCA Channel 0 Capture Module High Byte]$
  491   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 9   
-
  492   1              // $[Auto-reload]
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 9   
+
  493   1              PCA0PWM |= PCA0PWM_ARSEL__AUTORELOAD;
  494   1              /*
  495   1               // PCA Channel 0 Capture Module Low Byte = 0xFF
@@ -583,9 +582,9 @@ line level    source
  552          extern void TIMER_SETUP_0_enter_DefaultMode_from_RESET(void) {
  553   1              // $[CKCON0 - Clock Control 0]
  554   1              /*
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 10  
-
  555   1               // System clock divided by 4
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 10  
+
  556   1               // Counter/Timer 0 uses the clock defined by the prescale field, SCA
  557   1               // Timer 2 high byte uses the clock defined by T2XCLK in TMR2CN0
  558   1               // Timer 2 low byte uses the clock defined by T2XCLK in TMR2CN0
@@ -648,9 +647,9 @@ line level    source
  615   1      
  616   1              // $[P3MDIN - Port 3 Input Mode]
  617   1              /*
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 11  
-
  618   1               // P3.0 pin is configured for analog mode
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 11  
+
  619   1               // P3.1 pin is configured for digital mode
  620   1               // P3.2 pin is configured for digital mode
  621   1               // P3.3 pin is configured for digital mode
@@ -713,9 +712,9 @@ line level    source
  678   1              // $[Timer Initialization]
  679   1              // Save Timer Configuration
  680   1              uint8_t TMR5CN0_TR5_save;
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 12  
-
  681   1              TMR5CN0_TR5_save = TMR5CN0 & TMR5CN0_TR5__BMASK;
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 12  
+
  682   1              // Stop Timer
  683   1              TMR5CN0 &= ~(TMR5CN0_TR5__BMASK);
  684   1              // [Timer Initialization]$
@@ -778,9 +777,9 @@ line level    source
  741   1              // $[Auto-reload]
  742   1              // [Auto-reload]$
  743   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 13  
-
  744   1              // $[PCA0 Settings Restore]
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 13  
+
  745   1              // [PCA0 Settings Restore]$
  746   1      
  747   1      }
@@ -799,259 +798,267 @@ line level    source
  760   1              // [DAC0CF0 - DAC0 Configuration 0]$
  761   1      
  762   1              // $[DAC0CF1 - DAC0 Configuration 1]
- 763   1              // [DAC0CF1 - DAC0 Configuration 1]$
- 764   1      
- 765   1      }
- 766          
- 767          extern void DACGCF_0_enter_DefaultMode_from_RESET(void) {
- 768   1              // $[DACGCF0 - DAC Global Configuration 0]
- 769   1              /*
- 770   1               // Select the VREF pin
- 771   1               // Select the VDD supply
- 772   1               // Input = DAC1H:DAC1L
- 773   1               // Input = DAC3H:DAC3L
- 774   1               // DAC1 always updates from the data source selected in D1SRC. This mode
- 775   1               //     may be used with any trigger source
- 776   1               // DAC3 always updates from the data source selected in D3SRC. This mode
- 777   1               //     may be used with any trigger source
- 778   1               */
- 779   1              DACGCF0 = DACGCF0_D01REFSL__VREF | DACGCF0_D23REFSL__VDD
- 780   1                              | DACGCF0_D1SRC__DAC1 | DACGCF0_D3SRC__DAC3 | DACGCF0_D1AMEN__NORMAL
- 781   1                              | DACGCF0_D3AMEN__NORMAL;
- 782   1              // [DACGCF0 - DAC Global Configuration 0]$
- 783   1      
- 784   1              // $[DACGCF2 - DAC Global Configuration 2]
- 785   1              // [DACGCF2 - DAC Global Configuration 2]$
- 786   1      
- 787   1      }
- 788          
- 789          extern void VREF_0_enter_DefaultMode_from_RESET(void) {
- 790   1              // $[REF0CN - Voltage Reference Control]
- 791   1              /*
- 792   1               // 2.4 V reference output to VREF pin
- 793   1               */
- 794   1              SFRPAGE = 0x00;
- 795   1              REF0CN = REF0CN_VREFSL__VREF_2P4;
- 796   1              // [REF0CN - Voltage Reference Control]$
- 797   1      
- 798   1      }
- 799          
- 800          extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
- 801   1              // $[P1 - Port 1 Pin Latch]
- 802   1              /*
- 803   1               // P1.0 is low. Set P1.0 to drive low
- 804   1               // P1.1 is low. Set P1.1 to drive low
- 805   1               // P1.2 is high. Set P1.2 to drive or float high
- 806   1               // P1.3 is low. Set P1.3 to drive low
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 14  
+ 763   1              /*
+ 764   1               // DAC output gain is 2
+ 765   1               */
+ 766   1              DAC0CF1 = DAC0CF1_DRVGAIN__GAIN_2P0;
+ 767   1              // [DAC0CF1 - DAC0 Configuration 1]$
+ 768   1      
+ 769   1      }
+ 770          
+ 771          extern void DACGCF_0_enter_DefaultMode_from_RESET(void) {
+ 772   1              // $[DACGCF0 - DAC Global Configuration 0]
+ 773   1              /*
+ 774   1               // Select the VREF pin
+ 775   1               // Select the VDD supply
+ 776   1               // Input = DAC1H:DAC1L
+ 777   1               // Input = DAC3H:DAC3L
+ 778   1               // DAC1 always updates from the data source selected in D1SRC. This mode
+ 779   1               //     may be used with any trigger source
+ 780   1               // DAC3 always updates from the data source selected in D3SRC. This mode
+ 781   1               //     may be used with any trigger source
+ 782   1               */
+ 783   1              DACGCF0 = DACGCF0_D01REFSL__VREF | DACGCF0_D23REFSL__VDD
+ 784   1                              | DACGCF0_D1SRC__DAC1 | DACGCF0_D3SRC__DAC3 | DACGCF0_D1AMEN__NORMAL
+ 785   1                              | DACGCF0_D3AMEN__NORMAL;
+ 786   1              // [DACGCF0 - DAC Global Configuration 0]$
+ 787   1      
+ 788   1              // $[DACGCF2 - DAC Global Configuration 2]
+ 789   1              /*
+ 790   1               // Selected reference will be attenuated by a factor of 2
+ 791   1               // Selected reference will be attenuated by a factor of 2.4 
+ 792   1               */
+ 793   1              DACGCF2 = DACGCF2_D01REFGN__ATTEN_2P0 | DACGCF2_D23REFGN__ATTEN_2P4;
+ 794   1              // [DACGCF2 - DAC Global Configuration 2]$
+ 795   1      
+ 796   1      }
+ 797          
+ 798          extern void VREF_0_enter_DefaultMode_from_RESET(void) {
+ 799   1              // $[REF0CN - Voltage Reference Control]
+ 800   1              /*
+ 801   1               // 1.2 V reference output to VREF pin
+ 802   1               */
+ 803   1              SFRPAGE = 0x00;
+ 804   1              REF0CN = REF0CN_VREFSL__VREF_1P2;
+ 805   1              // [REF0CN - Voltage Reference Control]$
+ 806   1      
+ 807   1      }
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 14  
 
- 807   1               // P1.4 is high. Set P1.4 to drive or float high
- 808   1               // P1.5 is high. Set P1.5 to drive or float high
- 809   1               // P1.6 is high. Set P1.6 to drive or float high
- 810   1               // P1.7 is high. Set P1.7 to drive or float high
- 811   1               */
- 812   1              P1 = P1_B0__LOW | P1_B1__LOW | P1_B2__HIGH | P1_B3__LOW | P1_B4__HIGH
- 813   1                              | P1_B5__HIGH | P1_B6__HIGH | P1_B7__HIGH;
- 814   1              // [P1 - Port 1 Pin Latch]$
- 815   1      
- 816   1              // $[P1MDOUT - Port 1 Output Mode]
- 817   1              // [P1MDOUT - Port 1 Output Mode]$
- 818   1      
- 819   1              // $[P1MDIN - Port 1 Input Mode]
- 820   1              /*
- 821   1               // P1.0 pin is configured for digital mode
- 822   1               // P1.1 pin is configured for digital mode
- 823   1               // P1.2 pin is configured for digital mode
- 824   1               // P1.3 pin is configured for digital mode
- 825   1               // P1.4 pin is configured for digital mode
- 826   1               // P1.5 pin is configured for digital mode
- 827   1               // P1.6 pin is configured for digital mode
- 828   1               // P1.7 pin is configured for analog mode
- 829   1               */
- 830   1              P1MDIN = P1MDIN_B0__DIGITAL | P1MDIN_B1__DIGITAL | P1MDIN_B2__DIGITAL
- 831   1                              | P1MDIN_B3__DIGITAL | P1MDIN_B4__DIGITAL | P1MDIN_B5__DIGITAL
- 832   1                              | P1MDIN_B6__DIGITAL | P1MDIN_B7__ANALOG;
- 833   1              // [P1MDIN - Port 1 Input Mode]$
- 834   1      
- 835   1              // $[P1SKIP - Port 1 Skip]
- 836   1              /*
- 837   1               // P1.0 pin is not skipped by the crossbar
- 838   1               // P1.1 pin is not skipped by the crossbar
- 839   1               // P1.2 pin is not skipped by the crossbar
- 840   1               // P1.3 pin is not skipped by the crossbar
- 841   1               // P1.4 pin is not skipped by the crossbar
- 842   1               // P1.5 pin is not skipped by the crossbar
- 843   1               // P1.6 pin is not skipped by the crossbar
- 844   1               // P1.7 pin is skipped by the crossbar
- 845   1               */
- 846   1              P1SKIP = P1SKIP_B0__NOT_SKIPPED | P1SKIP_B1__NOT_SKIPPED
- 847   1                              | P1SKIP_B2__NOT_SKIPPED | P1SKIP_B3__NOT_SKIPPED
- 848   1                              | P1SKIP_B4__NOT_SKIPPED | P1SKIP_B5__NOT_SKIPPED
- 849   1                              | P1SKIP_B6__NOT_SKIPPED | P1SKIP_B7__SKIPPED;
- 850   1              // [P1SKIP - Port 1 Skip]$
- 851   1      
- 852   1              // $[P1MASK - Port 1 Mask]
- 853   1              // [P1MASK - Port 1 Mask]$
- 854   1      
- 855   1              // $[P1MAT - Port 1 Match]
- 856   1              /*
- 857   1               // P1.0 pin logic value is compared with logic HIGH
- 858   1               // P1.1 pin logic value is compared with logic LOW
- 859   1               // P1.2 pin logic value is compared with logic HIGH
- 860   1               // P1.3 pin logic value is compared with logic LOW
- 861   1               // P1.4 pin logic value is compared with logic HIGH
- 862   1               // P1.5 pin logic value is compared with logic HIGH
- 863   1               // P1.6 pin logic value is compared with logic HIGH
- 864   1               // P1.7 pin logic value is compared with logic HIGH
- 865   1               */
- 866   1              P1MAT = P1MAT_B0__HIGH | P1MAT_B1__LOW | P1MAT_B2__HIGH | P1MAT_B3__LOW
- 867   1                              | P1MAT_B4__HIGH | P1MAT_B5__HIGH | P1MAT_B6__HIGH | P1MAT_B7__HIGH;
- 868   1              // [P1MAT - Port 1 Match]$
- 869   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 15  
+ 808          
+ 809          extern void PORTS_1_enter_DefaultMode_from_RESET(void) {
+ 810   1              // $[P1 - Port 1 Pin Latch]
+ 811   1              /*
+ 812   1               // P1.0 is low. Set P1.0 to drive low
+ 813   1               // P1.1 is low. Set P1.1 to drive low
+ 814   1               // P1.2 is high. Set P1.2 to drive or float high
+ 815   1               // P1.3 is low. Set P1.3 to drive low
+ 816   1               // P1.4 is high. Set P1.4 to drive or float high
+ 817   1               // P1.5 is high. Set P1.5 to drive or float high
+ 818   1               // P1.6 is high. Set P1.6 to drive or float high
+ 819   1               // P1.7 is high. Set P1.7 to drive or float high
+ 820   1               */
+ 821   1              P1 = P1_B0__LOW | P1_B1__LOW | P1_B2__HIGH | P1_B3__LOW | P1_B4__HIGH
+ 822   1                              | P1_B5__HIGH | P1_B6__HIGH | P1_B7__HIGH;
+ 823   1              // [P1 - Port 1 Pin Latch]$
+ 824   1      
+ 825   1              // $[P1MDOUT - Port 1 Output Mode]
+ 826   1              // [P1MDOUT - Port 1 Output Mode]$
+ 827   1      
+ 828   1              // $[P1MDIN - Port 1 Input Mode]
+ 829   1              /*
+ 830   1               // P1.0 pin is configured for digital mode
+ 831   1               // P1.1 pin is configured for digital mode
+ 832   1               // P1.2 pin is configured for digital mode
+ 833   1               // P1.3 pin is configured for digital mode
+ 834   1               // P1.4 pin is configured for digital mode
+ 835   1               // P1.5 pin is configured for digital mode
+ 836   1               // P1.6 pin is configured for digital mode
+ 837   1               // P1.7 pin is configured for analog mode
+ 838   1               */
+ 839   1              P1MDIN = P1MDIN_B0__DIGITAL | P1MDIN_B1__DIGITAL | P1MDIN_B2__DIGITAL
+ 840   1                              | P1MDIN_B3__DIGITAL | P1MDIN_B4__DIGITAL | P1MDIN_B5__DIGITAL
+ 841   1                              | P1MDIN_B6__DIGITAL | P1MDIN_B7__ANALOG;
+ 842   1              // [P1MDIN - Port 1 Input Mode]$
+ 843   1      
+ 844   1              // $[P1SKIP - Port 1 Skip]
+ 845   1              /*
+ 846   1               // P1.0 pin is not skipped by the crossbar
+ 847   1               // P1.1 pin is not skipped by the crossbar
+ 848   1               // P1.2 pin is not skipped by the crossbar
+ 849   1               // P1.3 pin is not skipped by the crossbar
+ 850   1               // P1.4 pin is not skipped by the crossbar
+ 851   1               // P1.5 pin is not skipped by the crossbar
+ 852   1               // P1.6 pin is not skipped by the crossbar
+ 853   1               // P1.7 pin is skipped by the crossbar
+ 854   1               */
+ 855   1              P1SKIP = P1SKIP_B0__NOT_SKIPPED | P1SKIP_B1__NOT_SKIPPED
+ 856   1                              | P1SKIP_B2__NOT_SKIPPED | P1SKIP_B3__NOT_SKIPPED
+ 857   1                              | P1SKIP_B4__NOT_SKIPPED | P1SKIP_B5__NOT_SKIPPED
+ 858   1                              | P1SKIP_B6__NOT_SKIPPED | P1SKIP_B7__SKIPPED;
+ 859   1              // [P1SKIP - Port 1 Skip]$
+ 860   1      
+ 861   1              // $[P1MASK - Port 1 Mask]
+ 862   1              // [P1MASK - Port 1 Mask]$
+ 863   1      
+ 864   1              // $[P1MAT - Port 1 Match]
+ 865   1              /*
+ 866   1               // P1.0 pin logic value is compared with logic HIGH
+ 867   1               // P1.1 pin logic value is compared with logic LOW
+ 868   1               // P1.2 pin logic value is compared with logic HIGH
+ 869   1               // P1.3 pin logic value is compared with logic LOW
+ 870   1               // P1.4 pin logic value is compared with logic HIGH
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 15  
 
- 870   1      }
- 871          
- 872          extern void ADC_0_enter_DefaultMode_from_RESET(void) {
- 873   1              // $[ADC0CN2 - ADC0 Control 2]
- 874   1              /*
- 875   1               // ADC0 conversion initiated on overflow of Timer 2
- 876   1               // The ADC accumulator always adds new results to the existing output.
- 877   1               //     The accumulator is never cleared in this mode
- 878   1               */
- 879   1              ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_ENABLED;
- 880   1              // [ADC0CN2 - ADC0 Control 2]$
- 881   1      
- 882   1              // $[ADC0CN1 - ADC0 Control 1]
+ 871   1               // P1.5 pin logic value is compared with logic HIGH
+ 872   1               // P1.6 pin logic value is compared with logic HIGH
+ 873   1               // P1.7 pin logic value is compared with logic HIGH
+ 874   1               */
+ 875   1              P1MAT = P1MAT_B0__HIGH | P1MAT_B1__LOW | P1MAT_B2__HIGH | P1MAT_B3__LOW
+ 876   1                              | P1MAT_B4__HIGH | P1MAT_B5__HIGH | P1MAT_B6__HIGH | P1MAT_B7__HIGH;
+ 877   1              // [P1MAT - Port 1 Match]$
+ 878   1      
+ 879   1      }
+ 880          
+ 881          extern void ADC_0_enter_DefaultMode_from_RESET(void) {
+ 882   1              // $[ADC0CN2 - ADC0 Control 2]
  883   1              /*
- 884   1               // ADC0 operates in 12-bit mode
- 885   1               // Right justified. No shifting applied
- 886   1               // Perform and Accumulate 16 conversions
- 887   1               */
- 888   1              ADC0CN1 = ADC0CN1_ADBITS__12_BIT | ADC0CN1_ADSJST__RIGHT_NO_SHIFT
- 889   1                              | ADC0CN1_ADRPT__ACC_16;
- 890   1              // [ADC0CN1 - ADC0 Control 1]$
- 891   1      
- 892   1              // $[ADC0MX - ADC0 Multiplexer Selection]
- 893   1              /*
- 894   1               // Select ADC0.13
- 895   1               */
- 896   1              ADC0MX = ADC0MX_ADC0MX__ADC0P13;
- 897   1              // [ADC0MX - ADC0 Multiplexer Selection]$
- 898   1      
- 899   1              // $[ADC0CF2 - ADC0 Power Control]
- 900   1              // [ADC0CF2 - ADC0 Power Control]$
- 901   1      
- 902   1              // $[ADC0CF0 - ADC0 Configuration]
- 903   1              /*
- 904   1               // ADCCLK = SYSCLK
- 905   1               // SAR Clock Divider = 0x03
- 906   1               */
- 907   1              ADC0CF0 = ADC0CF0_ADCLKSEL__SYSCLK | (0x03 << ADC0CF0_ADSC__SHIFT);
- 908   1              // [ADC0CF0 - ADC0 Configuration]$
+ 884   1               // ADC0 conversion initiated on overflow of Timer 2
+ 885   1               // The ADC accumulator is over-written with the results of any conversion
+ 886   1               */
+ 887   1              ADC0CN2 = ADC0CN2_ADCM__TIMER2 | ADC0CN2_PACEN__PAC_DISABLED;
+ 888   1              // [ADC0CN2 - ADC0 Control 2]$
+ 889   1      
+ 890   1              // $[ADC0CN1 - ADC0 Control 1]
+ 891   1              // [ADC0CN1 - ADC0 Control 1]$
+ 892   1      
+ 893   1              // $[ADC0MX - ADC0 Multiplexer Selection]
+ 894   1              /*
+ 895   1               // Select ADC0.17
+ 896   1               */
+ 897   1              ADC0MX = ADC0MX_ADC0MX__ADC0P17;
+ 898   1              // [ADC0MX - ADC0 Multiplexer Selection]$
+ 899   1      
+ 900   1              // $[ADC0CF2 - ADC0 Power Control]
+ 901   1              /*
+ 902   1               // The ADC0 ground reference is the GND pin
+ 903   1               // The ADC0 voltage reference is the VREF pin 
+ 904   1               // Power Up Delay Time = 0x1F
+ 905   1               */
+ 906   1              ADC0CF2 = ADC0CF2_GNDSL__GND_PIN | ADC0CF2_REFSL__VREF_PIN
+ 907   1                              | (0x1F << ADC0CF2_ADPWR__SHIFT);
+ 908   1              // [ADC0CF2 - ADC0 Power Control]$
  909   1      
- 910   1              // $[ADC0CF1 - ADC0 Configuration]
+ 910   1              // $[ADC0CF0 - ADC0 Configuration]
  911   1              /*
- 912   1               // Enable low power mode
- 913   1               // Conversion Tracking Time = 0x0A
+ 912   1               // ADCCLK = SYSCLK
+ 913   1               // SAR Clock Divider = 0x03
  914   1               */
- 915   1              ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x0A << ADC0CF1_ADTK__SHIFT);
- 916   1              // [ADC0CF1 - ADC0 Configuration]$
+ 915   1              ADC0CF0 = ADC0CF0_ADCLKSEL__SYSCLK | (0x03 << ADC0CF0_ADSC__SHIFT);
+ 916   1              // [ADC0CF0 - ADC0 Configuration]$
  917   1      
- 918   1              // $[ADC0ASAL - ADC0 Autoscan Start Address Low Byte]
+ 918   1              // $[ADC0CF1 - ADC0 Configuration]
  919   1              /*
- 920   1               // ADC results in XRAM are stored in little-endian order. This will
- 921   1               //     result in the most significant byte stored in the odd-numbered address
+ 920   1               // Enable low power mode
+ 921   1               // Conversion Tracking Time = 0x0A
  922   1               */
- 923   1              SFRPAGE = 0x30;
- 924   1              ADC0ASAL |= ADC0ASAL_ENDIAN__LITTLE_ENDIAN;
- 925   1              // [ADC0ASAL - ADC0 Autoscan Start Address Low Byte]$
- 926   1      
- 927   1              // $[ADC0GTH - ADC0 Greater-Than High Byte]
- 928   1              // [ADC0GTH - ADC0 Greater-Than High Byte]$
- 929   1      
- 930   1              // $[ADC0GTL - ADC0 Greater-Than Low Byte]
- 931   1              // [ADC0GTL - ADC0 Greater-Than Low Byte]$
- 932   1      
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 16  
+ 923   1              ADC0CF1 = ADC0CF1_ADLPM__LP_ENABLED | (0x0A << ADC0CF1_ADTK__SHIFT);
+ 924   1              // [ADC0CF1 - ADC0 Configuration]$
+ 925   1      
+ 926   1              // $[ADC0ASAL - ADC0 Autoscan Start Address Low Byte]
+ 927   1              /*
+ 928   1               // ADC results in XRAM are stored in little-endian order. This will
+ 929   1               //     result in the most significant byte stored in the odd-numbered address
+ 930   1               */
+ 931   1              SFRPAGE = 0x30;
+ 932   1              ADC0ASAL |= ADC0ASAL_ENDIAN__LITTLE_ENDIAN;
+ 933   1              // [ADC0ASAL - ADC0 Autoscan Start Address Low Byte]$
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 16  
 
- 933   1              // $[ADC0LTH - ADC0 Less-Than High Byte]
- 934   1              // [ADC0LTH - ADC0 Less-Than High Byte]$
- 935   1      
- 936   1              // $[ADC0LTL - ADC0 Less-Than Low Byte]
- 937   1              // [ADC0LTL - ADC0 Less-Than Low Byte]$
- 938   1      
- 939   1              // $[ADC0ASCF - ADC0 Autoscan Configuration]
- 940   1              /*
- 941   1               // The selected conversion trigger source will begin each scan cycle. All
- 942   1               //     conversions within a scan cycle are performed automatically when the
- 943   1               //     previous conversion is complete
- 944   1               */
- 945   1              ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
- 946   1              // [ADC0ASCF - ADC0 Autoscan Configuration]$
- 947   1      
- 948   1              // $[ADC0CN0 - ADC0 Control 0]
- 949   1              /*
- 950   1               // Enable ADC0 
- 951   1               */
- 952   1              SFRPAGE = 0x00;
- 953   1              ADC0CN0 |= ADC0CN0_ADEN__ENABLED;
- 954   1              // [ADC0CN0 - ADC0 Control 0]$
+ 934   1      
+ 935   1              // $[ADC0GTH - ADC0 Greater-Than High Byte]
+ 936   1              // [ADC0GTH - ADC0 Greater-Than High Byte]$
+ 937   1      
+ 938   1              // $[ADC0GTL - ADC0 Greater-Than Low Byte]
+ 939   1              // [ADC0GTL - ADC0 Greater-Than Low Byte]$
+ 940   1      
+ 941   1              // $[ADC0LTH - ADC0 Less-Than High Byte]
+ 942   1              // [ADC0LTH - ADC0 Less-Than High Byte]$
+ 943   1      
+ 944   1              // $[ADC0LTL - ADC0 Less-Than Low Byte]
+ 945   1              // [ADC0LTL - ADC0 Less-Than Low Byte]$
+ 946   1      
+ 947   1              // $[ADC0ASCF - ADC0 Autoscan Configuration]
+ 948   1              /*
+ 949   1               // The selected conversion trigger source will begin each scan cycle. All
+ 950   1               //     conversions within a scan cycle are performed automatically when the
+ 951   1               //     previous conversion is complete
+ 952   1               */
+ 953   1              ADC0ASCF |= ADC0ASCF_STEN__SINGLE_TRIGGER;
+ 954   1              // [ADC0ASCF - ADC0 Autoscan Configuration]$
  955   1      
- 956   1      }
- 957          
- 958          extern void PORTS_2_enter_DefaultMode_from_RESET(void) {
- 959   1              // $[P2 - Port 2 Pin Latch]
- 960   1              // [P2 - Port 2 Pin Latch]$
- 961   1      
- 962   1              // $[P2MDOUT - Port 2 Output Mode]
- 963   1              /*
- 964   1               // P2.0 output is open-drain
- 965   1               // P2.1 output is open-drain
- 966   1               // P2.2 output is open-drain
- 967   1               // P2.3 output is open-drain
- 968   1               // P2.4 output is open-drain
- 969   1               // P2.5 output is push-pull
- 970   1               // P2.6 output is open-drain
- 971   1               */
- 972   1              P2MDOUT = P2MDOUT_B0__OPEN_DRAIN | P2MDOUT_B1__OPEN_DRAIN
- 973   1                              | P2MDOUT_B2__OPEN_DRAIN | P2MDOUT_B3__OPEN_DRAIN
- 974   1                              | P2MDOUT_B4__OPEN_DRAIN | P2MDOUT_B5__PUSH_PULL
- 975   1                              | P2MDOUT_B6__OPEN_DRAIN;
- 976   1              // [P2MDOUT - Port 2 Output Mode]$
- 977   1      
- 978   1              // $[P2MDIN - Port 2 Input Mode]
- 979   1              // [P2MDIN - Port 2 Input Mode]$
- 980   1      
- 981   1              // $[P2SKIP - Port 2 Skip]
- 982   1              // [P2SKIP - Port 2 Skip]$
- 983   1      
- 984   1              // $[P2MASK - Port 2 Mask]
- 985   1              // [P2MASK - Port 2 Mask]$
- 986   1      
- 987   1              // $[P2MAT - Port 2 Match]
- 988   1              // [P2MAT - Port 2 Match]$
- 989   1      
- 990   1      }
- 991          
- 992          extern void CLU_0_enter_DefaultMode_from_RESET(void) {
- 993   1      
- 994   1      }
- 995          
-C51 COMPILER V9.53.0.0   INITDEVICE                                                        09/23/2016 13:17:52 PAGE 17  
+ 956   1              // $[ADC0CN0 - ADC0 Control 0]
+ 957   1              /*
+ 958   1               // Enable ADC0 
+ 959   1               */
+ 960   1              SFRPAGE = 0x00;
+ 961   1              ADC0CN0 |= ADC0CN0_ADEN__ENABLED;
+ 962   1              // [ADC0CN0 - ADC0 Control 0]$
+ 963   1      
+ 964   1      }
+ 965          
+ 966          extern void PORTS_2_enter_DefaultMode_from_RESET(void) {
+ 967   1              // $[P2 - Port 2 Pin Latch]
+ 968   1              // [P2 - Port 2 Pin Latch]$
+ 969   1      
+ 970   1              // $[P2MDOUT - Port 2 Output Mode]
+ 971   1              /*
+ 972   1               // P2.0 output is open-drain
+ 973   1               // P2.1 output is open-drain
+ 974   1               // P2.2 output is open-drain
+ 975   1               // P2.3 output is open-drain
+ 976   1               // P2.4 output is open-drain
+ 977   1               // P2.5 output is push-pull
+ 978   1               // P2.6 output is open-drain
+ 979   1               */
+ 980   1              P2MDOUT = P2MDOUT_B0__OPEN_DRAIN | P2MDOUT_B1__OPEN_DRAIN
+ 981   1                              | P2MDOUT_B2__OPEN_DRAIN | P2MDOUT_B3__OPEN_DRAIN
+ 982   1                              | P2MDOUT_B4__OPEN_DRAIN | P2MDOUT_B5__PUSH_PULL
+ 983   1                              | P2MDOUT_B6__OPEN_DRAIN;
+ 984   1              // [P2MDOUT - Port 2 Output Mode]$
+ 985   1      
+ 986   1              // $[P2MDIN - Port 2 Input Mode]
+ 987   1              // [P2MDIN - Port 2 Input Mode]$
+ 988   1      
+ 989   1              // $[P2SKIP - Port 2 Skip]
+ 990   1              // [P2SKIP - Port 2 Skip]$
+ 991   1      
+ 992   1              // $[P2MASK - Port 2 Mask]
+ 993   1              // [P2MASK - Port 2 Mask]$
+ 994   1      
+ 995   1              // $[P2MAT - Port 2 Match]
+ 996   1              // [P2MAT - Port 2 Match]$
+C51 COMPILER V9.53.0.0   INITDEVICE                                                        10/04/2016 09:54:58 PAGE 17  
 
- 996          extern void CLU_3_enter_DefaultMode_from_RESET(void) {
  997   1      
  998   1      }
  999          
-1000          extern void CL_0_enter_DefaultMode_from_RESET(void) {
+1000          extern void CLU_0_enter_DefaultMode_from_RESET(void) {
 1001   1      
 1002   1      }
 1003          
+1004          extern void CLU_3_enter_DefaultMode_from_RESET(void) {
+1005   1      
+1006   1      }
+1007          
+1008          extern void CL_0_enter_DefaultMode_from_RESET(void) {
+1009   1      
+1010   1      }
+1011          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    392    ----
+   CODE SIZE        =    398    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

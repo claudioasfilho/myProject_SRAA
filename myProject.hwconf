@@ -2,15 +2,14 @@
 <device:XMLDevice xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:device="http://www.silabs.com/sls/hc/document/device.ecore" name="EFM8BB31F64G-A-QFN32" partId="com.silabs.mcu.si8051.efm8bb3_g.efm8bb31f64g">
   <mode name="DefaultMode">
     <property object="ADC14_0" propertyId="ABPeripheral.included" value="true"/>
-    <property object="ADC14_0" propertyId="adc14.accumulatorconfiguration.enablepreserveaccumulator" value="Enabled"/>
-    <property object="ADC14_0" propertyId="adc14.accumulatorconfiguration.repeatcount" value="16 conversions"/>
     <property object="ADC14_0" propertyId="adc14.clockconfiguration.adcclockdivider" value="4"/>
     <property object="ADC14_0" propertyId="adc14.control.startofconversion" value="Timer 2 overflow"/>
     <property object="ADC14_0" propertyId="adc14.enable.enableadc" value="Enabled"/>
-    <property object="ADC14_0" propertyId="adc14.inputselection.positiveinputselection" value="ADC0.13 (P1.7)"/>
+    <property object="ADC14_0" propertyId="adc14.inputselection.positiveinputselection" value="ADC0.17 (P2.4)"/>
     <property object="ADC14_0" propertyId="adc14.powercontrol.enablelowpowermode" value="Enabled"/>
     <property object="ADC14_0" propertyId="adc14.throughput.conversiontrackingtimesetting" value="10"/>
     <property object="ADC14_0" propertyId="adc14.view.view" value="Advanced"/>
+    <property object="ADC14_0" propertyId="adc14.voltagereference.selectvoltagereference" value="VREF pin"/>
     <property object="ADC14_0" propertyId="autoscan.configuration.triggermode" value="Start an entire scan on trigger"/>
     <property object="ADC14_0" propertyId="autoscan.outputconfiguration.outputendianness" value="Little-endian storage"/>
     <property object="C2DEBUG_0" propertyId="ABPeripheral.included" value="true"/>
@@ -36,9 +35,11 @@
     <property object="CROSSBAR0" propertyId="xbar0.pca0.cex" value="CEX0"/>
     <property object="CROSSBAR0" propertyId="xbar0.timer1.timer1input" value="Enabled"/>
     <property object="DACGCF_0" propertyId="ABPeripheral.included" value="true"/>
+    <property object="DACGCF_0" propertyId="dacgcf.dac01configuration.dac01referencebuffergain" value="Gain is 1/2.0"/>
     <property object="DACGCF_0" propertyId="dacgcf.dac01configuration.dac01referencevoltageselection" value="VREF"/>
     <property object="DAC_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="DAC_0" propertyId="dac.enable.enabledac#" value="Enabled"/>
+    <property object="DAC_0" propertyId="dac.outputconfiguration.outputbuffergain" value="Gain is 2.0"/>
     <property object="DAC_1" propertyId="ABPeripheral.included" value="true"/>
     <property object="DAC_2" propertyId="ABPeripheral.included" value="true"/>
     <property object="DAC_3" propertyId="ABPeripheral.included" value="true"/>
@@ -145,8 +146,8 @@
     <property object="TIMER_SETUP_0" propertyId="timer_setup.timer1.timerorcounter" value="Counter mode"/>
     <property object="VDDMON_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="VREF_0" propertyId="ABPeripheral.included" value="true"/>
-    <property object="VREF_0" propertyId="vref.control.voltagereferenceselection" value="Internal 2.4V (output to VREF pin)"/>
-    <property object="VREF_0" propertyId="vref.control.vrefoutput" value="2.4 V Reference"/>
+    <property object="VREF_0" propertyId="vref.control.voltagereferenceselection" value="Internal 1.2V (output to VREF pin)"/>
+    <property object="VREF_0" propertyId="vref.control.vrefoutput" value="1.2 V Reference"/>
     <property object="VREG_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="WDT_0" propertyId="ABPeripheral.included" value="true"/>
     <property object="WDT_0" propertyId="wdt.watchdogcontrol.wdtenable" value="Disable"/>
